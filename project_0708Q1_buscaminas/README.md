@@ -9,12 +9,13 @@
 
 2. Composición equipos de 2 o 3 estudiantes (Durante la Sesión 6)
 
-3. (ENTREGA 1 ATENEA) Entrega documento planificacion.txt (Deadline: a lo largo del día de la Sesión 6):
+3. (ENTREGA 1 ATENEA) Entrega documento Planificacion.doc (Deadline: a lo largo del día de la Sesión 6):
 
 	- El nombre y el email de todos los miembros del equipo
 	- Quién será el portavoz del equipo (realizará las entregas). 
 	- La planificación de los días de reuniones, y las reuniones previstas a realizar.
-	- La distribucón dell trabajo entre todos los miembros del equipo. 
+	- La distribución del trabajo entre todos los miembros del equipo. 
+	- [http://atenea.upc.edu/pluginfile.php/2133040/mod_page/content/46/Planificacion.doc](Aquí) puedes encontrar la plantilla.
 
 4. Diseño preliminar (Deadline: Antes de la primera semana de la sesión 7)
 
