@@ -15,7 +15,7 @@
 	- Quién será el portavoz del equipo (realizará las entregas). 
 	- La planificación de los días de reuniones, y las reuniones previstas a realizar.
 	- La distribución del trabajo entre todos los miembros del equipo. 
-	- [http://atenea.upc.edu/pluginfile.php/2133040/mod_page/content/46/Planificacion.doc](Aquí) puedes encontrar la plantilla.
+	- [Aquí](http://atenea.upc.edu/pluginfile.php/2133040/mod_page/content/46/Planificacion.doc) puedes encontrar la plantilla.
 
 4. Diseño preliminar (Deadline: Antes de la primera semana de la sesión 7)
 
@@ -36,4 +36,4 @@
 9. (ENTREGA 3 y 4 ATENEA) Entrega final del juego (Deadline: 22/12-26/12). Ha de incluir:
 
 	- Todos los ficheros fuente del proyecto dentro de un fichero .tar
-	- El "acta" del equipo proponiendo puntuación (consensuada) para cada miembro. [http://atenea.upc.edu/pluginfile.php/2133040/mod_page/content/46/ACTA.doc](Aquí) podéis encontrar el formulario.
+	- El "acta" del equipo proponiendo puntuación (consensuada) para cada miembro. [Aquí](http://atenea.upc.edu/pluginfile.php/2133040/mod_page/content/46/ACTA.doc) podéis encontrar el formulario.
