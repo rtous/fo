@@ -4,27 +4,29 @@
 
 1. Trabajo individual preliminar (Deadline: Entre las sesiones 5 y 6)
 
-	- Objetivo: Preparar fichero disenyo.txt = objetos+acciones+tipos.
+	- Preparar fichero disenyo.txt = objetos+acciones+tipos.
+	- No hay que entregarlo.
 
 2. Composición equipos de 2 o 3 estudiantes (Durante la Sesión 6)
 
 3. (ENTREGA 1 ATENEA) Entrega documento planificacion.txt (Deadline: a lo largo del día de la Sesión 6):
 
-		- El nombre y el email de todos los miembros del equipo
-		- Quién será el portavoz del equipo (realizará las entregas). 
-		- La planificación de los días de reuniones, y las reuniones previstas a realizar.
-		- La distribucón dell trabajo entre todos los miembros del equipo. 
+	- El nombre y el email de todos los miembros del equipo
+	- Quién será el portavoz del equipo (realizará las entregas). 
+	- La planificación de los días de reuniones, y las reuniones previstas a realizar.
+	- La distribucón dell trabajo entre todos los miembros del equipo. 
 
 4. Diseño preliminar (Deadline: Antes de la primera semana de la sesión 7)
 
-		- disenyo_equipo.txt = objetos+acciones+tipos.
+	- disenyo_equipo.txt = objetos+acciones+tipos.
+	- Se tendrá que mostrar al profesor durante la primera semana sesión 7.
 
 5. Feedback del profesor sobre el diseño (Durante la primera semana sesión 7)
 
 6. (ENTREGA 2 ATENEA) Entrega del fichero tipos_funciones.txt con el diseño definitivo (Deadline: Antes de la segunda semana de la Sesión 7)
 
-		- El diseño preliminar revisado
-		- Funciones
+	- El diseño preliminar revisado
+	- Funciones
 
 7. Feedback del profesor sobre el diseño definitivo (Durante la segunda semana de la Sesión 7)
 
