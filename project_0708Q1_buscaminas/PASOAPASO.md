@@ -32,7 +32,13 @@ Obviamente un posible diseño del programa consistiría en dos tipos de datos (t
 	colores.h
 ```
 
-Se os proporcionan los ficheros [tablero.h](tablero.h) y [casilla.h](casilla.h) de la solución propuesta. No obstante, podéis utilizar diseños diferentes a los aquí propuestos y vuestros propios ficheros .h. 
+Se os proporcionan los ficheros [tablero.h](buscaminas/tablero.h) y [casilla.h](buscaminas/casilla.h) de la solución propuesta. No obstante, podéis utilizar diseños diferentes a los aquí propuestos y vuestros propios ficheros .h. También se os proporciona el fichero [buscaminas.tar](buscaminas.tar), que muestra como sería un proyecto completo. Lo podéis compilar haciendo:
+
+	wget https://github.com/rtous/fo/raw/master/project_0708Q1_buscaminas/buscaminas.tar
+	xvf buscaminas.tar
+	cd buscaminas
+	gcc buscaminas.c tablero.c casilla.c colores.c -o buscaminas
+
 	
 ## Paso 2 Estructura del programa principal
 
