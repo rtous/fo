@@ -8,8 +8,8 @@ En primer lugar decidiremos que tipos de datos usaremos y como estructuraremos e
 - Como límite nfils será menor que una constante MAX_F=36 y ncols menor que una constante MAX_C=36.
 - Para cada casilla habrá que guardar la siguiente información (NOTA: Podéis tener un diseño diferente a éste):
 	- bomba: Contenido de una casilla: 0=Vacía, 1=Conteniene una mina.
-	- estado: 0=DESTAPADA, 1=TAPADA, 2=MARCADA_MINA, 3=MARCADA_DUDA. (ALTERNATIVA: Guardar directamente el carácter que hay que mostrar).
-	- num_minas_adyacentes: Número de minas en las 8 casillas adyacentes. (ALTERNATIVA: No precalcular este valor ni usar un campo para guardarlo, irlo calculando a medida que se levantan las casillas y ).
+	- estado: 0=DESTAPADA, 1=TAPADA, 2=MARCADA_MINA, 3=MARCADA_DUDA. 
+	- num_minas_adyacentes: Número de minas en las 8 casillas adyacentes.
 	- DISEÑOS ALTERNATIVO: En vez de guardar el estado se puede guardar directamente el carácter que hay que mostrar. En vez de precalcular al principio el número de minas adyacentes se puede ir calculando a medida que se levantan casillas.
 - Para el tablero habrá que guardar la siguiente información:
 	- nfils y ncols.
@@ -32,8 +32,7 @@ Obviamente un posible diseño del programa consistiría en dos tipos de datos (t
 	colores.h
 ```
 
-Podéis utilizar diseños diferentes a los aquí propuestos. Poco después de que entreguéis la declaración de tipos de datos y cabeceras de funciones (Entrega 2), el profesor hará públicos los ficheros .h de su solución. Llegado ese momento podréis seguir usando los vuestros o, si lo preferís, podréis usar los del profesor. 
-
+Se os proporcionan los ficheros [tablero.h](tablero.h) y [casilla.h](casilla.h) de la solución propuesta. No obstante, podéis utilizar diseños diferentes a los aquí propuestos y vuestros propios ficheros .h. 
 	
 ## Paso 2 Estructura del programa principal
 
