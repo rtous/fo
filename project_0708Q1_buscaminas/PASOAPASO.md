@@ -10,7 +10,7 @@ En primer lugar decidiremos que tipos de datos usaremos y como estructuraremos e
 	- bomba: Contenido de una casilla: 0=Vacía, 1=Conteniene una mina.
 	- estado: 0=DESTAPADA, 1=TAPADA, 2=MARCADA_MINA, 3=MARCADA_DUDA. 
 	- num_minas_adyacentes: Número de minas en las 8 casillas adyacentes.
-	- DISEÑOS ALTERNATIVO: En vez de guardar el estado se puede guardar directamente el carácter que hay que mostrar. En vez de precalcular al principio el número de minas adyacentes se puede ir calculando a medida que se levantan casillas.
+	- DISEÑOS ALTERNATIVOS: En vez de guardar el estado se puede guardar directamente el carácter que hay que mostrar. En vez de precalcular al principio el número de minas adyacentes se puede ir calculando a medida que se levantan casillas.
 - Para el tablero habrá que guardar la siguiente información:
 	- nfils y ncols.
 	- cas: Una matriz de MAX_F x MAX_C casillas (de las que únicamente usaremos nfils x ncols). 
@@ -19,7 +19,7 @@ En primer lugar decidiremos que tipos de datos usaremos y como estructuraremos e
 	- num_minas_marcadas: Número de minas marcadas. Inicialmente 0. 
 	- ha_explotado: Si ya ha explotado una mina del tablero y por tanto el juego tiene que terminar (0=No ha explotado, 1=Sí ha explotado). Inicialmente 0.
 	- tiempo_inicial: La hora inicial (tiempo de sistema en segundos), en la que el jugador levantó la primera casilla. Inicialmente 0. 
-	- DISEÑOS ALTERNATIVO: Se puede guardar el número de minas levantadas en vez del de tapadas. Se puede hacer sin los campos ha_explotado ni tiempo_inicial.
+	- DISEÑOS ALTERNATIVOS: Se puede guardar el número de minas levantadas en vez del de tapadas. Se puede hacer sin los campos ha_explotado ni tiempo_inicial.
 
 Obviamente un posible diseño del programa consistiría en dos tipos de datos (typedef struct), uno para las casillas y uno para el tablero. La definición de estos tipos puede ser parecida a la del Ejercicio 6 de la Sesión 5 de laboratorio, pero con una matriz en vez de un vector. Conviene que para cada tipo tengamos un "módulo" (también llamado "librería") C diferente. Para cada tipo habrá un fichero .h con las declaraciones y un fichero .c con el código. Aparte, tendremos un programa principal al que podríamos llamar "buscaminas.c". Eso daría una composición de ficheros inicial:
 ```
