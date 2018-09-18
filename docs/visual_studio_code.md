@@ -64,4 +64,13 @@ Us cal fer el mateix que l'explicat a la secció anterior amb les següents cons
 		    }
 		} 
 
+## Com depurar?
+
+- Compilar amb l'opció -g ("gcc -g programa.c ...")
+- Al Visual Studio Code seleccionar el programa que volem depurar.
+- Clicar l'icona de depuració. 
+- Posar algun breakpoint (o s'executarà tot el programa). 
+- Clicar l'icona verda de play que apareix a dalt.
+- Haurien d'aparèixer les icones de depuració.
+- A classe se us explicarà com fer-les servir.
 
