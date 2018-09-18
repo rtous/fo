@@ -70,7 +70,7 @@ Us cal fer el mateix que l'explicat a la secció anterior amb les següents cons
 - Al Visual Studio Code seleccionar el programa que volem depurar.
 - Clicar l'icona de depuració. 
 - Posar algun breakpoint (o s'executarà tot el programa). 
-- Clicar l'icona verda de play que apareix a dalt.
+- Clicar l'icona verda de play que apareix a dalt a l'esquerra.
 - Haurien d'aparèixer les icones de depuració.
 - A classe se us explicarà com fer-les servir.
 
