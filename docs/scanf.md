@@ -21,4 +21,14 @@ WARNING: The \n character of the end of line is also stored within the buffer. I
 
 The first scanf tries to read from an empty buffer so it makes the program to await. Once the user presses RETURN, the buffer receives the 'a' and the '\n' characters. Then scanf consumes the 'a' character but the '\n' remains there. The second call to scanf finds a character ('\n') so the program does not need to await and finishes.
 
+# whitespaces
+
+ All specifiers with few exceptions (%c is one of them) skip the leading whitespaces.
+
+	 	int d1, d2;
+		scanf("%d%d", &d1, &d2); 
+		printf("%d%d", d1, d2);
+
+		10      20
+		1020
  
