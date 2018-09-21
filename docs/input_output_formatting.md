@@ -6,7 +6,7 @@ A format specifier is a subsequence beginning with % and having the following pr
 
 '%' [FLAG] + [WIDTH] + [.PRECISION] + [LENGTH] + SPECIFIER 
 
-### SPECIFIER
+### SPECIFIER
 
 	%c char single character
 	%d (%i) int signed integer
@@ -35,9 +35,9 @@ Will display a minimum of WIDTH characters in total (including the decimal part 
 
 * For a, A, e, E, f and F specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).
 
-*For g and G specifiers: This is the maximum number of significant digits to be printed.
+* For g and G specifiers: This is the maximum number of significant digits to be printed.
 
-*For s: this is the maximum number of characters to be printed. By default all characters are printed until the ending null character is encountered.
+* For s: this is the maximum number of characters to be printed. By default all characters are printed until the ending null character is encountered.
 If the period is specified without an explicit value for precision, 0 is assumed.
 
 
@@ -46,10 +46,21 @@ If the period is specified without an explicit value for precision, 0 is assumed
 ### FLAG
 
 	-		left justify
-	+		always display sign
-	spaces	display space if there is no sign
+	+		always display sign spaces	display space if there is no sign
 	0		Left-pads the number with zeroes (0) instead of spaces 
 	#		use alternate form of specifier
+
+### Typical examples
+
+	printf("%0.2f", 3.1412);
+	3.14
+
+	printf("%04d", 21);
+	0021
+
+	long int l = 2147483648;
+	printf("%ld", l);
+	2147483648
 
 ## Control codes
 
