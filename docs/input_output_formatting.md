@@ -21,7 +21,8 @@ A format specifier is a subsequence beginning with % and having the following pr
 
 Examples with only the SPECIFIER:
 
-	printf("%d", 2); ->2
+	printf("%d", 2);
+	2
 
 You can also add a LENGTH (e.g. 'l' to indicate a long form and 'h' to indicate a short form). For instance %ld indicates a long int and %hd indicate a short int.
 
