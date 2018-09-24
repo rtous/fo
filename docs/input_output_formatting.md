@@ -9,15 +9,16 @@ A format specifier is a subsequence beginning with % and having the following pr
 ### SPECIFIER
 
 	c char single character
-	d (%i) int signed integer
-	e (%E) float or double exponential format
-	f float or double signed decimal
-	g (%G) float or double use %f or e as required
-	o int unsigned octal value
-	p pointer address stored in pointer
-	s array of char sequence of characters
+	d (also i) int signed integer
 	u int unsigned decimal
-	x (%X) int unsigned hex value
+	f float or double signed decimal
+	s array of char sequence of characters
+	x (X for uppercase) int unsigned hex value
+	e (E for uppercase) float or double exponential format
+	g (G for uppercase) se the shortest representation (%e or %f)
+	o unsigned octal value
+	p pointer address stored in pointer
+
 
 Examples with only the SPECIFIER:
 
@@ -34,14 +35,14 @@ Examples:
 
 ### WIDTH
 
-Minimum number of CHARACTERS to be shown in total (including the decimal part and also the sign if there is one). By default right justified and using white spaces instead of zeros at the left. By default no sign if positive.
+Minimum number of CHARACTERS to be shown in total (including the decimal part, the sign if there is one and white spaces). By default right justified and using white spaces instead of zeros at the left. By default no sign if positive.
 
 Examples:
 
 	printf("%4d", 21);
 	$  21
 
-With floating point numbers by default printf shows 6 decimal positions so specifying a small width does not have any effect: 
+With floating point numbers by default printf shows 6 decimal positions so specifying a small WIDTH does not have any effect (as WIDTH specifies the minimum, not the maximum): 
 
 	printf("%4f", 3.14); 
 	$3.140000
@@ -73,23 +74,29 @@ Example:
 
 Example:
 
-	printf("%0.2f", 3.14159265359);
+	printf("%.2f", 3.14159265359);
 	$3.14
+
+	printf("%4.2f", 3.14159265359);
+	$ 3.14
 
 * For s: Maximum number of characters to be printed. 
 
 ### FLAG
 
+	0		Left-pads the number with zeroes (0) instead of spaces
 	-		left justify
 	+		always display sign
-	space   positive numbers will include a leading space
-	0		Left-pads the number with zeroes (0) instead of spaces 
+	space   positive numbers will include a leading space 
 	#		use alternate form of specifier (advanced)
 
 Examples
 
 	printf("%04d", 21);
 	$0021
+
+	 printf("%05.2f\n", 3.14159265359);
+	 $03.14
 
 ## Control codes
 
