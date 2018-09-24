@@ -21,9 +21,17 @@ WARNING: The \n character of the end of line is also stored within the buffer. I
 
 The first scanf tries to read from an empty buffer so it makes the program to await. Once the user presses RETURN, the buffer receives the 'a' and the '\n' characters. Then scanf consumes the 'a' character but the '\n' remains there. The second call to scanf finds a character ('\n') so the program does not need to await and finishes.
 
+# assignment suppression with '*'
+
+The '*' modifier causes the corresponding input to be matched and converted, but not assigned. Example:
+
+	scanf("%c%*c", &c1);
+
+Will discard the end-of-line character at the end.
+
 # whitespaces
 
- All specifiers with few exceptions (%c is one of them) skip the leading whitespaces.
+ All specifiers with few exceptions (%c is one of them) skip the leading whitespaces (behind or in front of).
 
 	 	int d1, d2;
 		scanf("%d%d", &d1, &d2); 
@@ -31,4 +39,7 @@ The first scanf tries to read from an empty buffer so it makes the program to aw
 
 		10      20
 		1020
- 
+
+# strings %s
+
+When used with the %s placeholder, scanf() only reads until the first white space character.
