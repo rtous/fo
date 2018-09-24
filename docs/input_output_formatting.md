@@ -43,7 +43,7 @@ Examples:
 
 With floating point numbers by default printf shows 6 decimal positions so specifying a small width does not have any effect: 
 
-	printf("%4f", 3.14); //by default it prints 6 decimal positions sos
+	printf("%4f", 3.14); 
 	$3.140000
 
 	printf("%4f", 3.14159265359);
