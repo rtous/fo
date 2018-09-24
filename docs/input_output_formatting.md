@@ -8,16 +8,16 @@ A format specifier is a subsequence beginning with % and having the following pr
 
 ### SPECIFIER
 
-	%c char single character
-	%d (%i) int signed integer
-	%e (%E) float or double exponential format
-	%f float or double signed decimal
-	%g (%G) float or double use %f or %e as required
-	%o int unsigned octal value
-	%p pointer address stored in pointer
-	%s array of char sequence of characters
-	%u int unsigned decimal
-	%x (%X) int unsigned hex value
+	c char single character
+	d (%i) int signed integer
+	e (%E) float or double exponential format
+	f float or double signed decimal
+	g (%G) float or double use %f or e as required
+	o int unsigned octal value
+	p pointer address stored in pointer
+	s array of char sequence of characters
+	u int unsigned decimal
+	x (%X) int unsigned hex value
 
 Examples with only the SPECIFIER:
 
@@ -25,6 +25,12 @@ Examples with only the SPECIFIER:
 	2
 
 You can also add a LENGTH (e.g. 'l' to indicate a long form and 'h' to indicate a short form). For instance %ld indicates a long int and %hd indicate a short int.
+
+Examples:
+
+	long int l = 2147483648;
+	printf("%ld", l);
+	2147483648 
 
 ### WIDTH
 
@@ -42,26 +48,28 @@ Will display a minimum of WIDTH characters in total (including the decimal part 
 If the period is specified without an explicit value for precision, 0 is assumed.
 
 
-* Will display PRECISION digits after the decimal point (even the zeros at the right). 
+* Will display PRECISION digits after the decimal point (even the zeros at the right).
 
-### FLAG
-
-	-		left justify
-	+		always display sign spaces	display space if there is no sign
-	0		Left-pads the number with zeroes (0) instead of spaces 
-	#		use alternate form of specifier
-
-### Typical examples
+Examples:
 
 	printf("%0.2f", 3.1412);
 	3.14
 
+	printf("%4.4d", 21);
+	0021
+	
+### FLAG
+
+	-		left justify
+	+		always display sign
+	space   positive numbers will include a leading space
+	0		Left-pads the number with zeroes (0) instead of spaces 
+	#		use alternate form of specifier (advanced)
+
+Examples
+
 	printf("%04d", 21);
 	0021
-
-	long int l = 2147483648;
-	printf("%ld", l);
-	2147483648
 
 ## Control codes
 
