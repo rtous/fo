@@ -22,7 +22,7 @@ A format specifier is a subsequence beginning with % and having the following pr
 Examples with only the SPECIFIER:
 
 	printf("%d", 2);
-	2
+	$2
 
 You can also add a LENGTH (e.g. 'l' to indicate a long form and 'h' to indicate a short form). For instance %ld indicates a long int and %hd indicate a short int.
 
@@ -30,34 +30,49 @@ Examples:
 
 	long int l = 2147483648;
 	printf("%ld", l);
-	2147483648 
+	$2147483648 
 
 ### WIDTH
 
 Will display a minimum of WIDTH characters in total (including the decimal part and also the sign if there is one). By default right justified and using white spaces instead of zeros at the left. By default no sign if positive.
 
-### PRECISION
-
-* For integer specifiers (d, i, o, u, x, X) specifies the minimum number of digits to be written. If the value to be written is shorter than this number, the result is padded with leading zeros. The value is not truncated even if the result is longer. A precision of 0 means that no character is written for the value 0.
-
-* For a, A, e, E, f and F specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).
-
-* For g and G specifiers: This is the maximum number of significant digits to be printed.
-
-* For s: this is the maximum number of characters to be printed. By default all characters are printed until the ending null character is encountered.
-If the period is specified without an explicit value for precision, 0 is assumed.
-
-
-* Will display PRECISION digits after the decimal point (even the zeros at the right).
-
 Examples:
 
-	printf("%0.2f", 3.1412);
-	3.14
+	printf("%4d", 21);
+	$  21
+
+With floating point numbers by default printf shows 6 decimal positions so specifying a small width does not have any effect: 
+
+	printf("%4f", 3.14); //by default it prints 6 decimal positions sos
+	$3.140000
+
+	printf("%4f", 3.14159265359);
+	$3.141593
+
+But:
+
+	printf("%9f", 3.14159265359);
+	$ 3.141593
+
+
+### PRECISION
+
+* For integer specifiers (e.g. %d) minimum number of digits to be written (padded with leading zeros if necessary).
+
+Example:
 
 	printf("%4.4d", 21);
-	0021
-	
+	$0021
+
+* For other number specifiers (e.g. %f) digits to be printed after the decimal point (by default, this is 6).
+
+	Example:
+
+	printf("%0.2f", 3.14159265359);
+	$3.14
+
+* For s: Maximum number of characters to be printed. 
+
 ### FLAG
 
 	-		left justify
@@ -69,7 +84,7 @@ Examples:
 Examples
 
 	printf("%04d", 21);
-	0021
+	$0021
 
 ## Control codes
 
