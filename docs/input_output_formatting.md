@@ -34,7 +34,7 @@ Examples:
 
 ### WIDTH
 
-Will display a minimum of WIDTH characters in total (including the decimal part and also the sign if there is one). By default right justified and using white spaces instead of zeros at the left. By default no sign if positive.
+Minimum number of CHARACTERS to be shown in total (including the decimal part and also the sign if there is one). By default right justified and using white spaces instead of zeros at the left. By default no sign if positive.
 
 Examples:
 
@@ -57,16 +57,21 @@ But:
 
 ### PRECISION
 
+While the WIDTH is about the number of CHARACTERS to be shown, the PRECISION is about the DIGITS to be shown:
+
 * For integer specifiers (e.g. %d) minimum number of digits to be written (padded with leading zeros if necessary).
 
 Example:
 
-	printf("%4.4d", 21);
+	printf("%.4d", 21);
 	$0021
+
+	printf("%5.4d", 21);
+	$ 0021
 
 * For other number specifiers (e.g. %f) digits to be printed after the decimal point (by default, this is 6).
 
-	Example:
+Example:
 
 	printf("%0.2f", 3.14159265359);
 	$3.14
