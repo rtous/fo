@@ -6,6 +6,10 @@ Start from first error (the one at the top) and go one by one. It's important th
 
 You can also comment (with /* ... */) parts of your code to locate where the error is. 
 
+## I change the code but when I run the program the result is the same.
+
+Did you re-compile the code (gcc...)?
+
 ## I change the code but gcc seems not to notice.
 
 Ensure that the file that you are editing is the same that you are compiling. Typing "cat program.c" will show you the code that you are compiling.
