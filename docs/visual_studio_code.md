@@ -30,7 +30,7 @@ A les aules de l'ETSETB ja teniu instal·lat el Visual Studio Code per Ubuntu. N
 		                "stopAtEntry": false,
 		                "cwd": "${fileDirname}",
 		                "environment": [],
-		                "externalConsole": false,
+		                "externalConsole": true,
 		                "MIMode": "gdb"
 		            }
 		        ]
@@ -57,7 +57,7 @@ Us cal fer el mateix que l'explicat a la secció anterior amb les següents cons
 		                "stopAtEntry": false,
 		                "cwd": "${fileDirname}",
 		                "environment": [],
-		                "externalConsole": false,
+		                "externalConsole": true,
 		                "MIMode": "lldb"
 		            }
 		        ]
