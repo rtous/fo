@@ -147,7 +147,7 @@ Modificaremos el main() de sokoban.c para que, una vez jugado un almacén, vaya 
 
 NOTA: Si nos fijamos bien veremos que antes de que se detecte el final de fichero se realiza una última llamada a leer_almacen(), que no hace nada excepto leer la última línea vacía del fichero (el final de fichero también se indica con una línea vacía!). Cuando leemos esa última línia, leer_linea_fichero devuelve FINAL_DE_FICHERO en vez de LINEA_VACIA (pero nos da igual ya que solo la procesamos si devuelve LINEA_NO_VACIA). Después de que hayamos consumido esa última línea 'es_fin_de_fichero' devolverá 1. 
 
-## Paso 10: Mostrar el menu
+### Paso 10: Mostrar el menu
 
 En sokoban.c programaremos la función:
 
