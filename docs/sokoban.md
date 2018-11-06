@@ -134,7 +134,7 @@ Aunque un fichero puede contener más de un almacén, conviene empezar limitánd
 	int leer_linea_fichero(FILE *f, char linea[LONG_LINEA_FICHERO]);
 ```
 
-leer_almacen_fichero(FILE *f) únicamente tendrá que ir realizando llamadas a leer_linea_fichero mientras ésta devuelva LINEA_NO_VACIA (el final de nivel se señala con una línea vacía). Por cada línea no vacía leída habrá que analizar su primer carácter. Si se trata de un ';' la línea será el nombre del almacen y tendremos que copiar los LONG_NOMBRE_ALMACEN carácteres que contiene al campo correspondiente de nuestro tipo t_almacen. Si no se trata del nombre, la línea contendrá la información de una fila del almacén y tendremos que recorrer uno a uno sus LONG_LINEA_FICHERO carácteres y procesarlos como hacíamos en la versión sin ficheros. Las constantes LONG_NOMBRE_ALMACEN y LONG_LINEA_FICHERO están definidas en la librería fichero.
+'leer_almacen_fichero' únicamente tendrá que ir realizando llamadas a leer_linea_fichero mientras ésta devuelva LINEA_NO_VACIA (el final de nivel se señala con una línea vacía). Por cada línea no vacía leída habrá que analizar su primer carácter. Si se trata de un ';' la línea será el nombre del almacen y tendremos que copiar los LONG_NOMBRE_ALMACEN carácteres que contiene al campo correspondiente de nuestro tipo t_almacen. Si no se trata del nombre, la línea contendrá la información de una fila del almacén y tendremos que recorrer uno a uno sus LONG_LINEA_FICHERO carácteres y procesarlos como hacíamos en la versión sin ficheros. Las constantes LONG_NOMBRE_ALMACEN y LONG_LINEA_FICHERO están definidas en la librería fichero.
 
 
 ### Paso 9: Leer todos los almacenes de un fichero
