@@ -75,7 +75,7 @@ A continuación añadid a almacen.c (y su correspondiente cabecera en almacen.h)
 
 Esta función mostrará por pantalla un almacen guardado en memoria del mismo modo que lo hace el juego de demostración. 
 
-NOTA: Podéis distribuir esta funcionalidad entre en más funciones, tanto de almacen.c como de casilla.c si lo creéis conveniente.
+NOTA: Podéis distribuir esta funcionalidad entre más funciones, tanto de almacen.c como de casilla.c si lo creéis conveniente.
 
 IMPORTANTE: Será conveniente borrar toda la pantalla al principio de mostrar_almacen. Tenéis una función en la librería "teclas" para ello.
 
@@ -99,7 +99,7 @@ Este bucle de juego lo tenéis que programar dentro del main, a continuación de
 
 ### Paso 6: Mover al jugador por el almacen
 
-El efecto visual de movimiento del jugador en el almacen lo conseguiremos borrando la patalla y redibujando el almacén con el jugador en una nueva posición. Para ello, cuando el usuario pulse una de las teclas de movimiento, haremos lo siguiente:
+El efecto visual de movimiento del jugador en el almacén lo conseguiremos borrando la patalla y redibujando el almacén con el jugador en una nueva posición. Para ello, cuando el usuario pulse una de las teclas de movimiento, haremos lo siguiente:
 
 * Modificar la casilla en la que se encuentra el jugador para indicar que ya no está allí.
 * Modificar la casilla destino (dependerá de la tecla pulsada) para indicar que ahora contiene al jugador.
@@ -128,7 +128,7 @@ En sokoban.c haremos un include de fichero.h para poder utilizar las funciones y
 
 Tendremos que añadir también la declaración de la función en almacen.h. 
 
-Conviene empezar limitándonos a leer el primer almacén del fichero de almacenes "Easy.txt". Para ello usaremos repetidamente la función de la librería fichero:
+Aunque un fichero puede contener más de un almacén, conviene empezar limitándonos a leer el primer almacén del fichero de almacenes "Easy.txt". Para leer el primer almacén usaremos repetidamente la función de la librería fichero:
 
 ```
 	int leer_linea_fichero(FILE *f, char linea[LONG_LINEA_FICHERO]);
@@ -139,7 +139,7 @@ leer_almacen_fichero(FILE *f) únicamente tendrá que ir realizando llamadas a l
 
 ### Paso 9: Leer todos los almacenes de un fichero
 
-Modificaremos el main() de sokoban.c para que vaya llamando leer_almacen() múltiples veces, hasta que no haya más almacenes por leer. Podremos conocer esta circunstancia llamando a la función de la librería fiheros: 
+Modificaremos el main() de sokoban.c para que, una vez jugado un almacén, vaya llamando a 'leer_almacen' repetidamente, hasta que no haya más almacenes por jugar. Podremos conocer esta circunstancia llamando a la función de la librería fiheros: 
 
 ```
 	int es_fin_de_fichero(FILE *f);
