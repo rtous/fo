@@ -1,4 +1,4 @@
-# Desarrollo del proyecto Sokoban en 10 pasos
+# Desarrollo del proyecto Sokoban paso a paso
 
 ## FASE 1 (sin ficheros ni menú, habrá un almacén predeterminado especificado en el propio código)
 
