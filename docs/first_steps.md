@@ -121,7 +121,47 @@ Let's recompile and run the program again. You should see the following output:
 
 	 a = b    b = 2
 
-## 6. Preparing your files to deliver them through Atenea
+## 6. Compiling and linking
+
+The "gcc" command from the previous steps did many things at the same time:
+- It compiled the C source code into an object file containing machine code but still not executable.
+- It linked the object file into an executable file. 
+
+We can ask gcc to perform those steps one-by-one. In order to just compile use the "-c" option:
+
+	gcc -c sesion1_ej1.c -o sesion1_ej1.o
+
+In order to link the object file you use the plain gcc command:
+
+	gcc sesion1_ej1.c -o sesion1_ej1
+
+This two-step process make more sense when you think in programs that involve two or more source files. All the files are first compiled into separate object files and then they are all linked into a single executable file. 
+
+Let's edit a new file, named sesion1_ej2.c, with the following contents:
+
+		#include <stdio.h>
+		#include "colours.h"
+
+		main()
+		{
+			cambiar_color(GREEN);
+			printf("\n Hola Mundo ! \n");
+			cambiar_color(DEFAULT);
+		}
+
+This code depends on another source file, colours.c, which contains some useful functions. In order to be able to compile sesion1_ej2, you need first to download a header file (colours.h), a text file with some information about the functions contained within colours.c. You can download colours.h this way:
+
+	wget 
+
+	gcc -c sesion1_ej2.c -o sesion1_ej2.o
+
+
+	gcc -c colours.c -o colours.o
+	gcc colours.o sesion1_ej2.o -o sesion1_ej2
+
+
+
+## 7. Preparing your files to deliver them through Atenea
 
 In order to deliver your files through Atenea you first need to compress a folder containing all of them. Let's move to the parent directory of the working directory:
 
@@ -135,11 +175,11 @@ You can list the contents of the created tar (without decompressing it) with:
 
 	tar -tvf sesion1.tar
 
-## 7. Debugging the code with Nemiver
+## 8. Debugging the code with Nemiver
 
 Using a debugger could seem not necessary at this point, as you can debug your first programs with print statements or by commenting parts of your code. However, debugging will be the task to which you will invest the most part of your time as a programmer, and it's important to do it efficiently. So, it's recommended to start using a debugger from the very beginning. 
 
-Professional programmers usually edit and debug their code with an Integrated Development Environment such as NetBeans, Visual Studio Code, etc. However, here it will be more productive to make use of a more lightweight too like Nemiver. 
+Professional programmers usually edit and debug their code with an Integrated Development Environment such as NetBeans, Visual Studio Code, etc. However, here it will be more productive to make use of a more lightweight tool like Nemiver. 
 
 In order to be able to debug a C program with Nemiver you need to add "-g" option when compiling:
 
@@ -150,7 +190,7 @@ To start debuggint the program you just need to execute:
 
 	nemvier sesion1_ej1
 
-Once you see the Nemiver window, make sure that you see the Context panel at the bottom (where you can see the value of the different variables). If not, let's click the Contect tab (at the botton) or select the proper option from the View menu. 
+Once you see the Nemiver window, make sure that you see the Context panel at the bottom (where you can see the value of the different variables). If not, let's click the Contex tab (at the botton) or select the proper option from the View menu. 
 
 For now, it's enough if you run a few steps of the program (with F7) and check that the value of the variables change in the Context window. 
 
