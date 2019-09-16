@@ -54,8 +54,8 @@ The following keys and combination of keys are essential for a productive usage 
 ## 3. Setup folders and files for the session
 
 Open the browser, go to http://atenea.upc.edu and enter the FO METACURS:
-	- Open the proper lab session description PDF.
-	- Click the required files link to download them (into the default location, the "Downloads" folder).
+- Open the proper lab session description PDF.
+- Click the required files link to download them (into the default location, the "Downloads" folder).
 
 The session's required files have been downloaded into the "Downloads" folder:
 
