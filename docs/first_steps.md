@@ -172,11 +172,11 @@ Let's edit a new file, named sesion1_ej2.c, with the following contents:
 			cambiar_color(DEFAULT);
 		}
 
-This code depends on another source file, colours.c, which contains some useful functions. In order to be able to compile sesion1_ej2, you need first to download a header file (colours.h), a text file with some information about the functions contained within colours.c. You can download colours.h this way (from the same directory where sesion1_ej2.c is):
+This code depends on another source file, colours.c, which contains some useful functions. In order to be able to compile sesion1_ej2.c, you need first to download a header file (colours.h), a text file with some information about the functions contained within colours.c. You can download colours.h this way (from the same directory where sesion1_ej2.c is):
 
 	wget https://raw.githubusercontent.com/rtous/fo/master/colours.h
 
-Then you can compile 
+Then you can compile sesion1_ej2.c:
 
 	gcc -c sesion1_ej2.c -o sesion1_ej2.o
 
@@ -213,6 +213,8 @@ Now if you do an "ls" you should see the "sesion1" folder in the list. Now compr
 You can list the contents of the created tar (without decompressing it) with:
 
 	tar -tvf sesion1.tar
+
+You should upload this file to the corresponding Atenea activity (within your subgroup page).
 
 
 
