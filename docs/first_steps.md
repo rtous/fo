@@ -135,47 +135,7 @@ In order to link the object file you use the plain gcc command:
 
 	gcc sesion1_ej1.c -o sesion1_ej1
 
-This two-step process make more sense when you think in programs that involve two or more source files. All the files are first compiled into separate object files and then they are all linked into a single executable file. 
-
-Let's edit a new file, named sesion1_ej2.c, with the following contents:
-
-		#include <stdio.h>
-		#include "colours.h"
-
-		main()
-		{
-			cambiar_color(GREEN);
-			printf("\n Hola Mundo ! \n");
-			cambiar_color(DEFAULT);
-		}
-
-This code depends on another source file, colours.c, which contains some useful functions. In order to be able to compile sesion1_ej2, you need first to download a header file (colours.h), a text file with some information about the functions contained within colours.c. You can download colours.h this way:
-
-	wget 
-
-	gcc -c sesion1_ej2.c -o sesion1_ej2.o
-
-
-	gcc -c colours.c -o colours.o
-	gcc colours.o sesion1_ej2.o -o sesion1_ej2
-
-
-
-## 7. Preparing your files to deliver them through Atenea
-
-In order to deliver your files through Atenea you first need to compress a folder containing all of them. Let's move to the parent directory of the working directory:
-
-	cd ..
-
-Now if you do an "ls" you should see the "sesion1" folder in the list. Now compress that folder with the following command:
-
-	tar cvf sesion1.tar sesion1 
-
-You can list the contents of the created tar (without decompressing it) with:
-
-	tar -tvf sesion1.tar
-
-## 8. Debugging the code with Nemiver
+## 7. Debugging the code with Nemiver
 
 Using a debugger could seem not necessary at this point, as you can debug your first programs with print statements or by commenting parts of your code. However, debugging will be the task to which you will invest the most part of your time as a programmer, and it's important to do it efficiently. So, it's recommended to start using a debugger from the very beginning. 
 
@@ -196,7 +156,63 @@ For now, it's enough if you run a few steps of the program (with F7) and check t
 
 You can find a Nemiver tutorial in spanish [here](https://atenea.upc.edu/pluginfile.php/2931681/mod_resource/content/8/Nemiver.pdf).
 
+## 8. Compiling and linking multiple files
 
+The two-step process compile-link makes more sense when you think in programs that involve two or more source files. All the files are first compiled into separate object files and then they are all linked into a single executable file. 
+
+Let's edit a new file, named sesion1_ej2.c, with the following contents:
+
+		#include <stdio.h>
+		#include "colours.h"
+
+		int main()
+		{
+			cambiar_color(GREEN);
+			printf("\n Hola Mundo ! \n");
+			cambiar_color(DEFAULT);
+		}
+
+This code depends on another source file, colours.c, which contains some useful functions. In order to be able to compile sesion1_ej2, you need first to download a header file (colours.h), a text file with some information about the functions contained within colours.c. You can download colours.h this way (from the same directory where sesion1_ej2.c is):
+
+	wget https://raw.githubusercontent.com/rtous/fo/master/colours.h
+
+Then you can compile 
+
+	gcc -c sesion1_ej2.c -o sesion1_ej2.o
+
+Now you need to download colours.c:
+
+	wget https://raw.githubusercontent.com/rtous/fo/master/colours.c
+
+And compile it:
+
+	gcc -c colours.c -o colours.o
+
+Finally, you need to link everything:
+
+	gcc colours.o sesion1_ej2.o -o sesion1_ej2
+
+You can test the program this way:
+
+	./sesion1_ej2
+
+Alternativelly, it's possible to compile multiple files and linke them the following way:
+
+	gcc colours.c sesion1_ej2.c -o sesion1_ej2
+
+## 9. Preparing your files to deliver them through Atenea
+
+In order to deliver your files through Atenea you first need to compress a folder containing all of them. Let's move to the parent directory of the working directory:
+
+	cd ..
+
+Now if you do an "ls" you should see the "sesion1" folder in the list. Now compress that folder with the following command:
+
+	tar cvf sesion1.tar sesion1 
+
+You can list the contents of the created tar (without decompressing it) with:
+
+	tar -tvf sesion1.tar
 
 
 
