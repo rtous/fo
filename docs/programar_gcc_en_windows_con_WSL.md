@@ -1,6 +1,6 @@
 # Programar en GCC en Windows 10 mediante WSL y Visual Studio Code
 
-Una alternativa muy productiva para programar en C/C++ sobre Windows 10 es hacerlo mediante Windows Subsystem for Linux (WSL). Un inconveniente es que editar los ficheros fuente (mediante un GUI Windows o Linux) no es trivial. Afortunadamente, existe una extensión que permite hacerlo mediante Visual Studio Code, el entorno de programación más utilizado segú el Stack Overflow 2019 Developer Survey.
+Una alternativa muy productiva para programar en C/C++ sobre Windows 10 es hacerlo mediante Windows Subsystem for Linux (WSL). Un inconveniente es que editar los ficheros fuente (mediante un GUI Windows o Linux) no es trivial. Afortunadamente, existe una extensión que permite hacerlo mediante Visual Studio Code, el entorno de programación más utilizado según el Stack Overflow 2019 Developer Survey.
 
 NOTA: Este tutorial es una versión "expresso" del que hay [aquí](https://code.visualstudio.com/docs/cpp/config-wsl). Echadle un vistazo si tenéis problemas o queréis más detalles.
 
@@ -8,7 +8,7 @@ NOTA: Este tutorial es una versión "expresso" del que hay [aquí](https://code.
 
 ## 1.1 Activar la característica Windows Subsystem for Linux en Windows 10
 
-En la barra de búsqueda de Windows 10 (abajo a la izquierda) introducir "características de windows" y seleccionad "Activar o desactivar las características de Windows" (si el sistema está en inglés buscar "windows features"). Marcad la casilla de "Subsistema de Windows para Linux" y reiniciar el ordenador. 
+En la barra de búsqueda de Windows 10 (abajo a la izquierda) introducid "características de windows" y seleccionad "Activar o desactivar las características de Windows" (si el sistema está en inglés buscar "windows features"). Marcad la casilla de "Subsistema de Windows para Linux" y reiniciar el ordenador. 
 
 ## 1.2 Instalar Ubuntu 18.04
 
@@ -28,7 +28,7 @@ Probad que ha funcionado ejecutando:
 
 	gcc --version
 
-Ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cómodamente será necesario hacer más cosas.
+Ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cómodamente será necesario instalar y configurar Visual Studio Code.
 
 Cerrad la ventana de Ubuntu (no la mantengáis abierta o fallará uno de los pasos siguientes).
 
@@ -55,7 +55,7 @@ Ejecutad el siguiente comando que abrirá Visual Studio Code desde el terminal:
 
 	code .
 
-Ahora ya podéis editar ficheros de WSL mediante Visual Studio Code. Con esto es suficiente ya que podemos compilar y ejecutar los programas en el terminal. Por ejemplo, en Visual Studio Code cread un nuevo fichero llamado "helloworld.c" y guardarlo en la carpeta "helloworld" de WSL. Dentro del fichero copiad un código sencillo:
+Ahora ya podéis editar ficheros de WSL mediante Visual Studio Code. Con esto es suficiente ya que podemos compilar y ejecutar los programas en el terminal. Por ejemplo, en Visual Studio Code cread un nuevo fichero llamado "helloworld.c" y guardadlo en la carpeta "helloworld" de WSL. Dentro del fichero copiad un código sencillo:
 
 	#include <stdio.h>
 	int main() {
