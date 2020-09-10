@@ -30,11 +30,11 @@ Además de un editor también es recomendable utilizar un depurador. Uno sencill
 
 ## 2 Si tenéis Windows 10
 
-Tradicionalmente recomendábamos a los usuarios de Windows trabajar mediante una máquina virtual. Es un método que permite tener un entorno idéntico al del laboratorio pero tiene como principal inconveniente el consumir muchos recursos del ordenador, haciendo a menudo que todo vaya muy lento. Siempre podéis recurrir a esa opción siguiendo las instrucciones que encontraréis en la Intranet de la Escula, en Serveis->Imatge VirtualBox per a docència.
+Tradicionalmente recomendábamos a los usuarios de Windows trabajar mediante una máquina virtual. Es un método que permite tener un entorno idéntico al del laboratorio pero tiene como principal inconveniente el consumir muchos recursos del ordenador, haciendo a menudo que todo vaya muy lento. Siempre podéis recurrir a esa opción siguiendo las instrucciones que encontraréis en la Intranet de la Escuela, en Serveis->Imatge VirtualBox per a docència.
 
 En la actualidad hay una alternativa más productiva, siempre y cuando tengáis una versión de Windows 10 actualizada. Se trata de trabajar mediante Windows Subsystem for Linux (WSL). A continuación se explica como hacerlo.
 
-NOTA: Si os encontráis con problemas, hay un tutorial más completo [aquí](https://wiki.ubuntu.com/WSL).
+*NOTA: Si os encontráis con problemas, hay un tutorial más completo [aquí](https://wiki.ubuntu.com/WSL).*
 
 ### 2.1 Instalar Windows Subsystem for Linux (WSL) en Windows 10
 
@@ -60,22 +60,41 @@ Probad que ha funcionado ejecutando:
 
 	gcc --version
 
-Ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cómodamente será necesario utilizar algún editor con entorno gráfico. Hay dos opciones, usar un editor para para Windows como Notepad++, o uno para Linux como gedit (como en el laboratorio). Pero aquí nos encontramos con una pequeña dificultad. Si escogemos la primera opción, nos encontramos con la duda de como acceder a un fichero que está dentro de WSL desde una aplicación Windows. Si escogemos la segunda opción, nos encontramos que no podemos ejecutar directamente aplicaciones Linux con entorno gráfico desde WSL. 
+Cread una carpeta para las prácticas de fo:
 
-La primera es muy simple de resolver, desde las aplicaciones Windows se puede acceder a los ficheros de WSL mediante la ruta "\\wsl$". Esto permite utilizar un editor como Notepad++, muy parecido al editor que usaréis en el laboratorio (si es que vuestro profesor utiliza gedit o similares). 
+	mkdir fo
 
-*NOTA: Una alternativa más "profesional" es Visual Studio Code, un entorno integrado de desarrollo (IDE) que incluye una extensión para WSL que permite que sea utilizado directamente desde dentro de WSL. No os recomendamos esta opción ya que difiere bastante del entorno que tendréis en el laboratorio, pero si queréis probarlo tenéis un tutorial [aquí](https://code.visualstudio.com/docs/remote/wsl)*
+Entrad en ella:
 
-La segunda opción, utilizar un editor para Linux con entorno gráfico (como gedit), sería la que os permitiría tener el mismo entorno que en el laboratorio (si es que vuestro profesor os recomienda gedit allí). Microsoft está a punto de sacar una actualización de Windows 10 que hará esta opción tan directa como en un Linux nativo, pero a día de hoy no está disponible. 
+	cd fo
 
+Listad su contenido, que será vacío:
 
+	ls fo
 
+Ahora, sin cerrar la ventana de Ubuntu, seguid el tutorial.
 
+### 2.2 Instalar Notepad++ para poder editar el código C
 
-#### Editar mediante un programa Windows
+Ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cómodamente será necesario utilizar algún editor con entorno gráfico. La forma más práctica de hacerlo es instalando Notepad++ en Windows. Notepad++ es muy parecido a gedit (que usaréis en el lab) y es gratuita (gedit para Windows cuesta 5 euros). Para hacerlos seguid los siguientes pasos:
 
-Si ya te\\wsl$
+1. Descargad la versión más nueva de Notepad++ de [aquí](https://notepad-plus-plus.org/downloads/). Descargad el instalador para la versión de 64 bits y ejecutadlo con todas las opciones por defecto y el idioma que queráis.
 
-#### Editar mediante un programa Linux
-Hay dos posibilidades, utilizar un editor de Ubuntu o uno de Windows. 
+2. Ejecutad Notepad++ y editad un primer programa:
 
+	#include <stdio.h>
+	int main() {
+	   printf("Hello, World!");
+	}
+
+3. En el menú "fichero" seleccionad "guardar como" y en la barra de arriba, en la que sale la ubicación, introducid lo siguiente:
+
+	\\wsl$
+
+Ésa es la ruta de WSL para las aplicaciones Windows. Os aparecerà una carpeta llamada "Ubuntu", entrad. Después entrad en la carpeta "home". Allí tendríais que ver una carpeta con el nombre de usuario que habéis especificado al instalar Ubuntu. Entrad en esa carpeta. Allí grabad el fichero con nombre "helloworld.c".
+
+Ahora volved a la ventana Ubuntu y volved a listar el contenido de la carpeta "fo". Os debería aparecer el nuevo fichero.
+
+*NOTA 1: tal vez os preguntéis por qué no usamos gedit en Ubuntu (en vez de una aplicación Windows) como en el laboratorio. El motivo es que actualmente es muy complicado usar aplicaciones Ubuntu con entorno gráfico en WSL. Microsoft está a punto de sacar una actualización para que sea fácil, pero todavía no está lista. Ahora hace falta instalar un X Server para Windows (como x410) y realizar una configuración bastante complicada.*
+
+*NOTA 2: Una alternativa más "profesional" que Notepad++ es Visual Studio Code, un entorno integrado de desarrollo (IDE) que incluye una extensión para WSL (que permite que sea utilizado directamente desde dentro de WSL). No os recomendamos esta opción ya que difiere bastante del entorno que tendréis en el laboratorio, pero si queréis probarlo tenéis un tutorial [aquí](https://code.visualstudio.com/docs/remote/wsl)*
