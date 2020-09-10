@@ -82,11 +82,12 @@ Ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cóm
 
 2. Ejecutad Notepad++ y editad un primer programa:
 
-
-	#include <stdio.h>
-	int main() {
-	   printf("Hello, World!");
-	}
+```c
+#include <stdio.h>
+int main() {
+   printf("Hello, World!");
+}
+```
 
 
 3. En el menú "fichero" seleccionad "guardar como" y en la barra de arriba, en la que sale la ubicación, introducid lo siguiente:
