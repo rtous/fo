@@ -101,3 +101,16 @@ Ahora volved a la ventana Ubuntu y volved a listar el contenido de la carpeta "f
 *NOTA 1: tal vez os preguntéis por qué no usamos gedit en Ubuntu (en vez de una aplicación Windows) como en el laboratorio. El motivo es que actualmente es muy complicado usar aplicaciones Ubuntu con entorno gráfico en WSL. Microsoft está a punto de sacar una actualización para que sea fácil, pero todavía no está lista. Ahora hace falta instalar un X Server para Windows (como x410) y realizar una configuración bastante complicada.*
 
 *NOTA 2: Una alternativa más "profesional" que Notepad++ es Visual Studio Code, un entorno integrado de desarrollo (IDE) que incluye una extensión para WSL (que permite que sea utilizado directamente desde dentro de WSL). No os recomendamos esta opción ya que difiere bastante del entorno que tendréis en el laboratorio, pero si queréis probarlo tenéis un tutorial [aquí](https://code.visualstudio.com/docs/remote/wsl)*
+
+
+## 3 Si tenéis Mac
+
+1. Instalad XCode del App Store. Eso instalará el compilador C llvm/clang, que no és el GCC "oficial" però sí muy parecido.
+2. Abrid una ventana de terminal (buscad "Terminal" en el Launchpad)
+3. Ejecutad el siguiente comando para comprobar si podéis usar GCC:
+
+	gcc --version
+
+4. Instalad un editor de texto para poder editar el código. Hay una versión de gedit para Mac pero os recomendamos [Sublime Text](https://www.sublimetext.com/).
+
+
