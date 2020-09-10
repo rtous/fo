@@ -76,20 +76,22 @@ Ahora, sin cerrar la ventana de Ubuntu, seguid el tutorial.
 
 ### 2.2 Instalar Notepad++ para poder editar el código C
 
-Ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cómodamente será necesario utilizar algún editor con entorno gráfico. La forma más práctica de hacerlo es instalando Notepad++ en Windows. Notepad++ es muy parecido a gedit (que usaréis en el lab) y es gratuita (gedit para Windows cuesta 5 euros). Para hacerlos seguid los siguientes pasos:
+Ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cómodamente será necesario utilizar algún editor con entorno gráfico. La forma más práctica de hacerlo es instalando Notepad++ en Windows. Notepad++ es muy parecido a gedit (que usaréis en el lab) y es gratuita (gedit para Windows cuesta 5 euros). Para instalar Notpad++ y usarlo con WSL haced lo siguiente:
 
 1. Descargad la versión más nueva de Notepad++ de [aquí](https://notepad-plus-plus.org/downloads/). Descargad el instalador para la versión de 64 bits y ejecutadlo con todas las opciones por defecto y el idioma que queráis.
 
 2. Ejecutad Notepad++ y editad un primer programa:
+
 
 	#include <stdio.h>
 	int main() {
 	   printf("Hello, World!");
 	}
 
+
 3. En el menú "fichero" seleccionad "guardar como" y en la barra de arriba, en la que sale la ubicación, introducid lo siguiente:
 
-	\\wsl$
+	\\\\wsl$
 
 Ésa es la ruta de WSL para las aplicaciones Windows. Os aparecerà una carpeta llamada "Ubuntu", entrad. Después entrad en la carpeta "home". Allí tendríais que ver una carpeta con el nombre de usuario que habéis especificado al instalar Ubuntu. Entrad en esa carpeta. Allí grabad el fichero con nombre "helloworld.c".
 
