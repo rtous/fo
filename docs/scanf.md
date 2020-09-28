@@ -31,7 +31,7 @@ Will discard the end-of-line character at the end.
 
 # whitespaces
 
- All specifiers with few exceptions (%c is one of them) skip the leading whitespaces which might precede the value.
+ All specifiers with few exceptions (%c is one of them) skip the leading whitespaces (blanks and new-line characters) which might precede the value.
 
 	 	int d1, d2;
 		scanf("%d%d", &d1, &d2); 
