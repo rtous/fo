@@ -15,7 +15,7 @@
 
 	- Fichero tipos_funciones.txt con los typedef struct y las cabeceras de las funciones.
 
-3. (ENTREGA 3 / FINAL) Entrega final del juego y el acta (Deadline: el último día lectivo del quatrimestre)
+3. (ENTREGA 3 / FINAL) Entrega final del juego y el acta (Deadline: el último día lectivo del cuatrimestre)
 
 	- Todos los ficheros fuente del proyecto dentro de un fichero .tar
 	- El "acta" del equipo proponiendo puntuación (consensuada) para cada miembro. En Atenea podéis encontrar el formulario.
