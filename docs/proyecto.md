@@ -18,4 +18,4 @@
 3. (ENTREGA 3 y 4) Entrega final del juego (Deadline: el último día lectivo del quatrimestre)
 
 	- Todos los ficheros fuente del proyecto dentro de un fichero .tar
-	- El "acta" del equipo proponiendo puntuación (consensuada) para cada miembro. [Aquí](http://atenea.upc.edu/pluginfile.php/2133040/mod_page/content/46/ACTA.doc) podéis encontrar el formulario.
+	- El "acta" del equipo proponiendo puntuación (consensuada) para cada miembro. En Atenea podéis encontrar el formulario.
