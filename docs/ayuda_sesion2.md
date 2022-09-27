@@ -107,34 +107,34 @@ Dada una hora en formato hh:mm:ss tenemos que sumarle un segundo y volver a obte
 
 Este ejercicio se puede resolver de dieferentes maneras. Una posible, expresada en pseudocódigo sería:
 
-Si es una letra
-	imprimir "es una letra"
-	Si es una vocal
-		imprimir "es una vocal"
-		imprimir "no es una consonante"
-	Si no
-		imprimir "no es una vocal"
-		imprimir "es una consonante"
+	Si es una letra
+		imprimir "es una letra"
+		Si es una vocal
+			imprimir "es una vocal"
+			imprimir "no es una consonante"
+		Si no
+			imprimir "no es una vocal"
+			imprimir "es una consonante"
 
-	Si es una minúscula
-		imprimir "No es una mayúscula"
-		imprimir "Es una minúscula"
-	Si no
-		imprimir "Es una mayúscula"
-		imprimir "No es una minúscula"
+		Si es una minúscula
+			imprimir "No es una mayúscula"
+			imprimir "Es una minúscula"
+		Si no
+			imprimir "Es una mayúscula"
+			imprimir "No es una minúscula"
 
-	imprimir "No es un dígito"
-	imprimir "El caracter con la capitalizacion invertida es..."
-Si no
-	imprimir "no es una letra"
-	imprimir "no es una vocal"
-	imprimir "no es una consonante"
-	imprimir "No es una mayúscula"
-	imprimir "No es una minúscula"
-	Si es un dígito
-		imprimir "Es un dígito"
-	Si no
 		imprimir "No es un dígito"
+		imprimir "El caracter con la capitalizacion invertida es..."
+	Si no
+		imprimir "no es una letra"
+		imprimir "no es una vocal"
+		imprimir "no es una consonante"
+		imprimir "No es una mayúscula"
+		imprimir "No es una minúscula"
+		Si es un dígito
+			imprimir "Es un dígito"
+		Si no
+			imprimir "No es un dígito"
 
 Para saber si un carácter es una letra podemos hacer lo siguiente:
 
