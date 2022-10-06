@@ -23,7 +23,7 @@ TIP: Esta es una solución tipo para procesar secuencias en las que el último e
 
 ### Apartado a:
 
-En el primer scanf que se ejecute el usuario entrará toda la secuencia y pulsará ENTER. Como sabemos cuantos números contiene la secuencia podríamos hacer un único scanf que recogiera todos valores. Pero para hacerlo más flexible será mejor ir haciendo scanf dentro de un bucle: 
+En el primer scanf que se ejecute el usuario entrará toda la secuencia y pulsará ENTER. Como sabemos cuantos números contiene la secuencia podríamos hacer un único scanf que recogiera todos los valores. Pero para hacerlo más flexible será mejor ir haciendo scanf dentro de un bucle: 
 
     for (i=0; i<10; i++)
     {
@@ -114,9 +114,9 @@ Es más fácil de lo que parece. Se trata de hacer un bucle de 0 a n y dentro ca
 El (-1)^i hace que se sume en las iteraciones pares y se reste en las impares. No hace falta hacer ni esa potencia ni la multiplicación. Simplemente podemos poner un if:
 	
 	if (i%2==0)
-     cos = cos+ pot/fact;
-   else
-     cos = cos-pot/fact;
+		cos = cos+ pot/fact;
+	else
+		cos = cos-pot/fact;
 
 ## Ejercicio 8
 
@@ -124,8 +124,8 @@ Un buen esquema para este tipo de ejercicios sería éste:
 
 	do
     {
-        /* Mostrar el menu de opciones */
-        scanf("%d%*c", &opcion);  		
+		/* Mostrar el menu de opciones */
+		scanf("%d%*c", &opcion);  		
 		switch (opcion)
 		{
 			case 1:
@@ -137,7 +137,7 @@ Un buen esquema para este tipo de ejercicios sería éste:
 			...
 			default:
 			    printf("Opcion Incorrecta\n");
-	    }
+		}
 	} while (opcion!=5);
 
 ## Ejercicio 9
