@@ -2,10 +2,6 @@
 
 The labs are designed to be performed on a computer running Ubuntu. If you want to do the lab on your own computer one possibility is working over a virtual machine. This page describes how to do it.
 
-*NOTE 1: If your computer runs Windows 10 it may be more convenient to work over [Windows Subsystem for Linux (WSL)](./wsl.md). For labs requiring Docker, WSL 2 seems to allow it for Windows 10 Home too, but we haven't tested it yet.*
-
-*NOTE 2: If your computer runs macOS it may be more convenient to work over [Docker](./docker.md).*
-
 ## Step 1: Install VirtualBox
 
 Go to  [https://www.virtualbox.org/](https://www.virtualbox.org/) and download the installer for your host operating system. Run the installer and accept all the default options.
@@ -16,14 +12,14 @@ Go to  [https://www.virtualbox.org/](https://www.virtualbox.org/) and download t
 
 Download Ubuntu Desktop 20.04.2.0 LTS from [here](https://releases.ubuntu.com/20.04/ubuntu-20.04.2.0-desktop-amd64.iso).
 
-## Step 3: Create and configure the virtual machine (with 2 CPUs and 4096MB memory!)
+## Step 3: Create and configure the virtual machine
 
 1. Launch VirtualBox, click New. The recommended setup is:
 
-- Base memory = 4096MB
+- Base memory = 2048MB
 - Create a virtual hard disk (10GB), VDI, dynamically allocated
 
-2. Select the virtual machine and click Settings. Go to System/Processor and set 2 CPUs.
+2. Select the virtual machine and click Settings.
 
 3. Go to Settings/Storage/Controller IDE, click the disk icon and select the Ubuntu file that you downloaded before.
 

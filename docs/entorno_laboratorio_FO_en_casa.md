@@ -18,7 +18,7 @@ Si todo lo anterior os da problemas podéis probar alguna solución alternativa:
 - [OPCIÓN 3: Programar C en Mac de manera simple  ](mac.md)
 
 
-## 1 Si tenéis Linux 
+## Si tenéis Linux 
 
 En el laboratorio de FO los ordenadores utilizan Linux como sistema operativo, concretamente Ubuntu 18.04.03 LTS. Si el sistema operativo de vuestro ordenador es Linux o si vuestro ordenador tiene una partición con Linux, podéis configurar un entorno parecido al del laboratorio simplemente ejecutando los comandos que se describen a continuación. Las instrucciones son para Ubuntu, tendréis que adaptarlas si tenéis una distribución Linux distinta.
 
