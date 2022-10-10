@@ -3,6 +3,8 @@ This repository contains some notes about the FO lab. These notes are not part o
 
 - [Realizar las prácticas de FO en casa](docs/entorno_laboratorio_FO_en_casa.md)
 - [Ayuda práctica 1](docs/first_steps.md)
+- [Ayuda printf](docs/input_output_formatting.md)
+- [Ayuda scanf](docs/scanf.md)
 - [Ayuda práctica 2](docs/ayuda_sesion2.md)
 - [Ayuda práctica 3](docs/ayuda_sesion3.md)
 
