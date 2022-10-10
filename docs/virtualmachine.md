@@ -40,3 +40,29 @@ At the end select restart, then close the window selecting "Power off the machin
 2. In the VirtualBox VM menu (top-left of your screen) go to Devices/Install Guest Additions
 
 3. Power off the machine
+
+## Step 6: Encender la máquina virtual e instalar las herramientas
+
+En primer lugar debéis abrir una ventana de terminal. La forma más rápida es pulsar CTRL+ALT+T, pero también podéis buscar el terminal mediante la barra de búsqueda o en el tablero de Ubuntu. Una vez en el terminal ejecutad los siguientes comandos.
+
+Primero actualizad la lista de paquetes mediante:
+
+	sudo apt-get update
+
+A continuación instalad GCC (y el depurador GDB):
+
+	sudo apt-get install -y build-essential gdb
+
+Probad que GCC se ha instalado correctamente ejecutando:
+
+	gcc --version
+
+Ahora ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cómodamente será necesario instalar algún editor. Uno sencillo y que utilizan muchos de los profesores es gedit. Podéis instalarlo simplemente mediante:
+
+	sudo apt-get install -y gedit
+
+Además de un editor también es recomendable utilizar un depurador. Uno sencillo es Nemiver y lo podéis instalar así:
+
+	sudo apt-get install -y nemiver
+
+
