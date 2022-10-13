@@ -4,7 +4,7 @@
 
 Escribid un programa wordle.c que (sin mostrar menús ni nada) ssolo muestre un tablero NUM_FILAS x NUM_LETRAS_PALABRA tal y como aparece en el ejecutable de ejemplo. En esta versión dentro de cada casilla mostrará simplemente la letra A. Consideraciones:
 
-- Habrá que usar los ficheros colores.c y colores.h para poder mostrar negritas.
+- Habrá que usar los ficheros colores.c y colores.h para poder mostrar negritas. Deberéis poner un #include de colores.h y al compilar deberéis compilar wordle.c junto con colores.c (podeís hacer gcc *.c -o wordle).
 - Cread una función "imprimir_tablero" en vez poner todo el código dentro del main.
 
 ## Versión 0.2 (descargar demo [linux](wordle_v0.2), [windows](wordle_v0.2.exe) o [mac](wordle_v0.2_mac))
