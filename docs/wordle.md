@@ -37,9 +37,9 @@ Extended wordle.c para que, en vez de guardar solo un char en cada casilla, guad
 
 En casilla.h pondremos:
 
-- el typedef struct de un nuevo tipo t_casilla y sus dos campos
-- un #define para los diferentes tipos de letra (TIPO_VACIA, TIPO_LETRA_Y_POSICION, TIPO_LETRA_OK, TIPO_LETRA_KO)
-- la declaración de tres funciones: inicializar_casilla, poner_letra_en_casilla e imprimir_casilla.
+- el typedef struct de un nuevo tipo t_casilla y sus dos campos (un char y un entero).
+- un #define para cada tipo de letra (TIPO_VACIA, TIPO_LETRA_Y_POSICION, TIPO_LETRA_OK, TIPO_LETRA_KO).
+- la declaración de tres funciones: inicializar_casilla (inicializará carácter=' ' y tipo=TIPO_VACIA), poner_letra_en_casilla (recibe un char y un entero y los asigna a los dos campos de casilla) e imprimir_casilla (en función del tipo muestra el carácter con el color apropiado, mirad colores.h).
 
 En wordle.c deberemos añadir un #include de casilla.h y también tendremos que modificar la declaración de la matriz casillas:
 
