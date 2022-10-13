@@ -112,9 +112,9 @@ En segundo lugar cambiaremos la siguiente línia del main:
 
 En esta versión vamos a generar la palabra solución de manera aleatoria y con la ayuda de un diccionario de palabras. Lo haremos únicamente para un idioma. Seguiremos sin comprobar si las palabras introducidas por el usuario son o no válidas para ese diccionario. Tendréis que copiar a vuestra carpeta de proyecto tres ficheros de los que se os proporcionan:
 
-palabras.h
-palabras.c
-palabras_en.txt (o el diccionario del idiopa que prefiráis)
+	palabras.h
+	palabras.c
+	palabras_en.txt (o el diccionario del idiopa que prefiráis)
 
 Tendréis que añadir a wordle.c el include de palabras.h. Añadid al main una variable "idioma" de tipo int. Una vez hecho esto, al principio del main (antes de inicializar_tablero) deberéis llamar a la función de la librería palabras: 
 
