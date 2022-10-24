@@ -91,15 +91,27 @@ Más adelante veremos como podemos hacerlo de un modo más elegante mediante una
 
 ## Ejercicio 6
 
-Este ejercicio es más complejo que los anteriores y se puede resolver de diferentes maneras. El esquema de una solución sería:
-
+Este ejercicio es más complejo que los anteriores y se puede resolver de diferentes maneras. Un posible esquema (el oficial) de una solución sería:
+    
+    //...
+    scanf("%c", &c);
 	do
     {
-         /* aquí un while para saltar palabra */
+         /* aquí un while para saltar palabra (contendrá un scanf)*/
 	     /* incrementar contador de palabras */
-         /* aquí un while para saltar blancos */
+         /* aquí un while para saltar blancos (contendrá un scanf)*/
     } while (c != '.');
 
+Otra solución sería (suele gustar más a los estudiantes) tener un único bucle y controlar que va ocurriendo con una variable de estado (leido_espacio) que será 0 (FALSO) o 1 (CIERTO):
+   
+    //...
+    int leido_espacio = 1; //Inicialmente CIERTO
+    do {
+		scanf("%c", &c);
+		//Si leido espacio hacemos que leido_espacio = 1
+        //Si no, si leido_espacio y leido diferente de punto sumamos una nueva palabra y leido_espacio = 0
+	} while(c != '.');
+	scanf("%*c");
 
 ## Ejercicio 7
 
@@ -117,6 +129,8 @@ El (-1)^i hace que se sume en las iteraciones pares y se reste en las impares. N
 		cos = cos+ pot/fact;
 	else
 		cos = cos-pot/fact;
+
+TIP: cos y pot tienen que ser de tipo double.
 
 ## Ejercicio 8
 
