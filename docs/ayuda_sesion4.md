@@ -23,6 +23,7 @@ Para verificar que los datos que dependen de otros son correctos (el volumen y e
     ancho_teorico = p.num_carriles*p.ancho_carril/100;
 
 Para evitar que la comparación falle por pocos decimales podemos hacer:
+    
     #define ERROR 0.1E-02
 
     ...
@@ -59,6 +60,7 @@ A partir de aquí la única dificultad es hacer el redondeo de la media sin util
 TIP: Para leer o imprimir un unsigned int: %u.
 
 Para calcular el total de segundos simplemente:
+
     ...
     segundos = expr_horaria.ss + expr_horaria.mm*60 + expr_horaria.hh*3600;
     ...
@@ -69,10 +71,10 @@ TIP: Para imprimir enteros con 2 dígitos: %02u.
 
 Primero pasaremos las dos expresiones horarias a segundos (seg1 y seg2). A continuación, dependiendo de si es antes o despúes del mediodía, calculamos la diferencia con la media noche más cercana. Por ejemplo, para seg1:
 
-  if (seg1 < 12*3600) 
-    dh1 = seg1;
-  else 
-    dh1 = 24*3600 - seg1;
+    if (seg1 < 12*3600) 
+        dh1 = seg1;
+    else 
+        dh1 = 24*3600 - seg1;
 
 Ahora que ya tenemos la diferencia con la medianoche más cercana de cada hora (dh1 y dh2), las comparamos (y imprimimos.
     
@@ -120,18 +122,18 @@ Aquí conviene primero asignar un valor numérico a cada palo:
 
 Para leer la carta:
   
-  ...
-  scanf("(%c,%c)%*c",&fig,&pal);
-  
-  if (fig=='s' || fig=='S') 
-    c.fig=10;
-  else if (fig=='c' || fig=='C') 
-    ... 
+    ...
+    scanf("(%c,%c)%*c",&fig,&pal);
 
-  if (pal=='o' || pal=='O') 
-    c.pal=OROS;
-  else if (pal=='c' || pal=='C') 
-    ... 
+    if (fig=='s' || fig=='S') 
+        c.fig=10;
+    else if (fig=='c' || fig=='C') 
+        ... 
+
+    if (pal=='o' || pal=='O') 
+        c.pal=OROS;
+    else if (pal=='c' || pal=='C') 
+        ... 
 
 Para mostrar la carta conviene usar un par de switch:
 
