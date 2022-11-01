@@ -158,8 +158,7 @@ Es recomendable empezar por hacer un programa que ordene un vector de enteros. E
 
 - Buscamos el elemento menor en el vector y lo intercambiamos por el primero (i=0).
 - Ahora que ya tenemos el primer elemento ordenado, tenemos que ordenar el resto del vector. 
-
-
+'''
     for (i=0; i<N-1; i++) {
         posmin=i;
         for (j=i+1; j<N; j++) { //Buscamos un valor más pequeño.
@@ -171,7 +170,7 @@ Es recomendable empezar por hacer un programa que ordene un vector de enteros. E
         v[i]=v[posmin];
         v[posmin]=aux;
     }
-
+'''
 ### ordenación de un vector de cartas
 
 Se trata de aplicar el mismo algoritmo pero con el detalle de que no podemos aplicar directamente el operador menor (<) a las cartas. Para determinar si una carta es menor que otra deberemos hacer lo mismo que en el ejercicio 5 de la anterior sesión de laboratorio. Será menor si el palo es menor o si, si es igual, si la figura es menor. 
