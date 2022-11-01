@@ -130,7 +130,7 @@ Para eliminar un elemento de la posición pos hay que copiar el elemento de la p
 
 ### apartado b
 
-Aquí solo insertaremos si no se encuentra el elemento, es decir dentro del else. Pero también hay que verificar que haya sitio suficiente, de modo que nos habrá que anidar otro if:
+Aquí solo insertaremos si no se encuentra el elemento, es decir dentro del else. Pero también hay que verificar que haya sitio suficiente, de modo que habrá que anidar otro if:
 
     else { //No se había encontrado el valor
         if (vect.nelem==DIM)
