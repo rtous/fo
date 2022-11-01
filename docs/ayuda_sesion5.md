@@ -70,7 +70,7 @@ Para codificar el carácter deberemos distinguir por casos mediante un if (si le
 
 Este es un **EJERCICIO CLÁSICO** de búsqueda de un elemento en un vector (no ordenado y ordenado). 
 
-*NOTA: Conviene prestar atención a los ejercicios marcados como EJERCICIO CLÁSICO ya que.**
+*NOTA: Conviene prestar atención a los ejercicios marcados como EJERCICIO CLÁSICO.**
 
 ### apartado a
 
