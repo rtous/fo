@@ -198,7 +198,7 @@ Dado que ni las listas están ordenadas ni el resultado tiene que estarlo se tra
 Ya tenemos la primera lista, ahora solo hay que concatenar la otra pero dice el enunciado que no se deben repetir valores en el resultado. Tendremos que recorrer la segunda lista y, para cada elemento, mirar si está en la primera (una búsqueda). Si no está lo añadimos a la lista resultante.
 
     for (i=0; i<lista2.nmat; i++) { //recorremos la segunda lista
-        //...búsqueda del elemento i de lista2 en toda lista1
+        Aquí búsqueda del elemento i de lista2 en toda lista1
         if (!encontrada) { 
             lunion.lmat[lunion.nmat]=lista2.lmat[i];
             lunion.nmat++;
@@ -218,10 +218,10 @@ Dado que ahora las listas están ordenadas y el resultado también lo enfocaremo
     j = 0; //puntero de lista 2
     while(i < lista1.nmat || j < lista2.nmat) {
       if (i == lista1.nmat)  { //lista 1 finalizada
-        //copiamos el elemento de lista2
+        copiamos el elemento de lista2
         j++;
       } else if (j == lista2.nmat) { //lista 2 finalizada
-        //copiamos el elemento de lista1
+        copiamos el elemento de lista1
         i++;
       }  else if (el elemento de lista 1 menor) {
         copiamos el elemento de lista 1
