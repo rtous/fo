@@ -159,6 +159,7 @@ Es recomendable empezar por hacer un programa que ordene un vector de enteros. E
 - Buscamos el elemento menor en el vector y lo intercambiamos por el primero (i=0).
 - Ahora que ya tenemos el primer elemento ordenado, tenemos que ordenar el resto del vector. 
 
+
     for (i=0; i<N-1; i++) {
         posmin=i;
         for (j=i+1; j<N; j++) { //Buscamos un valor más pequeño.
