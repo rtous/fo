@@ -213,7 +213,7 @@ Dado que ahora las listas están ordenadas y el resultado también lo enfocaremo
 - Inicialmente los dos indices apuntarán al primer elemento de cada lista.
 - Iterativamente haremos avanzar el índice que apunte al valor menor y lo iremos guardando en la lista unión.
 - Al hacerlo así será fácil evitar repetidos ya que si en algún momento los dos ínidices apuntan a elementos con el mismo valor solo copiaremos uno de ellos a la lista unión.
-
+```
     i = 0; //puntero de lista1
     j = 0; //puntero de lista 2
     while(i < lista1.nmat || j < lista2.nmat) {
@@ -236,5 +236,5 @@ Dado que ahora las listas están ordenadas y el resultado también lo enfocaremo
       }
       lunion.nmat++;
     }
-
+```
 
