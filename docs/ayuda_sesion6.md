@@ -59,11 +59,11 @@ Para añadir la capital:
     
  La lectura de las dos capitales la podéis hacer con un do-while (ya que hay que volver a preguntar si los id están fuera de rango):
 
-   do
-   {
-       printf("Introduce...
-       scanf(....
-   } while (id capital 1 menor que cero || id capital 1 mayor que...);
+	do
+	{
+	   printf("Introduce...
+	   scanf(....
+	} while (id capital 1 menor que cero || id capital 1 mayor que...);
 
 ### apartado b
 
