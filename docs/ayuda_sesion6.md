@@ -31,7 +31,8 @@ Para declarar una matriz de datos de tipo tfracciones:
 Para acceder a un campo de un struct dentro de una matriz haríais por ejemplo:
 
           mat_frac[i][j].num=...
-          
+
+<!--          
 ## Ejercicio 2
 
 Este ejercicio es laborioso. El algoritmo podría ser algo así:
@@ -48,8 +49,9 @@ Este ejercicio es laborioso. El algoritmo podría ser algo así:
 			Si fila 2 o 5 simplemente imprimir "+-+-+-+-+-+-+-+-+-+" en rojo.
 			Si no, mediante un for  imprimir lo mismo pero con el "+" rojo en las columnas 2 y 5. 
 		Imprimir salto de línea.
+-->
 
-## Ejercicio 3
+## Ejercicio 2
 
 ### apartado a
 
@@ -81,7 +83,7 @@ Lo hagáis como lo hagáis, una vez tengamos el tamaño del camino necesitaremos
 
 *NOTA: Una forma elegante de detener un bucle (por ejemplo si detectamos un id erróneo) es usar una variable de estado ERROR o algo similar. También se puede salir mediante una instrucción break.*
 
-## Ejercicio 4
+## Ejercicio 3
 
 ### apartado a
 
