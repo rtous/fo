@@ -10,6 +10,7 @@ This repository contains some notes about the FO lab. These notes are not part o
 - [Ayuda práctica 4](docs/ayuda_sesion4.md)
 - [Ayuda práctica 5](docs/ayuda_sesion5.md)
 - [Ayuda práctica 6](docs/ayuda_sesion6.md)
+- [Ayuda práctica 7](docs/ayuda_sesion7.md)
 - [Ayuda proyecto WORDLE](docs/wordle.md)
 
 
