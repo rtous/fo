@@ -175,7 +175,7 @@ Aquí se trata de aprovechar el código que teníais de otras sesiones. La funci
 	  return(res);
 	}
 
-Si no queremos repetir la parte común dl código de suma y resta podemo hacer:
+Si no queremos repetir la parte común del código de suma y resta podemo hacer:
 	
 	case '+': 
 	case '-': // calculo común suma y resta
@@ -204,11 +204,11 @@ Aquí se trata de ir leyendo las fracciones de izquierda a derecha e ir operando
 
 ## Ejercicio 5 (eliminar de un vector ordenado, pero con una función)
 
-** IMPORTANTE: Aquí trabajaremos con punteros. **
+**IMPORTANTE: Aquí trabajaremos con punteros.**
 
 Por primera vez aquí pasaremos a una función un puntero. Lo haremos para que, desde dentro de la función "eliminar_elemento" se modifique un struct que está declarado en el main.
 
-* NOTA: Para pasar un puntero hacemos &p y para acceder a lo que apunta *p. En el caso de los punteros structs, para acceder a un campo en vez de hacer (*p).a podemos hacer p->a. *
+*NOTA: Para pasar un puntero hacemos &p y para acceder a lo que apunta *p. En el caso de los punteros structs, para acceder a un campo en vez de hacer (*p).a podemos hacer p->a.*
 
 Para llamar a la función:
 
