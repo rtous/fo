@@ -55,7 +55,7 @@ Para no tener que poner primero el código de suma_digitos podemos poner su prot
 	  printf("La suma de los digitos de %d es %d\n\n", x, sum_dig);
 	}
 
-A continuación viene el código de suma_digitos. En un bucle iremos procesando los dígitos uno a uno. Primero haremos num%10 para obtener el dígito de la derecha y luego haremos num/10 para descartarlos y seguir con el siguiente. La función tendría este 
+A continuación viene el código de suma_digitos. En un bucle iremos procesando los dígitos uno a uno. Primero haremos num%10 para obtener el dígito de la derecha y luego haremos num/10 para descartarlos y seguir con el siguiente. La función tendría esta estructura:
 
 	int suma_digitos (int num)
 	{ 
@@ -137,9 +137,9 @@ Recordad que el combinatorio de m sobre n es:
 
 ## Ejercicio 4 (programa para operar con fracciones)
 
-** IMPORTANTE: Aquí trabajaremos con funciones y structs. **
+**IMPORTANTE: Aquí trabajaremos con funciones y structs.**
 
-* NOTA: Por lo que a las funciones respecta, los structs son como cualquier tipo básico (int, etc.). Al pasarlos como parámetro pasamos una copia íntegra del struct. Los que funcionarán distinto son los vectores (y matrices). *
+*NOTA: Por lo que a las funciones respecta, los structs son como cualquier tipo básico (int, etc.). Al pasarlos como parámetro pasamos una copia íntegra del struct. Los que funcionarán distinto son los vectores (y matrices).*
 
 ### apartado a
 
