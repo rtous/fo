@@ -139,7 +139,7 @@ Recordad que el combinatorio de m sobre n es:
 
 **IMPORTANTE: Aquí trabajaremos con funciones y structs.**
 
-*NOTA: Por lo que a las funciones respecta, los structs son como cualquier tipo básico (int, etc.). Al pasarlos como parámetro pasamos una copia íntegra del struct. Los que funcionarán distinto son los vectores (y matrices).*
+*NOTA: Por lo que a las funciones respecta, los structs son como cualquier tipo básico (int, etc.). Al pasarlos como parámetro pasamos una copia íntegra del struct.*
 
 ### apartado a
 
