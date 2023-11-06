@@ -10,7 +10,7 @@ Escribid un programa dominosa.c que (sin mostrar menús ni nada) solo muestre un
 
 Consideraciones:
 
-- Habrá que usar los ficheros colores.c y colores.h para poder mostrar colores y negritas (son diferentes a los del laboratorio). Se os proporciona la función printf_color_num que muestra un número con el mismo color que en la demo. Para desactivar las negritas al final haced printf_color(COLOR_DEFAULT).
+- Habrá que usar los ficheros colores.c y colores.h para poder mostrar colores y negritas (son diferentes a los del laboratorio).
 
 - Deberéis poner un #include de colores.h y al compilar deberéis compilar dominosa.c junto con colores.c (podeís hacer gcc *.c -o dominosa).  
 
@@ -63,9 +63,9 @@ Deberéis crear una nueva función realizar_jugada dentro de tablero.c (y añadi
 
 ## Versión 0.4 (conexiones entre casillas)
 
-Para poder ejecutar la jugada del usuario os hace falta guardar de alguna manera las conexiones entre casillas (las fichas del dominó). Un ficha o conexión se compone de dos casillas contiguas (encima/debajo o izquierda/derecha). Hay diferentes maneras de guardar esa información y sois libres de optar por la que más os convenza. Una opción sería guardar las conexiones de algún modo en la misma matriz de casillas. En caso de que lo hagáis de ese modo (no es obligatorio) deberéis modificar  la matriz que hay dentro de t_tablero para que en vez de almacenar enteros almacene structs de un nuevo tipo, t_casilla. Podéis definir t_casilla dentro de tablero.h o podéis crear una nueva librería (casilla.c y casilla.h) si pensáis que quedará mejor organizado (por ejemplo si hay funciones que trabajan a nivel de una casilla).
+Para poder ejecutar la jugada del usuario os hace falta guardar de alguna manera las conexiones entre casillas (las fichas del dominó). Un ficha o conexión se compone de dos casillas contiguas (encima/debajo o izquierda/derecha). Hay diferentes maneras de guardar esa información y sois libres de optar por la que más os convenza. Una opción sería guardar las conexiones de algún modo en la misma matriz de casillas. En caso de que lo hagáis de ese modo (no es obligatorio) deberéis modificar la matriz que hay dentro de t_tablero para que en vez de almacenar enteros almacene structs de un nuevo tipo, t_casilla. Podéis definir t_casilla dentro de tablero.h o podéis crear una nueva librería (casilla.c y casilla.h) si pensáis que quedará mejor organizado (por ejemplo si hay funciones que trabajan a nivel de una casilla).
 
-No se os da aquí pistas de qué información guardar dentro de t_casilla (a parte del entero que ya teníais). Ha de ser una información que permita saber si una casilla está conectada con otra o no. 
+No se os da aquí pistas de qué información guardar dentro de t_casilla (a parte del entero que ya teníais). Ha de ser una información que permita saber con qué casilla está conectada cada casilla. 
 
 Una vez tengáis una manera de guardar la información de las conexiones podéis amplicar el código de realizar_jugada para que cree una conexión nueva si es válida (si son dos casillas contiguas) o vuelva a preguntar en caso que no. Si alguna de las casillas que se intentan conectar ya estaban conectadas se deberían eliminar esas conexiones. 
 
@@ -75,7 +75,6 @@ Una vez tengáis una manera de guardar la información de las conexiones podéis
 ## Versión 0.5 (fin de la partida)
 
 Reemplazad el "while (1==1)" por un "while (!partida_terminada(tablero))" o algo así, y añadid la función partida_terminada a tablero.c y tablero.h. Esa función debe comprobar si se han conectado todas las fichas posibles. Por ejemplo si trabajamos con un número de dígitos posibles N = 3 (0, 1 y 2), hay que verificar que esten las fichas  0-0, 0-1, 0-2, 1-1, 1-2 y la 2-2 (el orden de los dígitos no importa). La manera de comprobarlo no es trivial y tenéis libertad de hacerlo como queráis. 
-
 
 
 <!-- --------------------------------------------- -->
