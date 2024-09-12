@@ -31,7 +31,7 @@ Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es
 
 - OPCIÓN 5: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
 
-NOTA: Para NetBeans se recomienda instalar [la versión ya integrada con Java](https://www.codelerity.com/netbeans/)
+<!--NOTA: Para NetBeans se recomienda instalar [la versión ya integrada con Java](https://www.codelerity.com/netbeans/)-->
 
 Si todo lo anterior falla siempre podéis usar:
 
@@ -86,4 +86,4 @@ Además de un editor también es recomendable utilizar un depurador. Uno sencill
 
 	sudo apt-get install -y nemiver
 
-*NOTA: Las opciones 2, 3 y 4 de los apartados de Mac y Windows también están disponibles para Linux. Las opciones 2 y 3 no tienen mucho sentido pero la 4 (instalar IDE NetBeans) sí lo tiene si queréis trabajar de esa manera.* 
+*NOTA: Las opciones IDE, máquina virtual y escritorio virtual de los apartados de Mac y Windows también están disponibles para Linux. Las opciones de máquina virtual y escritorio virtual no tienen mucho sentido pero la de IDE (NetBeans) sí lo tiene si queréis trabajar de esa manera.* 
