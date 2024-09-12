@@ -6,7 +6,7 @@ Las prácticas de FO consisten básicamente en editar, compilar y ejecutar progr
 
 Un entorno integrado de desarrollo (IDE) es una aplicación (como NetBeans o Visual Studio Code) todo en uno (editor código, compilación, depuración, terminal, etc.). Hay profesores de FO que lo utilizan (normalmente NetBeans ya que está en el laboratorio) y hay profesores que no y prefieren que uséis por separado el editor (gedit en el laboratorio), los comandos de compilación en el terminal, el depurador (nemiver en el laboratorio). Sois libres de hacerlo de una forma u otra pero si estáis empezando a programar mejor haced lo mismo que vuestro profesor. 
 
-Las instrucciones siguientes están pensadas principalmente para que podáis trabajar sin IDE en casa. En caso que optéis por trabajar con IDE (por ejemplo NetBeans) lo lógico sería que instalaseis NetBeans de forma nativa en vuestra máquina (la OPCIÓN 4). Aunque si os da problemas o queréis un entorno idéntico al del laboratorio también podéis optar por las opciones 2 (escritorio virtual) y 3 (máquina virtual.
+Las instrucciones siguientes están pensadas principalmente para que podáis trabajar sin IDE en casa. En caso que optéis por trabajar con IDE (por ejemplo NetBeans) lo lógico sería que instalaseis NetBeans de forma nativa en vuestra máquina (la OPCIÓN 4). Aunque si os da problemas o queréis un entorno idéntico al del laboratorio también podéis optar por las opciones 2 (escritorio virtual) o 3 (máquina virtual).
      
 
 ## Si tenéis Windows
