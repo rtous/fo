@@ -8,7 +8,7 @@ Hay múltiples opciones para poder programar en C en Windows. Para los que empez
 
 - OPCIÓN 1: [Programar C en Ubuntu mediante Windows Subsystem for Linux (WSL) en Windows 10 ](wsl.md)
 
-Si WSL os ha dado problemas una alternativa será utilizar un escritorio virtual:
+Si WSL os ha dado problemas una alternativa será utilizar un escritorio virtual de la ETSETB:
 
 - OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
 
@@ -33,13 +33,15 @@ Hay múltiples opciones para poder programar en C en Mac. Para los que empezáis
 
 - OPCIÓN 1: [Programar C en Mac de manera simple  ](mac.md)
 
+Si alternativa será utilizar un escritorio virtual de la ETSETB:
+
+- OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
+
 Una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
 
 - OPCIÓN 2: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
-En teoría una alternativa más práctica que la máquina virtual sería utilizar un escritorio virtual pero suele dar problemas en Mac. No obstante os dejo el enlace por si lo queréis probar:
 
-- OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
 
 Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
 
