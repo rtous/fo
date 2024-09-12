@@ -14,7 +14,7 @@ Si WSL os ha dado problemas una alternativa será utilizar un escritorio virtual
 
 Si el escritorio virtual os da problemas una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
 
-- OPCIÓN 3: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con : Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
+- OPCIÓN 3: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
 Los que tengáis un nivel más avanzado podéis probar Visual Studio Code (u otro IDE como NetBeans):
 
@@ -33,7 +33,7 @@ Hay múltiples opciones para poder programar en C en Mac. Para los que empezáis
 
 Una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
 
-- OPCIÓN 2: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con : Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
+- OPCIÓN 2: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
 En teoría una alternativa más práctica que la máquina virtual sería utilizar un escritorio virtual pero suele dar problemas en Mac. No obstante os dejo el enlace por si lo queréis probar:
 
