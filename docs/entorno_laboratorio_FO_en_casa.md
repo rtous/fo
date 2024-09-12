@@ -16,9 +16,9 @@ Si el escritorio virtual os da problemas una alternativa será que os instaléis
 
 - OPCIÓN 3: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
-Los que tengáis un nivel más avanzado podéis probar Visual Studio Code (u otro IDE como NetBeans):
+Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
 
-- OPCIÓN 4: [Visual Studio Code](visual_studio_code.md) 
+- OPCIÓN 4: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
 
 Si todo lo anterior falla siempre podéis usar:
 
@@ -39,9 +39,10 @@ En teoría una alternativa más práctica que la máquina virtual sería utiliza
 
 - OPCIÓN 3: [Ravada VDI ](https://rvd6.upc.edu/) / [MANUAL: Ravada VDI ](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
 
-Los que tengáis un nivel más avanzado podéis probar Visual Studio Code (u otro IDE como NetBeans):
+Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
 
-- OPCIÓN 4: [Visual Studio Code](visual_studio_code.md) 
+- OPCIÓN 4: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
+
 
 Si todo lo anterior falla siempre podéis usar:
 
