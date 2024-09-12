@@ -1,8 +1,11 @@
-# Programar en GCC en Windows 10 mediante WSL y Visual Studio Code
+# Programar en GCC en Windows 10 mediante WSL y Notepad++
 
-Una alternativa muy productiva para programar en C/C++ sobre Windows 10 es hacerlo mediante Windows Subsystem for Linux (WSL). Un inconveniente es que editar los ficheros fuente (mediante un GUI Windows o Linux) no es trivial. Afortunadamente, existe una extensión que permite hacerlo mediante Visual Studio Code, el entorno de programación más utilizado según el Stack Overflow 2019 Developer Survey.
+Una alternativa muy productiva para programar en C/C++ sobre Windows 10 es hacerlo mediante Windows Subsystem for Linux (WSL). Con WSL podréis instalar un Ubuntu parecido al que usamos en el laboratorio en vuestro Windows como si fuera una aplicación, de forma mucho más práctica que mediante una máquina virtual. 
 
-NOTA: Este tutorial es una versión "expresso" del que hay [aquí](https://code.visualstudio.com/docs/cpp/config-wsl). Echadle un vistazo si tenéis problemas o queréis más detalles.
+En ese Ubuntu podréis ejecutar los mismos comandos que usamos en el laboratorio pero no las aplicaciones gráficas de Ubuntu (el editor gedit por ejemplo). Pero en vez de gedit podemos usar un editor de texto de Windows, como Notepad++, para editar ficheros. 
+
+NOTA: Notepad++ es un editor sencillo como el gedit que usaremos en el laboratorio y es lo recomendable para los que empezáis. Una alternativa más "profesional" sería hacerlo mediante Visual Studio Code. Una ventaja de Visual Studio Code es que incorpora un depurador. Si queréis probarlo tenéis un tutorial [aquí](programar_gcc_en_windows_con_WSL_y_vscode.md).
+
 
 ## 1 Instalar Windows Subsystem for Linux (WSL) en Windows 10
 
@@ -32,69 +35,21 @@ Ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cóm
 
 Cerrad la ventana de Ubuntu (no la mantengáis abierta o fallará uno de los pasos siguientes).
 
-### 2 Instalar Visual Studio Code 
+## 1.4 Instalar y configurar Notepad++
 
-1. Descargad e instalad de [aquí](https://code.visualstudio.com/)
+1. Descargad e instalad de [aquí](https://notepad-plus-plus.org/)
 
-2. Cuando arranque Visual Studio Code instalad la extensión "Remote - WSL". Veréis que Visual Studio Code os lo propone al arrancar y ver que tenéis instalado WSL. Si no fuera así, abrid Extensions (Ctrl+Shift+X) y la buscáis allí.
+2. Es conveniente (aunque no estrictamente necesario) poder ejecutar Notepad++ desde el terminal de Ubuntu. Para ello hace falta hacer lo siguiente: Entrad Configuración/Sistema/Información/Configuración avanzada/Variables de entorno (o simplemente buscad "variables de entorno" en el buscador Windows). Seleccionad la variable Path y editadla. Añadir (Nuevo) la siguiente ruta:
 
-3. Instalad la extensión C/C++. Abrid Extensions (Ctrl+Shift+X) y buscad "C/C++". Instalad la de Microsoft (normalmente la primera que sale).
+	C:\Program Files (x86)\Notepad++;
 
-4. Cerrad Visual Studio Code.
+Ahora si entráis de nuevo en Ubuntu, abrís un terminal y ejecutáis:
 
-## 4 Editar un fichero fuente desde WSL mediante Visual Studio Code 
+	Notepad++.exe test.c 
 
-Ejecutad de nuevo la aplicación de Ubuntu. Una vez dentro ejecutad los siguientes comandos:
-	
-	mkdir projects
-	cd projects
-	mkdir helloworld
-	cd helloworld
+Os abrirá (o creará) el fichero y lo podréis editar fácilmente.
 
-Ejecutad el siguiente comando que abrirá Visual Studio Code desde el terminal:
-
-	code .
-
-Ahora ya podéis editar ficheros de WSL mediante Visual Studio Code. Con esto es suficiente ya que podemos compilar y ejecutar los programas en el terminal. Por ejemplo, en Visual Studio Code cread un nuevo fichero llamado "helloworld.c" y guardadlo en la carpeta "helloworld" de WSL. Dentro del fichero copiad un código sencillo:
-
-	#include <stdio.h>
-	int main() {
-	   printf("Hello, World!");
-	}
-
-Grabad mediante CTRL+S. Ahora en el terminal comprobad que el fichero está mediante el comando:
-
-	ls
-
-Y que tiene el contenido correcto mediante el comando:
-
-	cat helloworld.c
-
-Compiladlo mediante:
-
-	gcc helloworld.c -o helloworld
-
-Y ejecutadlo haciendo simplemente:
-
-	./helloworld
-
-## (OPCIONAL) 5 Compilar y depurar mediante Visual Studio Code 
-
-Aunque no sea estrictamente necesario sería una pena desaprovechar que Visual Studio Code no es solo un editor, es un entorno integrado de desarrollo (IDE). Eso siginfica que, entre otras mil cosas, nos permite compilar y depurar los programas directamente sobre el editor. 
-
-### 5.1 Compilar mediante Visual Studio Code
-
-Para compilar tenéis que ir a Terminal > Configure Default Build Task. Seleccionad allí "C/C++: gcc build active file". Esto creará un fichero tasks.json dentro de un directorio oculto .vscode y os lo mostrará en el editor. Podéis cerrarlo e ignorarlo. Para compilar id a Terminal > Tasks: Run Build Task.
-
-El resultado de la compilación os aparecerá en el "Integrated Terminal", en la parte de abajo. 
-
-A parte de servir para ver el resultado de la compilación, el "Integrated Terminal" os evitará tener que cambiar constantemente a la ventana de Ubuntu para realizar pruebas. Abrid un nuevo Integrated Terminal en Visual Studio Code mediante el icono "+" (abajo a la derecha). Dentro del terminal ejecutad el programa mediante el comando:
-	
-	./helloworld
-
-### 5.2 Depurar mediante Visual Studio Code
-
-Id a Run > Add Configuration... y seleccionad "C++ (GDB/LLDB)". Seleccionad "gcc build and debug active file". Esto también os creará y mostrará otro fichero .json. Podéis cerrarlo e ignorarlo. Apretando F5 o seleccionando en el menú Run > Start Debugging podéis depurar el programa. [Aquí](https://code.visualstudio.com/docs/cpp/config-wsl) encontraréis más información sobre como depurar con Visual Studio Code.
+También podéis acceder a los ficheros de Ubuntu desde el propio Notepad++ si hace falta. 
 
 
 

@@ -6,42 +6,42 @@ Las prácticas de FO consisten básicamente en editar, compilar y ejecutar progr
 
 Hay múltiples opciones para poder programar en C en Windows. Para los que empezáis a programar una opción práctica y que os da un entorno parecido al del laboratorio es instalar Ubuntu dentro de Windows mediante Windows Subsystem for Linux (WSL). 
 
-- [OPCIÓN 1: Programar C en Ubuntu mediante Windows Subsystem for Linux (WSL) en Windows 10 ](wsl.md)
+- OPCIÓN 1: [Programar C en Ubuntu mediante Windows Subsystem for Linux (WSL) en Windows 10 ](wsl.md)
 
 Si WSL os ha dado problemas una alternativa será utilizar un escritorio virtual:
 
-- [OPCIÓN 2: Ravada VDI ](https://rvd6.upc.edu/)[MANUAL: Ravada VDI ](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
+- OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/)[(MANUAL)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
 
 Si el escritorio virtual os da problemas una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
 
-- [OPCIÓN 3: Máquina virtual con VirtualBox](virtualmachine.md)[Máquina virtual con : Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
+- OPCIÓN 3: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con : Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
 Los que tengáis un nivel más avanzado podéis probar Visual Studio Code (u otro IDE como NetBeans):
 
-- [OPCIÓN 4: Visual Studio Code](visual_studio_code.md) 
+- OPCIÓN 4: [Visual Studio Code](visual_studio_code.md) 
 
 Si todo lo anterior falla siempre podéis usar:
 
-- [OPCIÓN 5: replit.com](https://replit.com/) 
+- OPCIÓN 5: [replit.com](https://replit.com/) 
 
 
 ## Si tenéis Mac
 
 Hay múltiples opciones para poder programar en C en Mac. Para los que empezáis a programar lo más práctico es usar directamente las herramientas de Mac:
 
-- [OPCIÓN 1: Programar C en Mac de manera simple  ](mac.md)
+- OPCIÓN 1: [Programar C en Mac de manera simple  ](mac.md)
 
 Una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
 
-- [OPCIÓN 2: Máquina virtual con VirtualBox](virtualmachine.md)[Máquina virtual con : Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
+- OPCIÓN 2: [Máquina virtual con VirtualBox](virtualmachine.md)[Máquina virtual con : Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
 En teoría una alternativa más práctica que la máquina virtual sería utilizar un escritorio virtual pero suele dar problemas en Mac. No obstante os dejo el enlace por si lo queréis probar:
 
-- [OPCIÓN 3: Ravada VDI ](https://rvd6.upc.edu/)[MANUAL: Ravada VDI ](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
+- OPCIÓN 3: [Ravada VDI ](https://rvd6.upc.edu/)[MANUAL: Ravada VDI ](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
 
 Los que tengáis un nivel más avanzado podéis probar Visual Studio Code (u otro IDE como NetBeans):
 
-- [OPCIÓN 4: Visual Studio Code](visual_studio_code.md) 
+- OPCIÓN 4: [Visual Studio Code](visual_studio_code.md) 
 
 Si todo lo anterior falla siempre podéis usar:
 
