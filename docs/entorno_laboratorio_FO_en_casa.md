@@ -14,8 +14,6 @@ Las instrucciones siguientes están pensadas principalmente para que podáis tra
 Hay múltiples opciones para poder programar en C en Windows. Para los que empezáis a programar una opción simple y práctica es trabajar nativamente en Windows:
 
 - OPCIÓN 1: [Programar C en Windows con MinGW y Notepad++ ](mingw.md)
-	- PROS:
-	- CONS: 
 
 Una alternativa más parecida a lo que tendréis en el laboratorio es instalar Ubuntu dentro de Windows mediante Windows Subsystem for Linux (WSL). 
 
