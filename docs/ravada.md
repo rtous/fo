@@ -1,20 +1,24 @@
 # Conexión a RAVADA
 
-Instalar virt-viewer de [aquí](https://virt-manager.org/download.html) (el enlace que pone [Win x64 MSI}(https://releases.pagure.org/virt-viewer/virt-viewer-x64-11.0-1.0.msi)).
+## Windows
 
-Clicar en el instalador para 
+1) Descargar el fichero [spice.reg](https://raw.githubusercontent.com/UPC/ravada/gh-pages/docs/docs/spice.reg). Mejor clicad con el botón derecho sobre el enlace y hace "Guardar enlace como..." y guardadlo en Descargas. Aseguraros de que se descarga con extensión .reg y no .txt (si no canviarla). 
 
+2) Con el explorador de ficheros id a Descargas y ejecutad el fichero spice.reg y aceptad los cambios en el registro.
 
-1) Descargar el fichero [spice.reg](https://raw.githubusercontent.com/UPC/ravada/gh-pages/docs/docs/spice.reg). Aseguraros de que se descarga con extensión .reg y no .txt (si no canviarla). Ejecutad el fichero y aceptad los cambios en el registro.
-2) Descargad el fichero [UsbDk_1.0.19_x64.msi](https://www.spice-space.org/download/windows/usbdk/UsbDk_1.0.19_x64.msi).
-3) Reiniciad el PC.
-4) Instalar el [Remote Viewer] para Windows (https://releases.pagure.org/virt-viewer/virt-viewer-x64-11.0-1.0.msi).
-5) Conectarse a ravada [aquí]( https://infoteleco.upc.edu/ravada/)
-6) Seleccionad la máquina Linux_AulesA2
-7) Seleccionad la pestaña "spice" y copiad la URL y tomad nota de la contraseña que aparece encima.
-8) Ejecutad la aplicación "Remote viewer" y entrad la URL y la contraseña
+3) Descargad el fichero [UsbDk_1.0.19_x64.msi](https://www.spice-space.org/download/windows/usbdk/UsbDk_1.0.19_x64.msi). 
 
+4) Reiniciad el PC.
 
+5) Descargad e instalar el [Remote Viewer para Windows](https://releases.pagure.org/virt-viewer/virt-viewer-x64-11.0-1.0.msi).
+
+6) Conectarse a ravada [aquí](https://rvd6.upc.edu/)
+
+7) Seleccionad la máquina LinuxAules2025
+
+8) Seleccionad la pestaña "spice" (cuidado que por defecto está "spice-tls") y copiad la URL y tomad nota de la contraseña que aparece encima.
+
+9) Ejecutad la aplicación "Remote viewer" (buscador de Windows) y entrad la URL y la contraseña.
 
 ## Mac
 
