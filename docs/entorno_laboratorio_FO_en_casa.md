@@ -81,3 +81,5 @@ Ahora ya podéis compilar programas en C y ejecutarlos, pero para poderlos edita
 Además de un editor también es recomendable utilizar un depurador. Uno sencillo es Nemiver y lo podéis instalar así:
 
 	sudo apt-get install -y nemiver
+
+*NOTA: Las opciones 2, 3 y 4 de los apartados de Mac y Windows también están disponibles para Linux. Las opciones 2 y 3 no tienen mucho sentido pero la 4 (instalar IDE NetBeans) sí lo tiene si queréis trabajar de esa manera.* 
