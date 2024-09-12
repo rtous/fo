@@ -20,6 +20,8 @@ Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es
 
 - OPCIÓN 4: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
 
+NOTA: Para NetBeans se recomienda instalar [la versión ya integrada con Java](https://www.codelerity.com/netbeans/)
+
 Si todo lo anterior falla siempre podéis usar:
 
 - OPCIÓN 5: [replit.com](https://replit.com/) 
