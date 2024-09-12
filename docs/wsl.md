@@ -79,4 +79,6 @@ En el menú "fichero" seleccionad "guardar como" y en la barra de arriba, en la 
 
 Ahora volved a la ventana Ubuntu y volved a listar el contenido de la carpeta "fo". Os debería aparecer el nuevo fichero.
 
-*NOTA 1: tal vez os preguntéis por qué no usamos gedit en Ubuntu (en vez de una aplicación Windows) como en el laboratorio. El motivo es que actualmente es muy complicado usar aplicaciones Ubuntu con entorno gráfico en WSL. Microsoft está a punto de sacar una actualización para que sea fácil, pero todavía no está lista. Ahora hace falta instalar un X Server para Windows (como x410) y realizar una configuración bastante complicada.*
+Por cierto, podéis ver también el fichero en el explorador de carpetas de Windows.
+
+*NOTA: tal vez os preguntéis por qué no usamos gedit en Ubuntu (en vez de una aplicación Windows) como en el laboratorio. El motivo es que actualmente es muy complicado usar aplicaciones Ubuntu con entorno gráfico en WSL. Microsoft está a punto de sacar una actualización para que sea fácil, pero todavía no está lista. Ahora hace falta instalar un X Server para Windows (como x410) y realizar una configuración bastante complicada.*
