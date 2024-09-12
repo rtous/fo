@@ -6,34 +6,36 @@ Las prácticas de FO consisten básicamente en editar, compilar y ejecutar progr
 
 Un entorno integrado de desarrollo (IDE) es una aplicación (como NetBeans o Visual Studio Code) todo en uno (editor código, compilación, depuración, terminal, etc.). Hay profesores de FO que lo utilizan (normalmente NetBeans ya que está en el laboratorio) y hay profesores que no y prefieren que uséis por separado el editor (gedit en el laboratorio), los comandos de compilación en el terminal, el depurador (nemiver en el laboratorio). Sois libres de hacerlo de una forma u otra pero si estáis empezando a programar mejor haced lo mismo que vuestro profesor. 
 
-Las instrucciones siguientes están pensadas principalmente para que podáis trabajar sin IDE en casa. En caso que optéis por trabajar con IDE (por ejemplo NetBeans) lo lógico sería que instalaseis NetBeans de forma nativa en vuestra máquina (la OPCIÓN 4). Aunque si os da problemas o queréis un entorno idéntico al del laboratorio también podéis optar por las opciones 2 (escritorio virtual) o 3 (máquina virtual).
+Las instrucciones siguientes están pensadas principalmente para que podáis trabajar sin IDE en casa. En caso que optéis por trabajar con IDE (por ejemplo NetBeans) lo lógico sería que instalaseis NetBeans de forma nativa en vuestra máquina. Aunque si os da problemas o queréis un entorno idéntico al del laboratorio también podéis optar por las opciones de escritorio virtual o máquina virtual.
      
 
 ## Si tenéis Windows
 
-Hay múltiples opciones para poder programar en C en Windows. Para los que empezáis a programar una opción práctica y que os da un entorno parecido al del laboratorio es instalar Ubuntu dentro de Windows mediante Windows Subsystem for Linux (WSL). 
+Hay múltiples opciones para poder programar en C en Windows. Para los que empezáis a programar una opción simple y práctica es trabajar nativamente en Windows:
 
-- OPCIÓN 0: [Programar C en Windows con MinGW y Notepad++ ](mingw.md)
+- OPCIÓN 1: [Programar C en Windows con MinGW y Notepad++ ](mingw.md)
 
-- OPCIÓN 1: [Programar C en Ubuntu mediante Windows Subsystem for Linux (WSL) en Windows 10 ](wsl.md)
+Una alternativa más parecida a lo que tendréis en el laboratorio es instalar Ubuntu dentro de Windows mediante Windows Subsystem for Linux (WSL). 
+
+- OPCIÓN 2: [Programar C en Ubuntu mediante Windows Subsystem for Linux (WSL) en Windows 10 ](wsl.md)
 
 Si WSL os ha dado problemas una alternativa será utilizar un escritorio virtual de la ETSETB:
 
-- OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
+- OPCIÓN 3: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
 
 Si el escritorio virtual os da problemas una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
 
-- OPCIÓN 3: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
+- OPCIÓN 4: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
 Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
 
-- OPCIÓN 4: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
+- OPCIÓN 5: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
 
 NOTA: Para NetBeans se recomienda instalar [la versión ya integrada con Java](https://www.codelerity.com/netbeans/)
 
 Si todo lo anterior falla siempre podéis usar:
 
-- OPCIÓN 5: [replit.com](https://replit.com/) 
+- OPCIÓN 6: [replit.com](https://replit.com/) 
 
 
 ## Si tenéis Mac
