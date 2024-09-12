@@ -13,6 +13,8 @@ Las instrucciones siguientes están pensadas principalmente para que podáis tra
 
 Hay múltiples opciones para poder programar en C en Windows. Para los que empezáis a programar una opción práctica y que os da un entorno parecido al del laboratorio es instalar Ubuntu dentro de Windows mediante Windows Subsystem for Linux (WSL). 
 
+- OPCIÓN 0: [Programar C en Windows con MinGW y Notepad++ ](mingw.md)
+
 - OPCIÓN 1: [Programar C en Ubuntu mediante Windows Subsystem for Linux (WSL) en Windows 10 ](wsl.md)
 
 Si WSL os ha dado problemas una alternativa será utilizar un escritorio virtual de la ETSETB:
