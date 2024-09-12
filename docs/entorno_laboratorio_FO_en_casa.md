@@ -2,6 +2,13 @@
 
 Las prácticas de FO consisten básicamente en editar, compilar y ejecutar programas escritos en lenguaje C. Hay muchas maneras de hacer esto en casa pero os recomendamos configurar un entorno que sea parecido al que utilizaremos en las sesiones de laboratorio y, lo más importante, en el el examen de laboratorio. No obstante, tened en cuenta que el entorno de laboratorio admite variantes (editor de código fuente, depurador, etc.) y cada profesor de laboratorio de FO tiene sus preferencias. A continuación se describe la configuración de un entorno básico, que más adelante podéis cambiar en función de vuestras preferencias o de lo que os diga vuestro profesor.
 
+## Trabajar con IDE o sin IDE?
+
+Un entorno integrado de desarrollo (IDE) es una aplicación (como NetBeans o Visual Studio Code) todo en uno (editor código, compilación, depuración, terminal, etc.). Hay profesores de FO que lo utilizan (normalmente NetBeans ya que está en el laboratorio) y hay profesores que no y prefieren que uséis por separado el editor (gedit en el laboratorio), los comandos de compilación en el terminal, el depurador (nemiver en el laboratorio). Sois libres de hacerlo de una forma u otra pero si estáis empezando a programar mejor hacer lo mismo que vuestro profesor de laboratorio. 
+
+Las instrucciones siguientes están pensadas principalmente para que podáis trabajar sin IDE en casa. En caso que optéis por trabajar con IDE (por ejemplo NetBeans) lo lógico sería que instalaseis NetBeans de forma nativa en vuestra máquina (la OPCIÓN 4). Aunque si os da problemas o queréis un entorno idéntico al del laboratorio también podéis optar por las opciones 2 (escritorio virtual) y 3 (máquina virtual.
+     
+
 ## Si tenéis Windows
 
 Hay múltiples opciones para poder programar en C en Windows. Para los que empezáis a programar una opción práctica y que os da un entorno parecido al del laboratorio es instalar Ubuntu dentro de Windows mediante Windows Subsystem for Linux (WSL). 
@@ -39,14 +46,11 @@ Si alternativa será utilizar un escritorio virtual de la ETSETB:
 
 Una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
 
-- OPCIÓN 2: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
-
-
+- OPCIÓN 3: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
 Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
 
 - OPCIÓN 4: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
-
 
 Si todo lo anterior falla siempre podéis usar:
 
