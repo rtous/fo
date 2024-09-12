@@ -10,7 +10,7 @@ Hay múltiples opciones para poder programar en C en Windows. Para los que empez
 
 Si WSL os ha dado problemas una alternativa será utilizar un escritorio virtual:
 
-- OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/) / [(MANUAL)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
+- OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
 
 Si el escritorio virtual os da problemas una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
 
@@ -39,7 +39,7 @@ Una alternativa será que os instaléis una máquina virtual como se describe en
 
 En teoría una alternativa más práctica que la máquina virtual sería utilizar un escritorio virtual pero suele dar problemas en Mac. No obstante os dejo el enlace por si lo queréis probar:
 
-- OPCIÓN 3: [Ravada VDI ](https://rvd6.upc.edu/) / [MANUAL: Ravada VDI ](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
+- OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
 
 Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
 
