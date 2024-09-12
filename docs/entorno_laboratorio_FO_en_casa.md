@@ -45,7 +45,7 @@ Los que tengáis un nivel más avanzado podéis probar Visual Studio Code (u otr
 
 Si todo lo anterior falla siempre podéis usar:
 
-- [OPCIÓN 5: replit.com](https://replit.com/) 
+- OPCIÓN 5: [replit.com](https://replit.com/) 
 
 ## Si tenéis Linux 
 
