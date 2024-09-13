@@ -29,6 +29,8 @@ Si el escritorio virtual os da problemas una alternativa será que os instaléis
 
 Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
 
+*NOTA: En el laboratorio está la versión 21 de NebBeans al que se ha instalado un antiguo pluguin de C/C++ (de la versión 8.2) como se explica en el manual de que hay en el siguiente enlace. No os instaléis la versión 22 ya que este pluguin ya no funciona y a día de hoy no hay reemplazo.*
+
 - OPCIÓN 5: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
 
 <!--NOTA: Para NetBeans se recomienda instalar [la versión ya integrada con Java](https://www.codelerity.com/netbeans/)-->
@@ -53,6 +55,8 @@ Una alternativa será que os instaléis una máquina virtual como se describe en
 - OPCIÓN 3: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
 
 Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
+
+*NOTA: En el laboratorio está la versión 21 de NebBeans al que se ha instalado un antiguo pluguin de C/C++ (de la versión 8.2) como se explica en el manual de que hay en el siguiente enlace. No os instaléis la versión 22 ya que este pluguin ya no funciona y a día de hoy no hay reemplazo.*
 
 - OPCIÓN 4: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
 
