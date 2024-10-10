@@ -11,6 +11,8 @@ Open a terminal:
 3) Install Netbeans:
 	```
 	wget https://archive.apache.org/dist/netbeans/netbeans/21/netbeans-21-bin.zip
+	```
+	```
 	unzip netbeans-21-bin.zip
 	```
 4) Run Netbeans:
