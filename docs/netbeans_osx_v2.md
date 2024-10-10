@@ -1,9 +1,9 @@
 Open a terminal:
 
 1) Install Homebrew if you don't have it already:
-
+	```
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+	```
 2) Install Java JDK 11 (NOTA: El plugin de C/C++ no funciona en versions posteriors)
 	```
 	brew install openjdk@11
