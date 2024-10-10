@@ -1,6 +1,6 @@
 # Ayuda para la sesión 2
 
-## Ejercicio 1
+## Ejercicio 3
 
 La solución del apartado b sería:
 
@@ -33,7 +33,7 @@ Al compilar debéis compilar también colores.c (viene con los ficheros de la se
 
 	gcc sesion2_ej1e.c colores.c -o sesion2_ej1e
 
-## Ejercicio 2
+## Ejercicio 4
 
 Para definir la constante PI haced:
 
@@ -50,7 +50,7 @@ Para definir la constante PI haced:
 Para trabajar con floats usad %f en los scanf y printf. Para que os muestre dos decimales:
 
 	printf("Area del circulo: %.2f\n", area);
-
+<!--
 ## Ejercicio 4
 
 El ejercicio requiere ir pidiendo que el usuario haga sus cálculos y vaya pulsando enter. Esto se haría así:
@@ -83,8 +83,8 @@ Con eso ya estaría pero te dice tu edad en 2015. Para actualizarlo hay que ente
 	2013-AÑONACIMIENTO da la edad en 2013 (quedará en los dos dígitos bajos)
 
 En realidad el cálculo es para 2013 pero le sumamos 2 para que sea para 2015. Para actualizarlo al año actual habría que sumarle (AÑOACTUAL-2013) en vez de dos. Para que el programa funcionara siempre se podría preguntar al usuario el año AÑOACTUAL.
-
-## Ejercicio 7
+-->
+## Ejercicio 6
 
 Para pasar de un valor de segundos a horas, minutos y segundos:
 
@@ -94,7 +94,7 @@ Para pasar de un valor de segundos a horas, minutos y segundos:
     s = totalsegundos%60;
     //...
 
-## Ejercicio 8
+## Ejercicio 7
 
 Dada una hora en formato hh:mm:ss tenemos que sumarle un segundo y volver a obtener la hora. Los pasos son los siguientes:
 
@@ -102,6 +102,19 @@ Dada una hora en formato hh:mm:ss tenemos que sumarle un segundo y volver a obte
 - Sumarle uno
 - Pasar el total de segundos a horas, minutos y segundos como en el ejercicio 7
 - A diferencia del ejercicio 7, ahora podría pasar que saliera una hora mayor que 23. Para evitarlo (si la hora es 24 debería ser 0) haremos h = h%24.
+
+## Ejercicio 8
+
+El usuario habrá introducido "T float float", "C float" (o con la t y la c minúsculas). Para analizarlos usaremos múltiples scanf de la siguiente manera:
+
+	//...
+    printf("Introduzca la descripcion de la figura: ");
+    scanf("%c ", &desc);
+    if (desc == 't' || desc == 'T')
+    {
+        scanf("%f %f%*c", &base, &altura);
+        area = base*altura/2;
+        //...
 
 ## Ejercicio 9
 
@@ -151,20 +164,7 @@ Para saber si es minúscula:
 
 Para invertir la capitalización, si la letra es minúscula la pasaremos a mayúscula restándole ('a'-'A') y si es mayúscula sumándole ('a'-'A').
 
-
-## Ejercicio 10
-
-El usuario habrá introducido "T float float", "C float" (o con la t y la c minúsculas). Para analizarlos usaremos múltiples scanf de la siguiente manera:
-
-	//...
-    printf("Introduzca la descripcion de la figura: ");
-    scanf("%c ", &desc);
-    if (desc == 't' || desc == 'T')
-    {
-        scanf("%f %f%*c", &base, &altura);
-        area = base*altura/2;
-        //...
-
+<!--
 ## Ejercicio 11
 
 El pseudocódigo para calcular si un año es bisiesto es:
@@ -172,4 +172,4 @@ El pseudocódigo para calcular si un año es bisiesto es:
 	(es múltiplo de 4 y no de 100) o (es múltiplo de 400)
 
 Para saber si a es múltiplo de b en C: a%b==0
-
+-->
