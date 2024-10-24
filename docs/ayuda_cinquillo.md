@@ -1,4 +1,4 @@
-# Desarrollo del proyecto paso a paso
+# Desarrollo del proyecto (cinquillo) paso a paso
 
 ## Versión 1 (imprimir un vector de cartas)
 
