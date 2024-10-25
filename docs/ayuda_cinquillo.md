@@ -178,7 +178,7 @@ int pedir_carta(int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_
 	//Mostrar las cartas posibles.
 	//Si hay posibles pedir al usuario la opción deseada. 
 	//Poner la carta en carta_selecccionada (si hay posibles)
-	//Devuelve TRURE si había alguna carta posible
+	//Devuelve TRUE si había alguna carta posible
 }
 ```
 En caso de que el usuario introduzca una opción <=0 o mayor que el número de cartas que hay en "posibles" se deberá repetir la pregunta. Conviene poner el análisis de las cartas posibles en una función a parte (por ejemplo "cartas_posibles"):
