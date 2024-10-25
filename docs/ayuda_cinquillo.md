@@ -107,7 +107,7 @@ Vostoros tenéis que:
 - Añadid en el main de cinquillo.c la declaración del mantel:
 ```
 int main() {
-	int mantel[NUM_NUMS][NUM_PALS];
+	int mantel[NUM_NUMS][NUM_PALS]; //vector de booleanos
 	...
 ```
 - Inicializad toda la matriz a FALSE.
@@ -136,16 +136,16 @@ char mantel_proxima_carta[NUM_PALS][2];
 
 Vamos ahora a extender cinquillo.c para que reiteradamente pregunte a todos los jugadores que carta quieren tirar (el bucle de juego). Empezemos por una versión simple, con un bucle infinito y todos los jugadores humanos. El bucle de juego, que iría al final del main, podría ser algo así:
 ```
-	do {
-		for (int i = 0; i < NUM_JUGS; i++) {
-			imprimir_jugadores(jugadores);
-			imprimir_mantel(mantel);
-			printf("\nTurno de JUG#%d:\n", i);
-			printf("\nQue tirada realizas? ");
-			int opcion;
-			scanf("%d%*c", &opcion);
-		}
-	} while (1==1);	
+do {
+	for (int i = 0; i < NUM_JUGS; i++) {
+		imprimir_jugadores(jugadores);
+		imprimir_mantel(mantel);
+		printf("\nTurno de JUG#%d:\n", i);
+		printf("\nQue tirada realizas? ");
+		int opcion;
+		scanf("%d%*c", &opcion);
+	}
+} while (1==1);	
 ```
 Ahora hay un scanf para que veáis cual es la idea, pero tendremos que modificar esa parte.
 
@@ -153,14 +153,14 @@ Ahora hay un scanf para que veáis cual es la idea, pero tendremos que modificar
 
 En el bucle de juego reemplacemos las algunas líneas de prueba que hemos puesto antes por una llamada a una función "pedir_carta" del siguiente modo:
 ```
-	do {
-		for (int i = 0; i < NUM_JUGS; i++) {
-			imprimir_jugadores(jugadores);
-			imprimir_mantel(mantel);
-			printf("\nTurno de JUG#%d:\n", i);
-			carta_seleccionada = pedir_carta(i, jugadores, mantel);
-		}
-	} while (1==1);	
+do {
+	for (int i = 0; i < NUM_JUGS; i++) {
+		imprimir_jugadores(jugadores);
+		imprimir_mantel(mantel);
+		printf("\nTurno de JUG#%d:\n", i);
+		int puede_jugar = pedir_carta(i, jugadores, mantel, &carta_seleccionada);
+	}
+} while (1==1);	
 ```
 Tendréis que añadir la declaración la carta seleccionada por el jugador:
 ```
@@ -171,16 +171,17 @@ int main() {
 ```
 - Programad (en el mismo cinquillo.c) la función pedir_carta, que muestra al usuario las posibles cartas y le pregunta cual escoge. Sería algo así:
 ```
-t_carta pedir_carta(int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS]) {
+int pedir_carta(int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS], t_carta *carta_selecccionada) {
 	int opcion;
 	t_cartas posibles;
 	cartas_posibles(num_jugador, jugadores, mantel, &posibles);
 	//Mostrar las cartas posibles.
-	//Pedir al usuario la opción deseada.
-	//Devolver la carta seleccionada.
+	//Si hay posibles pedir al usuario la opción deseada. 
+	//Poner la carta en carta_selecccionada (si hay posibles)
+	//Devuelve TRURE si había alguna carta posible
 }
 ```
-Conviene poner el análisis de las cartas posibles en una función a parte (por ejemplo "cartas_posibles"):
+En caso de que el usuario introduzca una opción <=0 o mayor que el número de cartas que hay en "posibles" se deberá repetir la pregunta. Conviene poner el análisis de las cartas posibles en una función a parte (por ejemplo "cartas_posibles"):
 ```
 void cartas_posibles(int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS], t_cartas_posibles *posibles) {
 	posibles->num_cartas = 0;
@@ -207,14 +208,15 @@ int es_posible(t_carta carta, char mantel[NUM_NUMS][NUM_PALS]) {
 Extendamos nuestro bucle de juego para que se aplique la jugada seleccionada por el usuario:
 ```
 do {
-		for (int i = 0; i < NUM_JUGS; i++) {
-			imprimir_jugadores(jugadores);
-			imprimir_mantel(mantel);
-			printf("\nTurno de JUG#%d:\n", i);
-			carta_depositada = pedir_carta(i, jugadores, mantel);
-			poner_carta(carta_depositada, i, jugadores, mantel);
-		}
-	} while (1==1);
+	for (int i = 0; i < NUM_JUGS; i++) {
+		imprimir_jugadores(jugadores);
+		imprimir_mantel(mantel);
+		printf("\nTurno de JUG#%d:\n", i);
+		int puede_jugar = pedir_carta(i, jugadores, mantel, &carta_seleccionada);
+		if (puede_jugar)
+			poner_carta(carta_seleccionada, i, jugadores, mantel);
+	}
+} while (1==1);
 ```
 - Programad la función poner_carta. Por un lado pondrá a TRUE la posición del mantel correspondiente a la carta seleccionada. Por otro lado, eliminará la carta del jugador correspondiente. Esto último conviene ponerlo en una función a parte, "eliminar_carta_jugador":
 ```
@@ -223,3 +225,33 @@ void eliminar_carta_jugador(t_carta carta, int num_jugador, t_jugador jugadores[
 void poner_carta(t_carta carta, int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS]);
 ```
 La función "eliminar_carta_jugador" hará la típica eliminación de un elemento de un vector.
+
+## Versión 8 (detectar final del juego)
+
+Extendamos nuestro bucle de juego para que el juego termine:
+```
+int final = FALSE;
+	do {
+		for (int i = 0; i < NUM_JUGS && !final; i++) {
+			imprimir_jugadores(jugadores);
+			imprimir_mantel(mantel);
+			printf("\nTurno de JUG#%d:\n", i);
+			int puede_jugar = pedir_carta(i, jugadores, mantel, &carta_seleccionada);
+			if (puede_jugar)
+				final = poner_carta(carta_seleccionada, i, jugadores, mantel);
+			if (final) {
+				imprimir_jugadores(jugadores);
+				imprimir_mantel(mantel);
+				printf_color_negrita();
+				printf("\nHA GANADO EL JUGADOR #%d.\n\n", i);
+				printf_reset_color();
+			}
+		}
+	} while (!final);
+```
+Vosotros tenéis que modificar la función "poner_carta" para que devuelva TRUE si el jugador se ha quedado sin cartas. 
+
+## Versión 9 (jugadores no humanos)
+
+Añadid al juego la pregunta inicial que hace en la demo sobre si hay un jugador humano (hasta ahora hemos asumido que todos lo eran). Deberéis realizar las modificaciones necesarias para que haya jugadores no humanos (simplemente seleccionaran la primera carta de las posibles). Una vez lo tengáis podéis introducir un tiempo de espera para que el usuario tenga tiempo de ver lo que han hecho los jugadores no humanos como sucede en la demo. Para ello usad la librería duerme.c/duerme.h.
+
