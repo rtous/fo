@@ -85,7 +85,7 @@ Vostoros tenéis que:
 	void crear_baraja(t_baraja *p_baraja);
 	t_carta sacar_carta_baraja(t_baraja * p_baraja);
 ```
-- En baraja.c deberéis programar esas dos funciones. La función crear_baraja simplemente carga todas las cartas posibles en la baraja e inicializa el campo con el número de cartas totales (40). Tal vez sea conveniente definir las constantes NUM_NUMS = 10 y NUM_PALS = 4 en alguna parte (por ejemplo en carta.h). Una complicación es que no debéis añadir ni el 8 ni el 9.
+- En baraja.c deberéis programar esas dos funciones. La función crear_baraja simplemente carga todas las cartas posibles en la baraja e inicializa el campo con el número de cartas totales (40). Tal vez sea conveniente definir las constantes NUM_NUMS = 10 y NUM_PALS = 4 en alguna parte (por ejemplo en carta.h). 
 - La función sacar_carta_baraja ha de sacar una carta al azar. Para ello deberéis usar la librería azar.c/azar.h proporcionada que incluye la función:
 ```
 int numero_al_azar(int max);
@@ -131,10 +131,27 @@ Recorriendo la matriz que representa el mantel es suficienta para saber qué car
 ```
 char mantel_proxima_carta[NUM_PALS][2];
 ```
--->   
+-->  
 ## Versión 5 (el bucle de juego)
 
-Vamos ahora a extender cinquillo.c para que reiteradamente pregunte a todos los jugadores que carta quieren tirar (el bucle de juego). Empezemos por una versión simple, con un bucle infinito y todos los jugadores humanos. Dejemos para más adelante también en análisis de qué cartas son posibles y simplemente mostremos como posibles todas las que tiene el jugador. El bucle de juego, que iría al final del main, podría ser algo así:
+Vamos ahora a extender cinquillo.c para que reiteradamente pregunte a todos los jugadores que carta quieren tirar (el bucle de juego). Empezemos por una versión simple, con un bucle infinito y todos los jugadores humanos. El bucle de juego, que iría al final del main, podría ser algo así:
+```
+	do {
+		for (int i = 0; i < NUM_JUGS; i++) {
+			imprimir_jugadores(jugadores);
+			imprimir_mantel(mantel);
+			printf("\nTurno de JUG#%d:\n", i);
+			printf("\nQue tirada realizas? ");
+			int opcion;
+			scanf("%d%*c", &opcion);
+		}
+	} while (1==1);	
+```
+Ahora hay un scanf para que veáis cual es la idea, pero tendremos que modificar esa parte.
+
+## Versión 6 (pedir al usuario qué carta quiere jugar)
+
+En el main reemplacemos las algunas líneas de prueba que hemos puesto antes por una llamada a una función "pedir_carta" del siguiente modo:
 ```
 	do {
 		for (int i = 0; i < NUM_JUGS; i++) {
@@ -142,24 +159,17 @@ Vamos ahora a extender cinquillo.c para que reiteradamente pregunte a todos los 
 			imprimir_mantel(mantel);
 			printf("\nTurno de JUG#%d:\n", i);
 			carta_seleccionada = pedir_carta(i, jugadores, mantel);
-			poner_carta(carta_seleccionada, jugadores, mantel);
 		}
 	} while (1==1);	
 ```
-- Añadid en el main de cinquillo.c la declaración la carta seleccionada por el jugador:
+Tendréis que añadir la declaración la carta seleccionada por el jugador:
 ```
 int main() {
 	...
 	t_carta carta_seleccionada;
 	...
 ```
-- Programad (en el mismo cinquillo.c) las funciones :
-```
-t_carta pedir_carta(int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS]);
-
-void poner_carta(t_carta carta, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS]);
-```
-La función pedir_carta muestra al usuario las posibles cartas y le pregunta cual escoge. Conviene poner el análisis de las cartas posibles en una función a parte (por ejemplo "cartas_posibles"). Para ello necesitamos crear un nuevo tipo t_cartas_posibles en cinquillo.c. Algo muy parecido a t_jugador, que incluya el número de cartas que tiene y un vector de t_carta. Una vez hecho eso la función pedir_carta puede empezar así:
+- Programad (en el mismo cinquillo.c) la función pedir_carta, que muestra al usuario las posibles cartas y le pregunta cual escoge. Sería algo así:
 ```
 t_carta pedir_carta(int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS]) {
 	int opcion;
@@ -170,7 +180,46 @@ t_carta pedir_carta(int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[
 	//Devolver la carta seleccionada.
 }
 ```
-De momento haced que la función cartas_posibles simplemente ponga en el parámetro "posibles" todas las cartas que tiene el jugador.
+Conviene poner el análisis de las cartas posibles en una función a parte (por ejemplo "cartas_posibles"):
+```
+void cartas_posibles(int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS], t_cartas_posibles *posibles) {
+	posibles->num_cartas = 0;
+	for (int i = 0; i < jugadores[num_jugador].num_cartas; i++) {
+		if (es_posible(jugadores[num_jugador].cartas[i], mantel)) {
+			//Añadimos la carta del jugador a "posibles".
+			//Incrementamos el número de cartas que hay en "posibles".
+		}
+	}
+}
+```
+Esta función llama a "es_posible", que dada una carta devuelve TRUE si se pude poner en el mantel:
+```
+int es_posible(t_carta carta, char mantel[NUM_NUMS][NUM_PALS]) {
+	//Devolverá TRUE si se cumple alguna de las siguintes condiciones:
+	// El identificador de la figura es un 4 (figura 5).
+	// El identificador de la figura es mayor que cero hay una carta en el mantel para ese palo y una figura con identificador+1.
+	//El identificador de la figura es menor que NUM_NUMS-1 y hay una carta en el mantel para ese palo y una figura con identificador-1. 
+}
+```
 
-La función poner_carta ya la podéis programar, simplemente pondrá a TRUE la posición del mantel correspondiente a la carta seleccionada.
+## Versión 7 (aplicar la jugada seleccionada)
 
+Extendamos nuestro bucle de juego para que se aplique la jugada seleccionada por el usuario:
+```
+do {
+		for (int i = 0; i < NUM_JUGS; i++) {
+			imprimir_jugadores(jugadores);
+			imprimir_mantel(mantel);
+			printf("\nTurno de JUG#%d:\n", i);
+			carta_depositada = pedir_carta(i, jugadores, mantel);
+			poner_carta(carta_depositada, i, jugadores, mantel);
+		}
+	} while (1==1);
+```
+- Programad la función poner_carta. Por un lado pondrá a TRUE la posición del mantel correspondiente a la carta seleccionada. Por otro lado, eliminará la carta del jugador correspondiente. Esto último conviene ponerlo en una función a parte, "eliminar_carta_jugador":
+```
+void eliminar_carta_jugador(t_carta carta, int num_jugador, t_jugador jugadores[NUM_JUGS]);
+
+void poner_carta(t_carta carta, int num_jugador, t_jugador jugadores[NUM_JUGS], char mantel[NUM_NUMS][NUM_PALS]);
+```
+La función "eliminar_carta_jugador" hará la típica eliminación de un elemento de un vector.
