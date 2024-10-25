@@ -251,7 +251,24 @@ int final = FALSE;
 ```
 Vosotros tenéis que modificar la función "poner_carta" para que devuelva TRUE si el jugador se ha quedado sin cartas. 
 
-## Versión 9 (jugadores no humanos)
+## Versión 9 (poner el 5 de oros)
+
+Hasta ahora hemos ignorado el hecho de que el juego lo empieza el jugador que tiene el cinco de oros. Para tenerlo en cuenta llamaremos a una nueva función, "poner_5_oros", antes del bucle de juego.
+```
+int jugador_que_empieza = poner_5_oros(jugadores, mantel);
+
+//bucle de juego
+int final = FALSE;
+do {
+	for (int i = jugador_que_empieza; i < NUM_JUGS && !final; i++) {
+		...
+	}
+	jugador_que_empieza = 0;
+} while (!final);
+```
+La función "poner_5_oros" buscará que jugador tiene esa carta, llamará a la función "poner_carta" y devolverá la posición del siguiente jugador (el que empieza a jugar).
+
+## Versión 10 (jugadores no humanos)
 
 Añadid al juego la pregunta inicial que hace en la demo sobre si hay un jugador humano (hasta ahora hemos asumido que todos lo eran). Deberéis realizar las modificaciones necesarias para que haya jugadores no humanos (simplemente seleccionaran la primera carta de las posibles). Una vez lo tengáis podéis introducir un tiempo de espera para que el usuario tenga tiempo de ver lo que han hecho los jugadores no humanos como sucede en la demo. Para ello usad la librería duerme.c/duerme.h.
 
