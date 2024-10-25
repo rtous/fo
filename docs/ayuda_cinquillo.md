@@ -151,7 +151,7 @@ Ahora hay un scanf para que veáis cual es la idea, pero tendremos que modificar
 
 ## Versión 6 (pedir al usuario qué carta quiere jugar)
 
-En el main reemplacemos las algunas líneas de prueba que hemos puesto antes por una llamada a una función "pedir_carta" del siguiente modo:
+En el bucle de juego reemplacemos las algunas líneas de prueba que hemos puesto antes por una llamada a una función "pedir_carta" del siguiente modo:
 ```
 	do {
 		for (int i = 0; i < NUM_JUGS; i++) {
