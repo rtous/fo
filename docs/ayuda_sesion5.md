@@ -102,7 +102,7 @@ Y luego ver si se detuvo la búsqueda por haberlo encontrado o por pasarse el va
 
 Este es un **EJERCICIO CLÁSICO** de eliminación e inserción de un elemento en un vector ordenado. 
 
-En ambos apartados se empieza por buscar en que posición está el elemento a eliminar o en que posición debería ir el elemento a insertar. Es una búsqueda en un vector ordenado como en el ejercicio anterior:
+En ambos apartados se empieza por buscar en que posición está el elemento a eliminar o en que posición debería ir el elemento a insertar. Es una búsqueda en un vector ordenado como en el ejercicio anterior (aunque ahora de menor a mayor):
 
     i=0;
     while (i<vect.nelem && valor>vect.vector[i])
@@ -142,9 +142,10 @@ Aquí solo insertaremos si no se encuentra el elemento, es decir dentro del else
 
 Para instertar un elemento en la posición pos hay que hacerle sitio desplazando todos los elementos una posición. Una forma de hacerlo es:
 
-    for (i=vect.nelem; i>pos; i--)
+    for (i=vect.nelem; i>pos; i--) 
         vect.vector[i]=vect.vector[i-1];
-        vect.vector[pos]=valor;
+    vect.vector[pos]=valor;
+    
 
     vect.nelem++;
 
