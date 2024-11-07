@@ -144,6 +144,9 @@ Para instertar un elemento en la posición pos hay que hacerle sitio desplazando
 
     for (i=vect.nelem; i>pos; i--) 
         vect.vector[i]=vect.vector[i-1];
+    
+Finalmente insertamos el valor y actualizamos el tamaño del vector:
+
     vect.vector[pos]=valor;
     vect.nelem++;
 
