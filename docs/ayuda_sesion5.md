@@ -87,7 +87,7 @@ Para buscar un elemento en un vector desordenado no queda otra que ir recorriend
 
 ### apartado b
 
-Si el vector está ordenado podemos parar de buscar cuando el valor supera el que buscamos. Simplemente tenemos que modificar la condición del while del apartado a así: 
+Si el vector está ordenado de mayor a menor podemos parar de buscar cuando vorden[i] sea menor o igual que el que buscamos (ya que seguro que no aparecerá después). Simplemente tenemos que modificar la condición del while del apartado a así: 
     
     while (i<DIM && vorden[i]>valor)
 
