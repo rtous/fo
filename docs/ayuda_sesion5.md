@@ -48,7 +48,7 @@ Pero como esta vez no hay que hacer nada después del scanf podría ser práctic
     do {
         scanf("%c", &frase[i]);
         i++;
-    } while (c != '.');
+    } while (frase[i-1] != '.');
     scanf("%*c"); //para descartar el \n
 
 Para mostrar la frase codificada podemos usar un while o un for:
