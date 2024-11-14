@@ -77,7 +77,7 @@ Para leer el número de ciudades a visitar también hay que usar un do-while (po
 	   scanf(... );
 	} while(numero de ciudades válido);
 
-Hay dos maneras de realizar este ejercicio. Podéis calcular la distancia a medida que se va leyendo el camino o podéis guardar el camino en un vector y luego recorrerlo para calcular la distancia. La idea del ejecercicio es que lo hagáis de la segunda manera pero el enunciado es ambiguo y si lo hacéis de la primera estará bien también.
+Hay dos maneras de realizar este ejercicio. Podéis calcular la distancia a medida que se va leyendo el camino o podéis guardar el camino en un vector y luego recorrerlo para calcular la distancia. La idea del ejercicio es que lo hagáis de la segunda manera pero el enunciado es ambiguo y si lo hacéis de la primera estará bien también.
 
 Lo hagáis como lo hagáis, una vez tengamos el tamaño del camino necesitaremos un bucle para ir leyendo los ids. No obstante, si se produce un error (id incorrecto) deberemos volver a preguntar todos los ids, por lo que el bucle tendrá que ir dentro de otro bucle. 
 
@@ -93,7 +93,7 @@ Este apartado no tiene ninguna dificultad en particular salvo el hecho de que ha
 
 ### apartado b
 
-La matriz será simétrica si tiene el mismo número de filas que de columnas y para todo (i,j) m1.mat[i][j]!=m1.mat[j][i]. Si se detecta que no es simétrica el programa debe terminar, no debe esperar a recorrer toda la matriz.
+La matriz será simétrica si (1) tiene el mismo número de filas que de columnas y (2) para todo (i,j) m1.mat[i][j]!=m1.mat[j][i]. Si se detecta que no es simétrica el programa debe terminar, no debe esperar a recorrer toda la matriz.
 
 ### apartado c
 
