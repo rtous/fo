@@ -98,7 +98,7 @@ La matriz será simétrica si (1) tiene el mismo número de filas que de columna
 ### apartado c
 
 Para calcular la traspuesta simplemente hay que, para todo (i,j), hacer mtras.mat[i][j]=m1.mat[j][i];
-
+<!--
 ### apartado d
 
 La idea aquí es calcular primero los máximos y mínimos de cada fila y columna y meterlos en 4 vectores:
@@ -110,7 +110,7 @@ Una vez hecho esto se recorre la matriz y para cada punto se comprueba si es pun
 ### apartado e
 
 Para multiplicar dos matrices usaremos tres bucles for anidados.
-
+-->
 
 
 
