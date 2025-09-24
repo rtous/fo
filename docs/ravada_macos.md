@@ -17,11 +17,11 @@ If Hombrew it's already installed run the following commands to install virt-vie
 	brew tap jeffreywildman/homebrew-virt-manager
 	brew install jeffreywildman/virt-manager/virt-viewer
 
-That's it. If it raises an error saying that there's a previous virt-viewer uninstall it with: 
+(only if error) If it raises an error saying that there's a previous virt-viewer uninstall it with: 
 
 	brew uninstall virt-viewer
 
-And try again:
+(only if error) And try again:
 	
 	brew install jeffreywildman/virt-manager/virt-viewer
 
