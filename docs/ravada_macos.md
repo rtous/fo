@@ -12,14 +12,18 @@ If not install Homebrew with:
 
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-If Hombrew it's already installed run the following commands
+If Hombrew it's already installed run the following commands to install virt-viewer:
 
 	brew tap jeffreywildman/homebrew-virt-manager
 	brew install jeffreywildman/virt-manager/virt-viewer
 
-If it raises an error saying that there's a previous virt-viewer uninstall it with: 
+That's it. If it raises an error saying that there's a previous virt-viewer uninstall it with: 
 
 	brew uninstall virt-viewer
+
+And try again:
+	
+	brew install jeffreywildman/virt-manager/virt-viewer
 
 ### Running
 
