@@ -91,48 +91,6 @@ Más adelante veremos como podemos hacerlo de un modo más elegante mediante una
 
 ## Ejercicio 6
 
-### Apartado a:
-
-Bucle for que calcula la potencia haciendo multiplicaciones. Parecido al del factorial del Ejercicio 5 pero siempre multiplicamos por el mismo valor.
-
-### Apartado b:
-
-Es más fácil de lo que parece. Se trata de hacer un bucle de 0 a n y dentro calcular la potencia mediante el bucle del apartado a, luego calcular el factorial mediante el bucle del Ejercicio 5 y finalmente hacer la división. 
-
-El (-1)^i hace que se sume en las iteraciones pares y se reste en las impares. No hace falta hacer ni esa potencia ni la multiplicación. Simplemente podemos poner un if:
-	
-	if (i%2==0)
-		cos = cos+ pot/fact;
-	else
-		cos = cos-pot/fact;
-
-TIP: cos y pot tienen que ser de tipo double.
-
-## Ejercicio 7
-
-Un buen esquema para este tipo de ejercicios sería éste:
-
-	do
-    {
-		/* Mostrar el menu de opciones */
-		scanf("%d%*c", &opcion);  		
-		switch (opcion)
-		{
-			case 1:
-				/* Tratar opción 1 */
-				break;
-			case 2:
-				/* Tratar opción 2 */
-				break;
-			...
-			default:
-			    printf("Opcion Incorrecta\n");
-		}
-	} while (opcion!=5);
-
-
-## Ejercicio 8
-
 Este ejercicio es más complejo que los anteriores y se puede resolver de diferentes maneras. Un posible esquema (el oficial) de una solución sería:
     
     //...
@@ -155,6 +113,46 @@ Otra solución sería (suele gustar más a los estudiantes) tener un único bucl
 	} while(c != '.');
 	scanf("%*c");
 
+## Ejercicio 7
+
+### Apartado a:
+
+Bucle for que calcula la potencia haciendo multiplicaciones. Parecido al del factorial del Ejercicio 5 pero siempre multiplicamos por el mismo valor.
+
+### Apartado b:
+
+Es más fácil de lo que parece. Se trata de hacer un bucle de 0 a n y dentro calcular la potencia mediante el bucle del apartado a, luego calcular el factorial mediante el bucle del Ejercicio 5 y finalmente hacer la división. 
+
+El (-1)^i hace que se sume en las iteraciones pares y se reste en las impares. No hace falta hacer ni esa potencia ni la multiplicación. Simplemente podemos poner un if:
+	
+	if (i%2==0)
+		cos = cos+ pot/fact;
+	else
+		cos = cos-pot/fact;
+
+TIP: cos y pot tienen que ser de tipo double.
+
+## Ejercicio 8
+
+Un buen esquema para este tipo de ejercicios sería éste:
+
+	do
+    {
+		/* Mostrar el menu de opciones */
+		scanf("%d%*c", &opcion);  		
+		switch (opcion)
+		{
+			case 1:
+				/* Tratar opción 1 */
+				break;
+			case 2:
+				/* Tratar opción 2 */
+				break;
+			...
+			default:
+			    printf("Opcion Incorrecta\n");
+		}
+	} while (opcion!=5);
 
 ## Ejercicio 9
 
