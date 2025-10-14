@@ -2,7 +2,7 @@
 
 ## Versión 1 (imprimir un sudoku)
 
-Escribid un programa sudoku.c que simplemente muestre un sudoku como el del ejecutable de demo. Para esta versión pondremos los valores directamente en el código (no los leeremos de un fichero todavía). Para probar pondremos un 0 en todas las celdas:
+Escribid un programa main.c que simplemente muestre un sudoku como el del ejecutable de demo. Para esta versión pondremos los valores directamente en el código (no los leeremos de un fichero todavía). Para probar pondremos un 0 en todas las celdas:
 ```
  |0 1 2|3 4 5|6 7 8|
 -+-+-+-+-+-+-+-+-+-+
@@ -48,7 +48,7 @@ Vostoros tenéis que:
 - Completar el código
 - Compilar con:
 ```
-	gcc sudoku.c colores.c -o sudoku
+	gcc main.c colores.c -o main
 ```
 
 ## Versión 2 (almacenar el sudoku en una matriz)
@@ -70,7 +70,7 @@ int main() {
 ```
 t_sudoku almacenará la matriz de celdas y también el tamaño del sudoku (9 en el ejemplo) y la región (3 en el ejemplo). t_celda almacenará el valor de cada celda y un booleano que indique si la celda es modificable por el usuario o no (predefinida). El valor de la celda conviene que sea un carácter ya que en los sudokus grandes usaremos letras también (0,1,2,3,4,5,6,7,8,9,A,B,C...).
 
-Resultará conveniente que defináis algunas constantes al principio de sudoku.c:
+Resultará conveniente que defináis algunas constantes al principio de main.c:
 
 ```
 #include <stdio.h>
@@ -156,7 +156,7 @@ Vostoros tenéis que:
 
 ## Versión 4 (bucle de juego)
 
-Vamos ahora a extender sudoku.c para que reiteradamente pregunte al jugador que valor quiere introducir. Empezemos por una versión simple, con un bucle infinito. El bucle de juego, que iría al final del main, podría ser algo así:
+Vamos ahora a extender main.c para que reiteradamente pregunte al jugador que valor quiere introducir. Empezemos por una versión simple, con un bucle infinito. El bucle de juego, que iría al final del main, podría ser algo así:
 ```
 in main() {
 	[...]
@@ -184,9 +184,57 @@ Vostoros tenéis que:
 - Completar el código del do-while.
 - Realizar alguna prueva para ver que los valores introducidos se van añadiendo correctamente.
 
+## Versión 5 (librerías)
+
+Ahora tenemos todo el codigo en único fichero, main.c, pero es conveniente (y de hecho obligatorio para sacar la máxima nota) estructurarlo en librerías. Se puede hacer de diferentes maneras pero una primera aproximación sería crear una librería auxiliar sudoku.c en la que pondremos los typedef y las funciones relativas a los datos del sudoku. Para ello crearemos dos ficheros:
+```
+sudoku.c
+sudoku.h
+```
+El fichero sudoku.h conviene que tenga la siguiente estructura:
+
+```
+[...] los #define de constantes que teníamos en main.c
+
+[...] typedefs de t_sudok y t_celda
+ 
+[...] cabecera funciones imprimir_sudoku e imprimir_separador
+```
+
+El fichero sudoku.c conviene que empiece con:
+
+```
+#include <stdio.h>
+#include "sudoku.h"
+#include "colores.h"
+
+[...] código funciones
+```
+
+Vostoros tenéis que:
+
+- Moved a sudoku.h los dos typedef (de t_sudoku y t_celda)
+- Escribid en sudoku.h las cabeceras (solo la cabecera) de las funciones imprimir_separador e imprimir_separador. Por ejemplo, para imprimir_separador sería únicamente:
+
+```
+void imprimir_sudoku(t_sudoku sudoku)
+```
+
+- Mover a sudoku.c las funciones imprimir_separador e imprimir_separador.
+
+- En main.c debéis añadir también un 
+
+```
+#include "sudoku.h"
+```
+
+
+## Troubleshooting
+
+- ld: symbol(s) not found (linker error): No se ha includio el .c de alguna librería en el comando gcc.
+
 
 <!--
-
 ## Versión 2 (mostrar las cartas de los jugadores)
 
 Escribid un programa cinquillo.c para que (sin mostrar menús ni nada) simplemente muestre las cartas de los jugadores (no las del mantel) con el aspecto del que aparece en el ejecutable de demo y termine. Para esta versión nos inventaremos unas cartas fijas para cada jugador. El main podría quedar así:
