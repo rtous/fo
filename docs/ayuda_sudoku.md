@@ -250,7 +250,7 @@ En la función realizar_jugada pondremos:
 - El código para preguntar al usuario la jugada.
 - El código para traducir las coordenadas en forma de char a coordenadas numéricas.
 - Ahora sí contemplaremos la posibilidad que una coordenada sea una letra. No haremos distinción entre mayúsculas y minúsculas y permitiremos que el usuario introduzca una letra de las dos maneras. Haced pruebas con el ejecutable de la demo y ficheros con sudokus grandes para ver como se gestionan este tipo de situaciones.
-- La coprobación de que la celda que se quiere modificar sea modificable.
+- La comprobación de que la celda que se quiere modificar sea modificable.
 
 ## Versión 7 (comprobación de final de juego)
 
