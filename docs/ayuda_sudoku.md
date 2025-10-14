@@ -214,10 +214,10 @@ El fichero sudoku.c conviene que empiece con:
 Vostoros tenéis que:
 
 - Moved a sudoku.h los dos typedef (de t_sudoku y t_celda)
-- Escribid en sudoku.h las cabeceras (solo la cabecera) de las funciones imprimir_separador e imprimir_separador. Por ejemplo, para imprimir_separador sería únicamente:
+- Escribid en sudoku.h las cabeceras (solo la cabecera) de las funciones imprimir_separador e imprimir_separador. Por ejemplo, para imprimir_separador sería únicamente (con ; al final):
 
 ```
-void imprimir_sudoku(t_sudoku sudoku)
+void imprimir_sudoku(t_sudoku sudoku);
 ```
 
 - Mover a sudoku.c las funciones imprimir_separador e imprimir_separador.
@@ -228,6 +228,33 @@ void imprimir_sudoku(t_sudoku sudoku)
 #include "sudoku.h"
 ```
 
+- Realizad los cambios y comprobad que sigue funcionando como antes.
+
+## Versión 6 (completar el procesado de la jugada: realizar_jugada)
+
+En las versiones anteriores hemos realizado un procesado muy simple de la jugada del usuario. No hemos realizado ninguna comprobación (que se modifique una celda modificable por ejemplo) y solo somos capaces de procesar coordenadas numéricas. Conviene ahora extender esto y para ello crearemos una función realizar_jugada. Añadiremos la cabecera de la función a sudoku.h:
+```
+void realizar_jugada(t_sudoku *p_s); 
+```
+
+Y escribiremos el cuerpo de la función en sudoku.c:
+```
+void realizar_jugada(t_sudoku *p_s) {
+	[...]
+} 
+```
+En la función realizar_jugada pondremos:
+
+- El código para preguntar al usuario la jugada.
+- El código para traducir las coordenadas en forma de char a coordenadas numéricas.
+- Ahora sí contemplaremos la posibilidad que una coordenada sea una letra. No haremos distinción entre mayúsculas y minúsculas y permitiremos que el usuario introduzca una letra de las dos maneras. Haced pruebas con el ejecutable de la demo y ficheros con sudokus grandes para ver como se gestionan este tipo de situaciones.
+- La coprobación de que la celda que se quiere modificar sea modificable.
+
+## Versión 7 (comprobación de final de juego)
+
+Ahora nuestro bucle de juego no termina nunca, es infinito. 
+
+TODO
 
 ## Troubleshooting
 
