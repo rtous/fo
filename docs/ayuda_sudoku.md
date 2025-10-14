@@ -119,13 +119,68 @@ Que corresponde al sudoku:
 -+-+-+-+-+-+-+-+-+-+
 ```
 
-
 Vostoros tenéis que:
 
 - Completar los tipos de datos.
+- Adaptar el main para que use el tamaño del sudoku y la región guardado en la variable sudoku. 
+- Borrar las variables tamanyo_total y tamanyo_region de la versión anterior.
 - Adaptar el main para que acceda a los valores de las celdas.
 - Modificar los printf de las celdas para que trabajen con carácteres y no con números.
 - Añadir lo necesario para que las celdas modificables se impriman sin negrita.
+
+
+## Versión 3 (funciones)
+
+Ahora pondremos el código para imprimir el sudoku en una función. Antes del main (y después de los typedef) cread dos funciones:
+
+```
+void imprimir_separador(int tamanyo_total) {
+	[...] código que antes imprimía el separador -+-+-+-+-+-+-+-+-+-+
+}
+
+void imprimir_sudoku(t_sudoku sudoku) {
+	[...] código que antes imprimía el sudoku (llama a imprimir_separador)
+}
+
+in main() {
+	[...]
+	imprimir_sudoku(sudoku);
+}
+
+```
+Vostoros tenéis que:
+
+- Completar el código de las funciones.
+- Sustituir el código de impresión que teníais antes en el main por imprimir_sudoku(sudoku);
+
+
+## Versión 4 (bucle de juego)
+
+Vamos ahora a extender sudoku.c para que reiteradamente pregunte al jugador que valor quiere introducir. Empezemos por una versión simple, con un bucle infinito. El bucle de juego, que iría al final del main, podría ser algo así:
+```
+char fil_char, col_char, c;
+int fil, col;
+do {
+	imprimir_sudoku(sudoku);
+	[...] preguntar la jugada (fila, columna y valor) como en la demo en forma de tres chars 
+	[...] transformar las coordenadas de char a entero
+	[...] asignar el nuevo valor al sudoku
+} while (1==1);
+```
+Conviene almacenar las coordeandas en forma de char ya que en sudokus de tamaño>9 usaremos letras. Eso os obligará a transformar cada coordenada de char a entero pada poderla usar después. En una primera versión podéis hacer simplemente: 
+```
+fil = fil_char - '0';
+col = col_char - '0';
+```
+Al restar el código ASCII del '0' (48 decimal) al código ASCII de la coordenada (por ejemplo el del '3' es 51 decimal) obtendremos el valor númerico (Por ejemplo 51-48 = 3).
+
+No obstante, esto solo nos funcionará si la coordenada es numérica. Pero para nuestro sudoku de 9x9 de ejemplo servirá (en futuras versiones tendréis que ampliar este código para que también trabaje con letras).
+
+Vostoros tenéis que:
+
+- Completar el código del do-while.
+- Realizar alguna prueva para ver que los valores introducidos se van añadiendo correctamente.
+
 
 <!--
 
