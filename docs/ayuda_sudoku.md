@@ -234,14 +234,14 @@ void imprimir_sudoku(t_sudoku sudoku);
 
 ## Versión 6 (completar el procesado de la jugada: realizar_jugada)
 
-En las versiones anteriores hemos realizado un procesado muy simple de la jugada del usuario. No hemos realizado ninguna comprobación (que se modifique una celda modificable por ejemplo) y solo somos capaces de procesar coordenadas numéricas. Conviene ahora extender esto y para ello crearemos una función realizar_jugada. Añadiremos la cabecera de la función a sudoku.h:
+En las versiones anteriores hemos realizado un procesado muy simple de la jugada del usuario. No hemos realizado ninguna comprobación (que se modifique una celda modificable por ejemplo). Conviene ahora extender esto y para ello crearemos una función realizar_jugada. Añadiremos la cabecera de la función a sudoku.h:
 ```
 void realizar_jugada(t_sudoku *p_s); 
 ```
 
 Y escribiremos el cuerpo de la función en sudoku.c:
 ```
-void realizar_jugada(t_sudoku *p_s) {
+void realizar_jugada(t_sudoku *p_sudoku) {
 	[...]
 } 
 ```
@@ -249,14 +249,18 @@ En la función realizar_jugada pondremos:
 
 - El código para preguntar al usuario la jugada.
 - El código para traducir las coordenadas en forma de char a coordenadas numéricas.
-- Ahora sí contemplaremos la posibilidad que una coordenada sea una letra. No haremos distinción entre mayúsculas y minúsculas y permitiremos que el usuario introduzca una letra de las dos maneras. Haced pruebas con el ejecutable de la demo y ficheros con sudokus grandes para ver como se gestionan este tipo de situaciones.
 - La comprobación de que la celda que se quiere modificar sea modificable.
 
 ## Versión 7 (comprobación de final de juego)
 
-Ahora nuestro bucle de juego no termina nunca, es infinito. 
+## Versión 8 (leer el sudoku de un fichero)
 
-TODO
+## Versión 9 (trabajar con sudokus mayores a 9x9)
+
+Si queremos trabajar con sudokus mayores a 9x9 tendremos que usar letras. No haremos distinción entre mayúsculas y minúsculas. La letra a/A será la posición 10, la b/B el 11, etc. Permitiremos que el usuario introduzca una letra en mayúsculas o en minúsculas. Eso sí, al imprimir, debermos hacerlo como en la demo, en mayúsculas las celdas, en minúsculas las leyendas de los ejes de coordenadas. 
+
+Para transformar una letra l a número (por ejemplo la 'b') haremos: l - 'a' + 10. El código ASCII de 'b' es 98, el de 'a' 97, 97-98 = 1, 1+10 = 11. En caso que la letra sea mayúscula haremos l - 'A' + 10. Deberéis analizar la coordenada entrada y tratarla en función de si es número, letra minúscula o letra mayúscula. Será conveniente crear una función para ello. 
+
 
 ## Troubleshooting
 
