@@ -2,7 +2,7 @@
 
 ## Versión 1 (imprimir un sudoku)
 
-Escribid un programa sudoku.c que simplemente muestre un sudoku incompleto como el del ejecutable de demo. Para esta versión pondremos los valores directamente en el código (no los leeremos de un fichero todavía). Para probar pondremos un 0 en todas las celdas:
+Escribid un programa sudoku.c que simplemente muestre un sudoku como el del ejecutable de demo. Para esta versión pondremos los valores directamente en el código (no los leeremos de un fichero todavía). Para probar pondremos un 0 en todas las celdas:
 ```
  |0 1 2|3 4 5|6 7 8|
 -+-+-+-+-+-+-+-+-+-+
