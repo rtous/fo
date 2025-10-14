@@ -11,7 +11,8 @@ This repository contains some notes about the FO lab. These notes are not part o
 - [Ayuda práctica 5](docs/ayuda_sesion5.md)
 - [Ayuda práctica 6](docs/ayuda_sesion6.md)
 - [Ayuda práctica 7](docs/ayuda_sesion7.md)
-- [Ayuda proyecto](docs/ayuda_cinquillo.md)
+- [Ayuda proyecto](docs/ayuda_sudoku.md)
+<!-- - [Ayuda proyecto](docs/ayuda_cinquillo.md) --> 
 <!-- - [Ayuda proyecto DOMINOSA](docs/dominosa.md) --> 
 
 
