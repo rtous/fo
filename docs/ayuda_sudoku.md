@@ -1,5 +1,7 @@
 # Desarrollo del proyecto (sudoku) paso a paso
 
+A continuación se os dan algunas pistas sobre un posible camino a seguir para desarrollar el proyecto. Esta guía está pensada para aquellos que no sabéis por donde empezar o para resolver alguna duda concreta. No es obligatorio seguir esta guía ni tampoco hacer las cosas como aquí se sugiere. Podéis coger alguna idea o ignorarla completamente. La evaluación de vuestro diseño e implementación se hará respecto a los criterios de evaluación publicados en Metacurs. 
+
 ## Versión 1 (imprimir un sudoku)
 
 Escribid un programa main.c que simplemente muestre un sudoku como el del ejecutable de demo. Para esta versión pondremos los valores directamente en el código (no los leeremos de un fichero todavía). Para probar pondremos un 0 en todas las celdas:
