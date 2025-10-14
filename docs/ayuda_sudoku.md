@@ -43,11 +43,72 @@ int main() {
 	printf_reset_color();
 }
 ```
+Vostoros tenéis que:
 
-- Deberéis compilar con:
+- Completar el código
+- Compilar con:
 ```
-	gcc cinquillo.c colores.c carta.c -o cinquillo
+	gcc sudoku.c colores.c -o sudoku
 ```
+
+## Versión 2 (almacenar el sudoku en una matriz)
+
+Para almacenar los valores del sudoku tendréis que definir dos nuevos tipos de dato al los que podeís llamar, por ejemplo, t_sudoku y t_celda. De momento los podéis poner directamente encima del main:
+
+```
+typedef struct {
+	[...]
+} t_celda;
+
+typedef struct {
+	t_celda celdas[MAX_SIZE][MAX_SIZE];
+	[...]
+} t_sudoku;
+
+int main() {
+...
+```
+t_sudoku almacenará la matriz de celdas y también el tamaño del sudoku (9 en el ejemplo) y la región (3 en el ejemplo). t_celda almacenará el valor de cada celda y un booleano que indique si la celda es modificable por el usuario o no (predefinida). El valor de la celda conviene que sea un carácter ya que en los sudokus grandes usaremos letras también (0,1,2,3,4,5,6,7,8,9,A,B,C...).
+
+Resultará conveniente que defináis algunas constantes al principio de sudoku.c:
+
+```
+#include <stdio.h>
+#include "colores.h"
+
+#define MAX_SIZE 36
+#define TRUE 1
+#define FALSE 0
+...
+```
+Hecho esto podéis inicializar ya una variable sudoku en el main con los valores del sudoku de ejemplo:
+
+```
+t_sudoku sudoku = {
+	{//celdas
+		{{'5',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'8',FALSE},{' ',TRUE},{' ',TRUE},{'4',FALSE},{'9',FALSE}},
+		{{' ',TRUE},{' ',TRUE},{' ',TRUE},{'5',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'3',FALSE},{' ',TRUE}},
+		{{' ',TRUE},{'6',FALSE},{'7',FALSE},{'3',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'1',FALSE}},			
+		{{'1',FALSE},{'5',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE}},
+		{{' ',TRUE},{' ',TRUE},{' ',TRUE},{'2',FALSE},{' ',TRUE},{'8',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE}},
+		{{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'1',FALSE},{'8',FALSE}},
+		{{'7',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'4',FALSE},{'1',FALSE},{'5',FALSE},{' ',TRUE}},
+		{{' ',TRUE},{'3',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'2',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE}},
+		{{'4',FALSE},{'9',FALSE},{' ',TRUE},{' ',TRUE},{'5',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'3',FALSE}}
+	},
+	9,//tamanyo_total
+	3,//tamanyo_region
+};
+```
+
+Vostoros tenéis que:
+
+- Completar los tipos de datos.
+- Adaptar el main para que acceda a los valores de las celdas.
+- Modificar los printf de las celdas para que trabajen con carácteres y no con números.
+- Añadir lo necesario para que las celdas modificables se impriman sin negrita.
+
+<!--
 
 ## Versión 2 (mostrar las cartas de los jugadores)
 
@@ -135,15 +196,7 @@ mantel[0][0] = TRUE;
 mantel[4][3] = TRUE;
 mantel[9][3] = TRUE;
 ```
-<!--
-### 4.2 Información de las cartas que se pueden poner
 
-Recorriendo la matriz que representa el mantel es suficienta para saber qué cartas pueden poner los jugadores. No obstante, aquí os proponemos almacenar también esta información, aunque sea redundante, para hacer algunas acciones más eficientes en tiempo (y más fáciles de programar). Se puede guardar en una 
-
-```
-char mantel_proxima_carta[NUM_PALS][2];
-```
--->  
 ## Versión 5 (el bucle de juego)
 
 Vamos ahora a extender cinquillo.c para que reiteradamente pregunte a todos los jugadores que carta quieren tirar (el bucle de juego). Empezemos por una versión simple, con un bucle infinito y todos los jugadores humanos. El bucle de juego, que iría al final del main, podría ser algo así:
@@ -284,3 +337,4 @@ La función "poner_5_oros" buscará que jugador tiene esa carta, llamará a la f
 
 Añadid al juego la pregunta inicial que hace en la demo sobre si hay un jugador humano (hasta ahora hemos asumido que todos lo eran). Deberéis realizar las modificaciones necesarias para que haya jugadores no humanos (simplemente seleccionaran la primera carta de las posibles). Una vez lo tengáis podéis introducir un tiempo de espera para que el usuario tenga tiempo de ver lo que han hecho los jugadores no humanos como sucede en la demo. Para ello usad la librería duerme.c/duerme.h.
 
+-->
