@@ -234,7 +234,7 @@ void imprimir_sudoku(t_sudoku sudoku);
 
 ## Versión 6 (completar el procesado de la jugada: realizar_jugada)
 
-En las versiones anteriores hemos realizado un procesado muy simple de la jugada del usuario. No hemos realizado ninguna comprobación (que se modifique una celda modificable por ejemplo). Conviene ahora extender esto y para ello crearemos una función realizar_jugada. Añadiremos la cabecera de la función a sudoku.h:
+En las versiones anteriores hemos realizado un procesado muy simple de la jugada del usuario. No hemos realizado ninguna comprobación (que la coordenada esté dentro del rango o que se modifique una celda modificable por ejemplo). Conviene ahora extender esto y para ello crearemos una función realizar_jugada. Añadiremos la cabecera de la función a sudoku.h:
 ```
 void realizar_jugada(t_sudoku *p_s); 
 ```
@@ -248,7 +248,8 @@ void realizar_jugada(t_sudoku *p_sudoku) {
 En la función realizar_jugada pondremos:
 
 - El código para preguntar al usuario la jugada.
-- La comprobación de que la celda que se quiere modificar sea modificable.
+- La comprobación de que las coordenadas estén dentro del rango. 
+- La comprobación de que el valor que se quiere introducir esté dentro del rango (o bien que sea un ' ' de celda vacía) y de que la celda que se quiere modificar sea modificable.
 - La modificación efectiva del sudoku.
 
 ## Versión 7 (comprobación de final de juego)
@@ -264,7 +265,6 @@ Si queremos trabajar con sudokus mayores a 9x9 tendremos que usar letras. No har
 2) También en imprimir_sudoku, tendremos que asegurarnos de que las letras que se impriman en las celdas estén en mayúsculas. Podéis transformarlas en mayúsculas al mostrarlas o transformarlas en mayúsculas al leerlas. Pensad vosotros que opción es más eficiente.
 
 3) En realizar_jugada, permitiremos que el usuario introduzca una coordenada letra en mayúsculas o en minúsculas. Para transformar una coordenada letra l a número (por ejemplo la 'b') haremos: l - 'a' + 10. El código ASCII de 'b' es 98, el de 'a' 97, 97-98 = 1, 1+10 = 11. En caso que la letra sea mayúscula haremos l - 'A' + 10. Deberéis analizar la coordenada entrada y tratarla en función de si es número, letra minúscula o letra mayúscula. Será conveniente crear una función para ello. 
-
 
 ## Troubleshooting
 
