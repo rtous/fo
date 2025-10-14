@@ -158,14 +158,17 @@ Vostoros tenéis que:
 
 Vamos ahora a extender sudoku.c para que reiteradamente pregunte al jugador que valor quiere introducir. Empezemos por una versión simple, con un bucle infinito. El bucle de juego, que iría al final del main, podría ser algo así:
 ```
-char fil_char, col_char, c;
-int fil, col;
-do {
-	imprimir_sudoku(sudoku);
-	[...] preguntar la jugada (fila, columna y valor) como en la demo en forma de tres chars 
-	[...] transformar las coordenadas de char a entero
-	[...] asignar el nuevo valor al sudoku
-} while (1==1);
+in main() {
+	[...]
+	char fil_char, col_char, valor;
+	int fil, col;
+	do {
+		imprimir_sudoku(sudoku);
+		[...] preguntar la jugada (fil_char, col_char y valor) como en la demo en forma de tres chars 
+		[...] transformar las coordenadas de char a entero
+		[...] asignar el nuevo valor al sudoku en las coordenadas fil,col
+	} while (1==1);
+}
 ```
 Conviene almacenar las coordeandas en forma de char ya que en sudokus de tamaño>9 usaremos letras. Eso os obligará a transformar cada coordenada de char a entero pada poderla usar después. En una primera versión podéis hacer simplemente: 
 ```
