@@ -21,7 +21,7 @@ Escribid un programa sudoku.c que simplemente muestre un sudoku incompleto como 
 
 ```
 
-El main podría quedar así:
+El main (incompleto) podría ser algo así:
 
 ```
 #include <stdio.h>
