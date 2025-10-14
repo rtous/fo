@@ -248,8 +248,8 @@ void realizar_jugada(t_sudoku *p_sudoku) {
 En la función realizar_jugada pondremos:
 
 - El código para preguntar al usuario la jugada.
-- El código para traducir las coordenadas en forma de char a coordenadas numéricas.
 - La comprobación de que la celda que se quiere modificar sea modificable.
+- La modificación efectiva del sudoku.
 
 ## Versión 7 (comprobación de final de juego)
 
