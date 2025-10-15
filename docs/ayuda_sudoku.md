@@ -248,8 +248,12 @@ void realizar_jugada(t_sudoku *p_sudoku) {
 En la función realizar_jugada pondremos:
 
 - El código para preguntar al usuario la jugada.
-- La comprobación de que las coordenadas estén dentro del rango. 
-- La comprobación de que el valor que se quiere introducir esté dentro del rango (o bien que sea un ' ' de celda vacía) y de que la celda que se quiere modificar sea modificable.
+- La transformación de los chars entrados en enteros para poderlos procesar.
+- Las siguientes comprobaciones: 
+	1) La comprobación de que las coordenadas estén dentro del rango.
+	*NOTA: Es conveniente que de forma provisional mostréis por pantalla (con un printf) las coordenadas que se van a utilizar después de procesar la entrada del usuario. Si las coordenadas salen de rango (<0 o >= tamanyo_total) el programa tendrá un comportamiento imprevisible (en algunos casos dará un segmentation fault, en otros no). Conviene asegurarse de que detectáis esa situación.*
+	2) La comprobación de que el valor que se quiere introducir esté dentro del rango (o bien que sea un ' ' de celda vacía)
+	3) La comprobación de que la celda que se quiere modificar sea modificable.
 - La modificación efectiva del sudoku.
 
 ## Versión 7 (comprobación de final de juego)
