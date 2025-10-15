@@ -208,7 +208,7 @@ El fichero sudoku.h conviene que tenga la siguiente estructura:
 
 [...] typedefs de t_sudok y t_celda
  
-[...] cabecera funciones imprimir_sudoku e imprimir_separador
+[...] cabecera de las funciones 
 ```
 
 El fichero sudoku.c conviene que empiece con:
@@ -224,14 +224,8 @@ El fichero sudoku.c conviene que empiece con:
 Vostoros tenéis que:
 
 - Moved a sudoku.h los dos typedef (de t_sudoku y t_celda)
-- Escribid en sudoku.h las cabeceras (solo la cabecera) de las funciones imprimir_separador e imprimir_separador. Por ejemplo, para imprimir_separador sería únicamente (con ; al final):
-
-```
-void imprimir_sudoku(t_sudoku sudoku);
-```
-
-- Mover a sudoku.c las funciones imprimir_separador e imprimir_separador.
-
+- Escribid en sudoku.h las cabeceras (solo la cabecera) de las funciones. 
+- Mover a sudoku.c las funciones.
 - En main.c debéis añadir también un 
 
 ```
