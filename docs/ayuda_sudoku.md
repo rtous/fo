@@ -70,7 +70,7 @@ typedef struct {
 int main() {
 ...
 ```
-t_sudoku almacenará la matriz de celdas y también el tamaño del sudoku (9 en el ejemplo) y la región (3 en el ejemplo). t_celda almacenará el valor de cada celda y un booleano que indique si la celda es modificable por el usuario o no (predefinida). El valor de la celda conviene que sea un carácter ya que en los sudokus grandes usaremos letras también (0,1,2,3,4,5,6,7,8,9,A,B,C...).
+t_sudoku almacenará la matriz de celdas y también el tamaño del sudoku (9 en el ejemplo) y la región (3 en el ejemplo). t_celda almacenará el valor de cada celda y un booleano que indique si la celda es modificable por el usuario o no (predefinida). El valor de una celda lo podéis guardar en un char o en un int. Si lo guardáis como un int (recomendado) deberéis transformarlo a char a la hora de mostrarlo. Si lo guardáis como un char, lo podréis mostrar directamente pero más adelante tendréis que convertirlo a int (por ejemplo cuando comprobéis si el sudoku se ha completado correctamente). Tened en cuenta que las celdas pueden estar vacías (si usais int podéis guardar un int -1) y pueden contener valores mayores que 9 que se mostrarán con letras mayúsculas A, B, etc. 
 
 Resultará conveniente que defináis algunas constantes al principio de main.c:
 
@@ -83,20 +83,20 @@ Resultará conveniente que defináis algunas constantes al principio de main.c:
 #define FALSE 0
 ...
 ```
-Hecho esto podéis inicializar ya una variable sudoku en el main con los valores del sudoku de ejemplo:
+Hecho esto podéis inicializar ya una variable sudoku en el main con los valores del sudoku de ejemplo (aquí se guarda el valor de la celda como entero, si preferís guardarlo como char modificadlo convenientemente):
 
 ```
 t_sudoku sudoku = {
 	{//celdas
-		{{'5',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'8',FALSE},{' ',TRUE},{' ',TRUE},{'4',FALSE},{'9',FALSE}},
-		{{' ',TRUE},{' ',TRUE},{' ',TRUE},{'5',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'3',FALSE},{' ',TRUE}},
-		{{' ',TRUE},{'6',FALSE},{'7',FALSE},{'3',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'1',FALSE}},			
-		{{'1',FALSE},{'5',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE}},
-		{{' ',TRUE},{' ',TRUE},{' ',TRUE},{'2',FALSE},{' ',TRUE},{'8',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE}},
-		{{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'1',FALSE},{'8',FALSE}},
-		{{'7',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'4',FALSE},{'1',FALSE},{'5',FALSE},{' ',TRUE}},
-		{{' ',TRUE},{'3',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'2',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE}},
-		{{'4',FALSE},{'9',FALSE},{' ',TRUE},{' ',TRUE},{'5',FALSE},{' ',TRUE},{' ',TRUE},{' ',TRUE},{'3',FALSE}}
+		{{5,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{8,FALSE},{-1,TRUE},{-1,TRUE},{4,FALSE},{9,FALSE}},
+		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{5,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{3,FALSE},{-1,TRUE}},
+		{{-1,TRUE},{6,FALSE},{7,FALSE},{3,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{1,FALSE}},			
+		{{1,FALSE},{5,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
+		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{2,FALSE},{-1,TRUE},{8,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
+		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{1,FALSE},{8,FALSE}},
+		{{7,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{4,FALSE},{1,FALSE},{5,FALSE},{-1,TRUE}},
+		{{-1,TRUE},{3,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{2,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
+		{{4,FALSE},{9,FALSE},{-1,TRUE},{-1,TRUE},{5,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{3,FALSE}}
 	},
 	9,//tamanyo_total
 	3,//tamanyo_region
@@ -127,7 +127,10 @@ Vostoros tenéis que:
 - Adaptar el main para que use el tamaño del sudoku y la región guardado en la variable sudoku. 
 - Borrar las variables tamanyo_total y tamanyo_region de la versión anterior.
 - Adaptar el main para que acceda a los valores de las celdas.
-- Modificar los printf de las celdas para que trabajen con carácteres y no con números.
+- Modificar los printf de las celdas para que traduzcan correctamente el valor de la celda en un carácter:
+	- En caso de que el valor sea -1 se muestra ' '
+	- En caso de que valor >=0 && valor <= 9 se muestra '0'+valor
+	- En caso de que valor >9 se muestra 'A'+valor
 - Añadir lo necesario para que las celdas modificables se impriman sin negrita.
 
 
@@ -136,12 +139,16 @@ Vostoros tenéis que:
 Ahora pondremos el código para imprimir el sudoku en una función. Antes del main (y después de los typedef) cread dos funciones:
 
 ```
+char valor2char(int valor){
+	[...] código que traduce el valor de la celda en un char para imprimirlo.
+}
+
 void imprimir_separador(int tamanyo_total) {
 	[...] código que antes imprimía el separador -+-+-+-+-+-+-+-+-+-+
 }
 
 void imprimir_sudoku(t_sudoku sudoku) {
-	[...] código que antes imprimía el sudoku (llama a imprimir_separador)
+	[...] código que antes imprimía el sudoku (llama a imprimir_separador y valor2char)
 }
 
 in main() {
@@ -172,14 +179,15 @@ in main() {
 	} while (1==1);
 }
 ```
-Conviene almacenar las coordeandas en forma de char ya que en sudokus de tamaño>9 usaremos letras. Eso os obligará a transformar cada coordenada de char a entero pada poderla usar después. En una primera versión podéis hacer simplemente: 
+Conviene preguntar las coordeandas y el valor en forma de char ya que en sudokus de tamaño>9 usaremos letras. A parte el valor puede ser un espacio en blanco. Eso os obligará a transformar tanto las coordenadas como el valor de char a entero pada poderla usar después. Conviene que añadáis una función:
 ```
-fil = fil_char - '0';
-col = col_char - '0';
+int char2valor(char c)
 ```
-Al restar el código ASCII del '0' (48 decimal) al código ASCII de la coordenada (por ejemplo el del '3' es 51 decimal) obtendremos el valor númerico (Por ejemplo 51-48 = 3).
+La función analizará el valor de c:
+- Si c es ' ' devolverá un -1
+- Si c>= '0' && c <= '9' devolverá c-'0'
 
-No obstante, esto solo nos funcionará si la coordenada es numérica. Pero para nuestro sudoku de 9x9 de ejemplo servirá (en futuras versiones tendréis que ampliar este código para que también trabaje con letras).
+Para nuestro sudoku de 9x9 de ejemplo esto servirá. En futuras versiones tendréis que ampliar este código para que también trabaje con letras (se verá más adelante).
 
 Vostoros tenéis que:
 
@@ -251,8 +259,7 @@ En la función realizar_jugada pondremos:
 - La transformación de los chars entrados en enteros para poderlos procesar.
 - Las siguientes comprobaciones: 
 	1) La comprobación de que las coordenadas estén dentro del rango.
-	*NOTA: Es conveniente que de forma provisional mostréis por pantalla (con un printf) las coordenadas que se van a utilizar después de procesar la entrada del usuario. Si las coordenadas salen de rango (<0 o >= tamanyo_total) el programa tendrá un comportamiento imprevisible (en algunos casos dará un segmentation fault, en otros no). Conviene asegurarse de que detectáis esa situación.*
-	2) La comprobación de que el valor que se quiere introducir esté dentro del rango (o bien que sea un ' ' de celda vacía). Tal vez convendrá transformar el char en entero para poder comprobarlo.
+	2) La comprobación de que el valor que se quiere introducir esté dentro del rango (o bien que sea celda vacía).
 	3) La comprobación de que la celda que se quiere modificar sea modificable.
 - La modificación efectiva del sudoku.
 
