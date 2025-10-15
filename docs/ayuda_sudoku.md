@@ -252,11 +252,104 @@ En la función realizar_jugada pondremos:
 - Las siguientes comprobaciones: 
 	1) La comprobación de que las coordenadas estén dentro del rango.
 	*NOTA: Es conveniente que de forma provisional mostréis por pantalla (con un printf) las coordenadas que se van a utilizar después de procesar la entrada del usuario. Si las coordenadas salen de rango (<0 o >= tamanyo_total) el programa tendrá un comportamiento imprevisible (en algunos casos dará un segmentation fault, en otros no). Conviene asegurarse de que detectáis esa situación.*
-	2) La comprobación de que el valor que se quiere introducir esté dentro del rango (o bien que sea un ' ' de celda vacía)
+	2) La comprobación de que el valor que se quiere introducir esté dentro del rango (o bien que sea un ' ' de celda vacía). Tal vez convendrá transformar el char en entero para poder comprobarlo.
 	3) La comprobación de que la celda que se quiere modificar sea modificable.
 - La modificación efectiva del sudoku.
 
 ## Versión 7 (comprobación de final de juego)
+
+En el ejecutable de demo, el juego no termina hasta que se ha completado el sudoku correctamente. Vamos ahora a añadir esa comprobación a nuestra implementación. Modificaremos la condición de nuestro bucle de juega (que ahora no termina nunca) del siguiente modo:
+```
+do {
+		imprimir_sudoku(sudoku);
+		realizar_jugada(&sudoku);
+	} while (!sudoku_completado(sudoku));
+```
+Y añadiremos la función (a sudoku.h y sudoku.c):
+```
+int sudoku_completado(t_sudoku sudoku);
+```
+
+Implementar la función sudoku_completado es probablemente lo más difícil del proyecto. Esta función debe comprobar que:
+- No hay números repetidos en ninguna fila.
+- No hay números repetidos en ninguna columna.
+- No hay números repetidos en ninguna de las regiones.
+
+Para hacer pruebas os hemos proporcionado ficheros las soluciones de algunos de los sudokus. Por ejemplo, la del que estamos usando de momento sería:
+```
+ |0 1 2|3 4 5|6 7 8|
+-+-+-+-+-+-+-+-+-+-+
+0|5 1 3|6 8 7|2 4 9|
+1|8 4 9|5 2 1|6 3 7|
+2|2 6 7|3 4 9|5 8 1|
+-+-+-+-+-+-+-+-+-+-+
+3|1 5 8|4 6 3|9 7 2|
+4|9 7 4|2 1 8|3 6 5|
+5|3 2 6|7 9 5|4 1 8|
+-+-+-+-+-+-+-+-+-+-+
+6|7 8 2|9 3 4|1 5 6|
+7|6 3 5|1 7 2|8 9 4|
+8|4 9 1|8 5 6|7 2 3|
+-+-+-+-+-+-+-+-+-+-+
+```
+La secuencia de entradas de usario que nos lleva a la solución sería:
+```
+011
+023
+036
+057
+062
+108
+114
+129
+142
+151
+166
+187
+202
+259
+244
+265
+278
+328
+334
+346
+353
+369
+377
+382
+409
+417
+424
+441
+463
+476
+485
+503
+512
+526
+537
+549
+555
+564
+618
+622
+639
+643
+686
+706
+725
+731
+747
+768
+779
+784
+821
+838
+856
+867
+872
+```
 
 ## Versión 8 (leer el sudoku de un fichero)
 
@@ -268,7 +361,7 @@ Si queremos trabajar con sudokus mayores a 9x9 tendremos que usar letras. No har
 
 2) También en imprimir_sudoku, tendremos que asegurarnos de que las letras que se impriman en las celdas estén en mayúsculas. Podéis transformarlas en mayúsculas al mostrarlas o transformarlas en mayúsculas al leerlas. Pensad vosotros que opción es más eficiente.
 
-3) En realizar_jugada, permitiremos que el usuario introduzca una coordenada letra en mayúsculas o en minúsculas. Para transformar una coordenada letra l a número (por ejemplo la 'b') haremos: l - 'a' + 10. El código ASCII de 'b' es 98, el de 'a' 97, 97-98 = 1, 1+10 = 11. En caso que la letra sea mayúscula haremos l - 'A' + 10. Deberéis analizar la coordenada entrada y tratarla en función de si es número, letra minúscula o letra mayúscula. Será conveniente crear una función para ello. 
+3) En realizar_jugada, permitiremos que el usuario introduzca una coordenada letra en mayúsculas o en minúsculas. Para transformar una coordenada letra l a número (por ejemplo la 'b') haremos: l - 'a' + 10. El código ASCII de 'b' es 98, el de 'a' 97, 97-98 = 1, 1+10 = 11. En caso que la letra sea mayúscula haremos l - 'A' + 10. Deberéis analizar la coordenada entrada y tratarla en función de si es número, letra minúscula o letra mayúscula. Puede ser conveniente crear una función para ello. 
 
 ## Troubleshooting
 
