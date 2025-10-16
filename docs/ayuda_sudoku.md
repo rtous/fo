@@ -1,6 +1,6 @@
 # Desarrollo del proyecto (sudoku) paso a paso
 
-A continuación se os dan algunas pistas sobre un posible camino a seguir para desarrollar el proyecto. Esta guía está pensada para aquellos que no sabéis por donde empezar o para resolver alguna duda concreta. No es obligatorio seguir esta guía ni tampoco hacer las cosas como aquí se sugiere. Podéis coger alguna idea o ignorarla completamente. La evaluación de vuestro diseño e implementación se hará respecto a los criterios de evaluación publicados en Metacurs. 
+A continuación se os dan algunas pistas sobre un posible camino a seguir para desarrollar el proyecto. Esta guía está pensada para aquellos que no sabéis por donde empezar o para resolver alguna duda concreta. No es obligatorio seguirla ni tampoco hacer las cosas como aquí se sugiere. Podéis coger alguna idea o ignorarla completamente. La evaluación de vuestro diseño e implementación se hará respecto a los criterios de evaluación publicados en Metacurs. 
 
 ## Versión 1 (imprimir un sudoku)
 
@@ -53,7 +53,41 @@ Vostoros tenéis que:
 	gcc main.c colores.c -o main
 ```
 
-## Versión 2 (almacenar el sudoku en una matriz)
+## Versión 2 (imprimir un sudoku de más de 10x10)
+
+En la versión anterior hemos impreso un sudoku de 9x9. La versión del juego que hay que implementar puede gestionar sudokus de diferentes tamaños, desde 4x4 hasta 36x36. En los sudokus de más de 10x10 tendremos que utilizar letras tanto para las leyendas de los ejes de coordenadas (que irán en minúsculas) como para los valores de las celdas (que irán en mayúsculas). Aquí tenéis un ejemplo de un sudoku de 16x16:
+
+```
+ |0 1 2 3|4 5 6 7|8 9 a b|c d e f|
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+0|5 8    |4      |    6  |      F|
+1|    4  |A   B 6|       |  5 3 8|
+2|  F    |3      |4   1  |       |
+3|  B    |0      |3 2 5  |  1    |
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+4|    1  |  E    |C      |  0    |
+5|       |  8    |    4 7|      D|
+6|    C  |       |       |    6  |
+7|  7 6 E|C     A|    0  |    1 9|
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+8|    2  |       |  6 E A|C B D  |
+9|    D C|2 5    |  1 8  |    7  |
+a|    7  |      B|2 5 F  |1     4|
+b|       |7   A  |       |      3|
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+c|2 1   3|       |B A   C|0      |
+d|       |F   5 D|  3   1|4     6|
+e|    E  |    C  |  0 D  |  2    |
+f|D      |  3 1 2|       |      C|
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+Modificad vuestro código para soportar sudokus de más de 10x10:
+
+- Al imprimir las leyendas si i>9 mostrad el carácter 'a' + i. 
+- De momento seguid mostrando ceros en el contenido (ignorad el ejemplo anterior).
+
+## Versión 3 (almacenar el sudoku en una matriz)
 
 Para almacenar los valores del sudoku tendréis que definir dos nuevos tipos de dato al los que podeís llamar, por ejemplo, t_sudoku y t_celda. De momento los podéis poner directamente encima del main:
 
@@ -70,7 +104,7 @@ typedef struct {
 int main() {
 ...
 ```
-t_sudoku almacenará la matriz de celdas y también el tamaño del sudoku (9 en el ejemplo) y la región (3 en el ejemplo). t_celda almacenará el valor de cada celda y un booleano que indique si la celda es modificable por el usuario o no (predefinida). El valor de una celda lo podéis guardar en un char o en un int. Si lo guardáis como un int (recomendado) deberéis transformarlo a char a la hora de mostrarlo. Si lo guardáis como un char, lo podréis mostrar directamente pero más adelante tendréis que convertirlo a int (por ejemplo cuando comprobéis si el sudoku se ha completado correctamente). Tened en cuenta que las celdas pueden estar vacías (si usais int podéis guardar un int -1) y pueden contener valores mayores que 9 que se mostrarán con letras mayúsculas A, B, etc. 
+t_sudoku almacenará la matriz de celdas y también el tamaño del sudoku (9 en el ejemplo de la versión 1) y la región (3 en el ejemplo de la versión 1). t_celda almacenará el valor de cada celda y un booleano que indique si la celda es modificable por el usuario o no (predefinida). El valor de una celda lo podéis guardar en un char o en un int. Si lo guardáis como un int (recomendado) deberéis transformarlo a char a la hora de mostrarlo. Si lo guardáis como un char, lo podréis mostrar directamente pero más adelante tendréis que convertirlo a int (por ejemplo cuando comprobéis si el sudoku se ha completado correctamente). Tened en cuenta que las celdas pueden estar vacías (si usáis int podéis guardar un int -1) y pueden contener valores mayores que 9 que se mostrarán con letras mayúsculas A, B, etc. 
 
 Resultará conveniente que defináis algunas constantes al principio de main.c:
 
@@ -83,7 +117,7 @@ Resultará conveniente que defináis algunas constantes al principio de main.c:
 #define FALSE 0
 ...
 ```
-Hecho esto podéis inicializar ya una variable sudoku en el main con los valores del sudoku de ejemplo (aquí se guarda el valor de la celda como entero, si preferís guardarlo como char modificadlo convenientemente):
+Hecho esto podéis inicializar ya una variable sudoku en el main con los valores del sudoku del ejemplo de la versión 1 (aquí se guarda el valor de la celda como entero, si preferís guardarlo como char modificadlo convenientemente):
 
 ```
 t_sudoku sudoku = {
@@ -131,16 +165,20 @@ Vostoros tenéis que:
 	- En caso de que el valor sea -1 se muestra ' '
 	- En caso de que valor >=0 && valor <= 9 se muestra '0'+valor
 	- En caso de que valor >9 se muestra 'A'+valor
-- Añadir lo necesario para que las celdas modificables se impriman sin negrita.
+- Añadir lo necesario para que las celdas modificables se impriman sin negrita (aunque todavía no hay ninguna).
 
 
-## Versión 3 (funciones)
+## Versión 4 (funciones)
 
-Ahora pondremos el código para imprimir el sudoku en una función. Antes del main (y después de los typedef) cread dos funciones:
+Ahora pondremos el código para imprimir el sudoku en una función. Antes del main (y después de los typedef) cread las siguientes funciones:
 
 ```
-char valor2char(int valor){
-	[...] código que traduce el valor de la celda en un char para imprimirlo.
+char int2char_leyenda(int i){
+	[...] código que traduce una coordenada en un char para imprimirlo.
+}
+
+char int2char_celda(int i){
+	[...] código que traduce un valor de celda en un char para imprimirlo.
 }
 
 void imprimir_separador(int tamanyo_total) {
@@ -148,7 +186,7 @@ void imprimir_separador(int tamanyo_total) {
 }
 
 void imprimir_sudoku(t_sudoku sudoku) {
-	[...] código que antes imprimía el sudoku (llama a imprimir_separador y valor2char)
+	[...] código que antes imprimía el sudoku (llama a las otras funciones)
 }
 
 in main() {
@@ -163,38 +201,38 @@ Vostoros tenéis que:
 - Sustituir el código de impresión que teníais antes en el main por imprimir_sudoku(sudoku);
 
 
-## Versión 4 (bucle de juego)
+## Versión 5 (bucle de juego)
 
 Vamos ahora a extender main.c para que reiteradamente pregunte al jugador que valor quiere introducir. Empezemos por una versión simple, con un bucle infinito. El bucle de juego, que iría al final del main, podría ser algo así:
 ```
 in main() {
 	[...]
-	char fil_char, col_char, valor;
-	int fil, col;
+	char fil_char, col_char, valor_char;
+	int fil, col, valor;
 	do {
 		imprimir_sudoku(sudoku);
-		[...] preguntar la jugada (fil_char, col_char y valor) como en la demo en forma de tres chars 
-		[...] transformar las coordenadas de char a entero
+		[...] preguntar la jugada (fil_char, col_char y valor_char) como en la demo en forma de tres chars 
+		[...] transformar las coordenadas y el valor de char a entero
 		[...] asignar el nuevo valor al sudoku en las coordenadas fil,col
 	} while (1==1);
 }
 ```
-Conviene preguntar las coordeandas y el valor en forma de char ya que en sudokus de tamaño>9 usaremos letras. A parte el valor puede ser un espacio en blanco. Eso os obligará a transformar tanto las coordenadas como el valor de char a entero pada poderla usar después. Conviene que añadáis una función:
+Conviene preguntar las coordeandas y el valor en forma de char ya que en sudokus de tamaño>10 usaremos letras. A parte el valor puede ser un espacio en blanco. Eso os obligará a transformar tanto las coordenadas como el valor de char a entero pada poderla usar después. Conviene que añadáis una función (podéis usar la misma para las coordenadas y el valor):
 ```
-int char2valor(char c)
+int char2int(char c);
 ```
-La función analizará el valor de c:
+La función analizará el valor del caràcter c:
 - Si c es ' ' devolverá un -1
 - Si c>= '0' && c <= '9' devolverá c-'0'
-
-Para nuestro sudoku de 9x9 de ejemplo esto servirá. En futuras versiones tendréis que ampliar este código para que también trabaje con letras (se verá más adelante).
+- Si c>= 'a' && c <= 'z' devolverá c-'a'
+- Si c>= 'A' && c <= 'Z' devolverá c-'A'
 
 Vostoros tenéis que:
 
 - Completar el código del do-while.
 - Realizar alguna prueva para ver que los valores introducidos se van añadiendo correctamente.
 
-## Versión 5 (librerías)
+## Versión 6 (librerías)
 
 Ahora tenemos todo el codigo en único fichero, main.c, pero es conveniente (y de hecho obligatorio para sacar la máxima nota) estructurarlo en librerías. Se puede hacer de diferentes maneras pero una primera aproximación sería crear una librería auxiliar sudoku.c en la que pondremos los typedef y las funciones relativas a los datos del sudoku. Para ello crearemos dos ficheros:
 ```
@@ -234,7 +272,9 @@ Vostoros tenéis que:
 
 - Realizad los cambios y comprobad que sigue funcionando como antes.
 
-## Versión 6 (completar el procesado de la jugada: realizar_jugada)
+*NOTA: Esta es solo un diseño de ejemplo. Si queréis podéis hacer un diseño más sofisticado (por ejemplo con una librería para t_celda) o algo totalmente distinto*
+
+## Versión 7 (completar el procesado de la jugada: realizar_jugada)
 
 En las versiones anteriores hemos realizado un procesado muy simple de la jugada del usuario. No hemos realizado ninguna comprobación (que la coordenada esté dentro del rango o que se modifique una celda modificable por ejemplo). Conviene ahora extender esto y para ello crearemos una función realizar_jugada. Añadiremos la cabecera de la función a sudoku.h:
 ```
@@ -257,7 +297,7 @@ En la función realizar_jugada pondremos:
 	3) La comprobación de que la celda que se quiere modificar sea modificable.
 - La modificación efectiva del sudoku.
 
-## Versión 7 (comprobación de final de juego)
+## Versión 8 (comprobación de final de juego)
 
 En el ejecutable de demo, el juego no termina hasta que se ha completado el sudoku correctamente. Vamos ahora a añadir esa comprobación a nuestra implementación. Modificaremos la condición de nuestro bucle de juega (que ahora no termina nunca) del siguiente modo:
 ```
@@ -272,97 +312,52 @@ int sudoku_completado(t_sudoku sudoku);
 ```
 
 Implementar la función sudoku_completado es probablemente lo más difícil del proyecto. Esta función debe comprobar que:
+- No hay espacios en blanco.
 - No hay números repetidos en ninguna fila.
 - No hay números repetidos en ninguna columna.
 - No hay números repetidos en ninguna de las regiones.
 
-Para hacer pruebas os hemos proporcionado ficheros las soluciones de algunos de los sudokus. Por ejemplo, la del que estamos usando de momento sería:
+*NOTA: Si lo veis conveniente podéis almacenar alguna información auxiliar durante el juego para que estas comprobaciones sean más eficientes, aunque no es obligatorio.* 
+
+Para hacer pruebas os hemos proporcionado ficheros las soluciones de algunos de los sudokus. Es recomendable trabajar con un sudoku pequeño, por ejemplo:
 ```
- |0 1 2|3 4 5|6 7 8|
--+-+-+-+-+-+-+-+-+-+
-0|5 1 3|6 8 7|2 4 9|
-1|8 4 9|5 2 1|6 3 7|
-2|2 6 7|3 4 9|5 8 1|
--+-+-+-+-+-+-+-+-+-+
-3|1 5 8|4 6 3|9 7 2|
-4|9 7 4|2 1 8|3 6 5|
-5|3 2 6|7 9 5|4 1 8|
--+-+-+-+-+-+-+-+-+-+
-6|7 8 2|9 3 4|1 5 6|
-7|6 3 5|1 7 2|8 9 4|
-8|4 9 1|8 5 6|7 2 3|
--+-+-+-+-+-+-+-+-+-+
+ |0 1|2 3|
+-+-+-+-+-+
+0|   |3  |
+1|2  |   |
+-+-+-+-+-+
+2|   |  4|
+3|  1|   |
+-+-+-+-+-+
 ```
-La secuencia de entradas de usario que nos lleva a la solución sería:
+Reemplazad el que tenéis ahora en el código por este:
 ```
-011
-023
-036
-057
-062
-108
-114
-129
-142
-151
-166
-187
-202
-259
-244
-265
-278
-328
-334
-346
-353
-369
-377
-382
-409
-417
-424
-441
-463
-476
-485
-503
-512
-526
-537
-549
-555
-564
-618
-622
-639
-643
-686
-706
-725
-731
-747
-768
-779
-784
-821
-838
-856
-867
-872
+t_sudoku sudoku = {
+	{//celdas
+		{{-1,TRUE},{-1,TRUE},{3,FALSE},{-1,TRUE}},
+		{{2,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
+		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{4,FALSE}},
+		{{-1,TRUE},{1,FALSE},{-1,TRUE},{-1,TRUE}}
+	},
+	4,//tamanyo_total
+	4,//tamanyo_region
+};
+```
+Cuya solución sería:
+```
+ |0 1|2 3|
+-+-+-+-+-+
+0|1 4|3 2|
+1|2 3|4 1|
+-+-+-+-+-+
+2|3 2|1 4|
+3|4 1|2 3|
+-+-+-+-+-+
 ```
 
-## Versión 8 (leer el sudoku de un fichero)
+## Versión 9 (leer el sudoku de un fichero)
 
-## Versión 9 (trabajar con sudokus mayores a 9x9)
-
-Si queremos trabajar con sudokus mayores a 9x9 tendremos que usar letras. No haremos distinción entre mayúsculas y minúsculas. La letra a/A será la posición 10, la b/B el 11, etc. Habrá que realizar 3 cambios: 
-
-1) Lo primero que tendremos que hacer es modificar la manera de mostrar las leyendas de los ejes de coordenadas de nuestra función imprimir_sudoku. A partir de la coordenada 10 mostrará una 'a' (en las leyendas mostraremos las letras en minúscula) en vez de un 10, etc. Para ello, en vez de hacer n + '0' como hasta ahora, haremos n - 10 + 'a' (cuando n>9). Conviene crear una función para ello.
-
-2) También en imprimir_sudoku, tendremos que asegurarnos de que las letras que se impriman en las celdas estén en mayúsculas. Podéis transformarlas en mayúsculas al mostrarlas o transformarlas en mayúsculas al leerlas. Pensad vosotros que opción es más eficiente.
-
-3) En realizar_jugada, permitiremos que el usuario introduzca una coordenada letra en mayúsculas o en minúsculas. Para transformar una coordenada letra l a número (por ejemplo la 'b') haremos: l - 'a' + 10. El código ASCII de 'b' es 98, el de 'a' 97, 97-98 = 1, 1+10 = 11. En caso que la letra sea mayúscula haremos l - 'A' + 10. Deberéis analizar la coordenada entrada y tratarla en función de si es número, letra minúscula o letra mayúscula. Puede ser conveniente crear una función para ello. 
+Ahora que ya os funciona el juego añadid el código necesario para leer el sudoku de un fichero. Empezad por un único fichero y ya añadiréis después el código para preguntar al usuario el nombre del fichero. Usad las funciones de la librería fichero.h/fichero.c que ya se os proporciona.
 
 ## Troubleshooting
 
