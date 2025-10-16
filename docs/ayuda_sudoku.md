@@ -340,7 +340,7 @@ t_sudoku sudoku = {
 		{{-1,TRUE},{1,FALSE},{-1,TRUE},{-1,TRUE}}
 	},
 	4,//tamanyo_total
-	4,//tamanyo_region
+	2,//tamanyo_region
 };
 ```
 Cuya solución sería:
