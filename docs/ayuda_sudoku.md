@@ -164,7 +164,7 @@ Vostoros tenéis que:
 - Modificar los printf de las celdas para que traduzcan correctamente el valor de la celda en un carácter:
 	- En caso de que el valor sea -1 se muestra ' '
 	- En caso de que valor >=0 && valor <= 9 se muestra '0'+valor
-	- En caso de que valor >9 se muestra 'A'+valor
+	- En caso de que valor >9 se muestra 'A'+valor-10
 - Añadir lo necesario para que las celdas modificables se impriman sin negrita (aunque todavía no hay ninguna).
 
 
@@ -224,8 +224,8 @@ int char2int(char c);
 La función analizará el valor del caràcter c:
 - Si c es ' ' devolverá un -1
 - Si c>= '0' && c <= '9' devolverá c-'0'
-- Si c>= 'a' && c <= 'z' devolverá c-'a'
-- Si c>= 'A' && c <= 'Z' devolverá c-'A'
+- Si c>= 'a' && c <= 'z' devolverá c-'a'+10
+- Si c>= 'A' && c <= 'Z' devolverá c-'A'+10
 
 Vostoros tenéis que:
 
