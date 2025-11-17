@@ -117,42 +117,57 @@ Resultará conveniente que defináis algunas constantes al principio de main.c:
 #define FALSE 0
 ...
 ```
-Hecho esto podéis inicializar ya una variable sudoku en el main con los valores del sudoku del ejemplo de la versión 1 (aquí se guarda el valor de la celda como entero, si preferís guardarlo como char modificadlo convenientemente):
+Hecho esto podéis inicializar ya una variable sudoku en el main como por ejemplo (aquí se guarda el valor de la celda como entero, si preferís guardarlo como char modificadlo convenientemente):
 
 ```
 t_sudoku sudoku = {
 	{//celdas
-		{{5,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{8,FALSE},{-1,TRUE},{-1,TRUE},{4,FALSE},{9,FALSE}},
-		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{5,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{3,FALSE},{-1,TRUE}},
-		{{-1,TRUE},{6,FALSE},{7,FALSE},{3,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{1,FALSE}},			
-		{{1,FALSE},{5,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
-		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{2,FALSE},{-1,TRUE},{8,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
-		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{1,FALSE},{8,FALSE}},
-		{{7,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{4,FALSE},{1,FALSE},{5,FALSE},{-1,TRUE}},
-		{{-1,TRUE},{3,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{2,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
-		{{4,FALSE},{9,FALSE},{-1,TRUE},{-1,TRUE},{5,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{3,FALSE}}
+		{{11,FALSE},{2,FALSE},{-1,TRUE},{7,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{15,FALSE},{6,FALSE},{14,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{3,FALSE},{-1,TRUE},{13,FALSE}},
+		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{9,FALSE},{11,FALSE},{-1,TRUE},{2,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{15,FALSE},{1,FALSE},{-1,TRUE},{6,FALSE}},
+		{{-1,TRUE},{10,FALSE},{-1,TRUE},{12,FALSE},{-1,TRUE},{-1,TRUE},{7,FALSE},{-1,TRUE},{4,FALSE},{-1,TRUE},{8,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{14,FALSE},{-1,TRUE}},
+		{{-1,TRUE},{8,FALSE},{-1,TRUE},{3,FALSE},{-1,TRUE},{-1,TRUE},{1,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{15,FALSE},{12,FALSE},{10,FALSE},{-1,TRUE},{4,FALSE},{2,FALSE}},
+		{{-1,TRUE},{-1,TRUE},{14,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{1,FALSE},{6,FALSE},{10,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{3,FALSE},{-1,TRUE}},
+		{{3,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{4,FALSE},{-1,TRUE},{15,FALSE},{8,FALSE},{-1,TRUE},{6,FALSE},{11,FALSE}},
+		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{13,FALSE},{2,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{11,FALSE},{-1,TRUE},{-1,TRUE},{7,FALSE},{4,FALSE},{-1,TRUE},{-1,TRUE}},
+		{{-1,TRUE},{11,FALSE},{8,FALSE},{4,FALSE},{0,FALSE},{-1,TRUE},{-1,TRUE},{13,FALSE},{7,FALSE},{-1,TRUE},{9,FALSE},{3,FALSE},{14,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
+		{{-1,TRUE},{-1,TRUE},{-1,TRUE},{15,FALSE},{3,FALSE},{7,FALSE},{-1,TRUE},{4,FALSE},{5,FALSE},{-1,TRUE},{-1,TRUE},{9,FALSE},{0,FALSE},{13,FALSE},{12,FALSE},{-1,TRUE}},
+		{{-1,TRUE},{-1,TRUE},{12,FALSE},{8,FALSE},{-1,TRUE},{-1,TRUE},{10,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{11,FALSE},{4,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
+		{{4,FALSE},{9,FALSE},{-1,TRUE},{5,FALSE},{14,FALSE},{-1,TRUE},{13,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{10,FALSE}},
+		{{-1,TRUE},{13,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{6,FALSE},{12,FALSE},{1,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{7,FALSE},{-1,TRUE},{-1,TRUE}},
+		{{9,FALSE},{1,FALSE},{-1,TRUE},{14,FALSE},{7,FALSE},{4,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{15,FALSE},{-1,TRUE},{-1,TRUE},{3,FALSE},{-1,TRUE},{13,FALSE},{-1,TRUE}},
+		{{-1,TRUE},{3,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{9,FALSE},{-1,TRUE},{2,FALSE},{-1,TRUE},{1,FALSE},{-1,TRUE},{-1,TRUE},{5,FALSE},{-1,TRUE},{0,FALSE},{-1,TRUE}},
+		{{15,FALSE},{-1,TRUE},{4,FALSE},{11,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{3,FALSE},{-1,TRUE},{13,FALSE},{1,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE}},
+		{{5,FALSE},{-1,TRUE},{13,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{15,FALSE},{14,FALSE},{9,FALSE},{-1,TRUE},{-1,TRUE},{-1,TRUE},{2,FALSE},{-1,TRUE},{11,FALSE},{4,FALSE}},
 	},
-	9,//tamanyo_total
-	3,//tamanyo_region
+	16,//tamanyo_total
+	4,//tamanyo_region
 };
 ```
 
 Que corresponde al sudoku: 
 ```
- |0 1 2|3 4 5|6 7 8|
--+-+-+-+-+-+-+-+-+-+
-0|5    |  8  |  4 9|
-1|     |5    |  3  |
-2|  6 7|3    |    1|
--+-+-+-+-+-+-+-+-+-+
-3|1 5  |     |     |
-4|     |2   8|     |
-5|     |     |  1 8|
--+-+-+-+-+-+-+-+-+-+
-6|7    |    4|1 5  |
-7|  3  |    2|     |
-8|4 9  |  5  |    3|
--+-+-+-+-+-+-+-+-+-+
+ |0 1 2 3|4 5 6 7|8 9 a b|c d e f|
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+0|B 2   7|      F|6 E    |  3   D|
+1|      9|B   2  |       |F 1   6|
+2|  A   C|    7  |4   8  |    E  |
+3|  8   3|    1  |    F C|A   4 2|
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+4|    E  |       |1 6 A  |    3  |
+5|3      |       |  4   F|8   6 B|
+6|      D|2      |  B    |7 4    |
+7|  B 8 4|0     D|7   9 3|E      |
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+8|      F|3 7   4|5     9|0 D C  |
+9|    C 8|    A  |      B|4      |
+a|4 9   5|E   D  |       |      A|
+b|  D    |  6 C 1|       |  7    |
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+c|9 1   E|7 4    |  F    |3   D  |
+d|  3    |  9   2|  1    |5   0  |
+e|F   4 B|       |  3   D|1      |
+f|5   D  |    F E|9      |2   B 4|
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
 Vostoros tenéis que:
