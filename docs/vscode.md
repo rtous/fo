@@ -22,7 +22,7 @@ Situaos sobre el fichero `.c` y pulsad `F5`. Luego seleccionad la primera opció
 Si el programa tiene varios ficheros (por ejemplo, los ejercicios que usan `colours.c` o el proyecto), necesitaréis crear una configuración de depuración:
 
 1. Id al menú **Run → Add Configuration...**. Se creará un fichero `launch.json`.
-2. Reemplazad su contenido por el siguiente:
+2. Reemplazad su contenido por el siguiente :
 
    ```json
    {
@@ -43,8 +43,11 @@ Si el programa tiene varios ficheros (por ejemplo, los ejercicios que usan `colo
        ]
    }
    ```
+	*NOTA: En Mac la configuración puede variar.*
+	*NOTA: Ved configuración más abajo si estáis en Windows sin WSL*
 
 3. Compilad manualmente en el terminal. Al pulsar `F5` se depurará el ejecutable que tenga el mismo nombre (sin extensión) que el fichero que tengáis seleccionado.
+
 
 #### VS Code en Windows sin WSL
 
