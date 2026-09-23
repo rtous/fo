@@ -2,6 +2,7 @@
 This repository contains some notes about the FO lab. These notes are not part of the official FO documentation.
 
 - [Realizar las prácticas de FO en casa](docs/entorno_laboratorio_FO_en_casa.md)
+- [Cómo usar VS Code para programar y depurar programas en C](docs/vscode.md)
 - [Ayuda práctica 1](docs/first_steps.md)
 - [Ayuda printf](docs/input_output_formatting.md)
 - [Ayuda scanf](docs/scanf.md)
