@@ -1,11 +1,11 @@
 # Instrucciones de instalación
 
-A continuación tenéis las instrucciones para instalar las herramientas del laboratorio según vuestro sistema operativo. Si vais a usar VS Code, consultad también la sección [Cómo usar VS Code para programar y depurar programas en C](docs/vscode.md).
+A continuación tenéis las instrucciones para instalar las herramientas del laboratorio según vuestro sistema operativo. Si vais a usar VS Code, consultad también la sección [Cómo usar VS Code para programar y depurar programas en C](vscode.md).
 
 - [Windows](#windows)
 - [Mac](#mac)
 - [Linux](#linux)
-- [Cómo usar VS Code](docs/vscode.md)
+- [Cómo usar VS Code](vscode.md)
 
 ---
 
