@@ -1,95 +1,180 @@
-# Realizar las prácticas de FO en casa
+# Instrucciones de instalación
 
-Las prácticas de FO consisten básicamente en editar, compilar y ejecutar programas escritos en lenguaje C. Hay muchas maneras de hacer esto en casa pero os recomendamos configurar un entorno que sea parecido al que utilizaremos en las sesiones de laboratorio y, lo más importante, en el el examen de laboratorio. No obstante, tened en cuenta que el entorno de laboratorio admite variantes (editor de código fuente, depurador, etc.) y cada profesor de laboratorio de FO tiene sus preferencias. A continuación se describe la configuración de un entorno básico, que más adelante podéis cambiar en función de vuestras preferencias o de lo que os diga vuestro profesor.
+A continuación tenéis las instrucciones para instalar las herramientas del laboratorio según vuestro sistema operativo. Si vais a usar VS Code, consultad también la sección [Cómo usar VS Code para programar y depurar programas en C](#cómo-usar-vs-code-para-programar-y-depurar-programas-en-c).
 
-## Trabajar con IDE o sin IDE?
+- [Windows](#windows)
+- [Mac](#mac)
+- [Linux](#linux)
+- [Cómo usar VS Code](#cómo-usar-vs-code-para-programar-y-depurar-programas-en-c)
 
-Un entorno integrado de desarrollo (IDE) es una aplicación (como NetBeans o Visual Studio Code) todo en uno (editor código, compilación, depuración, terminal, etc.). Hay profesores de FO que lo utilizan (normalmente NetBeans ya que está en el laboratorio) y hay profesores que no y prefieren que uséis por separado el editor (gedit en el laboratorio), los comandos de compilación en el terminal, el depurador (nemiver en el laboratorio). Sois libres de hacerlo de una forma u otra pero si estáis empezando a programar mejor haced lo mismo que vuestro profesor. 
+---
 
-Las instrucciones siguientes están pensadas principalmente para que podáis trabajar sin IDE en casa. En caso que optéis por trabajar con IDE (por ejemplo NetBeans) lo lógico sería que instalaseis NetBeans de forma nativa en vuestra máquina. Aunque si os da problemas o queréis un entorno idéntico al del laboratorio también podéis optar por las opciones de escritorio virtual o máquina virtual.
-     
+## Windows
 
-## Si tenéis Windows
+### Herramientas básicas
 
-Hay múltiples opciones para poder programar en C en Windows. Para los que empezáis a programar una opción simple y práctica es trabajar nativamente en Windows:
+1. **Instalad Windows Subsystem for Linux (WSL).**
 
-- OPCIÓN 1: [Programar C en Windows con MinGW y Notepad++ ](mingw.md)
+   Abrid PowerShell y ejecutad:
 
-Una alternativa más parecida a lo que tendréis en el laboratorio es instalar Ubuntu dentro de Windows mediante Windows Subsystem for Linux (WSL). 
+   ```powershell
+   wsl --install
+   ```
 
-- OPCIÓN 2: [Programar C en Ubuntu mediante Windows Subsystem for Linux (WSL) en Windows 10 ](wsl.md)
+   Si os da problemas, consultad la [guía oficial de instalación de WSL](https://learn.microsoft.com/es-es/windows/wsl/install).
 
-Si WSL os ha dado problemas una alternativa será utilizar un escritorio virtual de la ETSETB:
+   Si todo ha ido bien, deberíais ver una aplicación nueva en Windows llamada **Ubuntu**.
 
-- OPCIÓN 3: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
+2. **Instalad las herramientas de C y C++ en Ubuntu.**
 
-Si el escritorio virtual os da problemas una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
+   Abrid la aplicación Ubuntu (se abrirá un terminal) y ejecutad:
 
-- OPCIÓN 4: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y build-essential gdb
+   sudo apt-get install -y gedit
+   sudo apt-get install -y nemiver
+   ```
 
-Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
+Con esto ya podéis trabajar con las herramientas básicas del laboratorio (`gcc`, `gedit` y `nemiver`).
 
-*NOTA: En el laboratorio está la versión 21 de NebBeans al que se ha instalado un antiguo pluguin de C/C++ (de la versión 8.2) como se explica en el manual de que hay en el siguiente enlace. No os instaléis la versión 22 ya que este pluguin ya no funciona y a día de hoy no hay reemplazo.*
+> **Acceder a los ficheros de Ubuntu desde Windows:** abrid el Explorador de archivos y escribid en la barra de direcciones `\\wsl$`
 
-- OPCIÓN 5: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
+Si WSL os da problemas, podéis probar alguna de estas alternativas:
 
-	[Instalar NetBeans en Mac](netbeans_osx_v2.md)
+- Usar Visual Studio Code directamente, sin WSL.
+- Programar directamente con el terminal de Windows y el Bloc de notas (instrucciones [aquí](mingw.md)).
 
-<!--NOTA: Para NetBeans se recomienda instalar [la versión ya integrada con Java](https://www.codelerity.com/netbeans/)-->
+### Herramientas avanzadas: VS Code (sobre WSL)
 
-Si todo lo anterior falla siempre podéis usar:
+1. Instalad [VS Code](https://code.visualstudio.com/).
+2. Abrid VS Code e instalad la extensión **WSL** de Microsoft. Después, cerrad VS Code.
+3. Abrid Ubuntu, id a la carpeta en la que queráis trabajar (donde estén los ficheros `.c`) y ejecutad:
 
-- OPCIÓN 6: [replit.com](https://replit.com/) 
+   ```bash
+   code .
+   ```
 
+> **Nota:** VS Code se abrirá en Windows, pero fijaos en la esquina inferior izquierda: debería aparecer algo parecido a **"WSL: Ubuntu"**. Eso significa que el VS Code que veis en Windows está conectado a Ubuntu.
 
-## Si tenéis Mac
+---
 
-Hay múltiples opciones para poder programar en C en Mac. Para los que empezáis a programar lo más práctico es usar directamente las herramientas de Mac:
+## Mac
 
-- OPCIÓN 1: [Programar C en Mac de manera simple  ](mac.md)
+### Herramientas básicas
 
-Si alternativa será utilizar un escritorio virtual de la ETSETB:
+1. **Instalad las herramientas de desarrollo de Xcode.** Abrid un terminal y ejecutad:
 
-- OPCIÓN 2: [Ravada VDI ](https://rvd6.upc.edu/) / [(MI MANUAL)](ravada.md) / [(MANUAL ETSETB)](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/2022-ServeiEscriptoriVirtual.pdf)
+   ```bash
+   xcode-select --install
+   ```
 
-Una alternativa será que os instaléis una máquina virtual como se describe en alguno de los siguientes enlaces:
+   También podéis instalar Xcode desde la App Store. Esto instala el compilador de C **clang** (LLVM), que no es el GCC "oficial" pero es muy parecido. Si queréis el GCC de verdad, podéis instalarlo con [Homebrew](https://brew.sh/) (`brew install gcc`), aunque no es necesario.
 
-- OPCIÓN 3: [Máquina virtual con VirtualBox](virtualmachine.md) / [Máquina virtual con VMware](https://atenea.upc.edu/pluginfile.php/6164251/mod_label/intro/Instalar%20M%C3%A1quina%20Virtual%20con%20Ubuntu%2020.04.pdf)
+2. **Abrid un terminal** (buscad "Terminal" en el Launchpad).
 
-Una alternativa es usar un entorno de desarrollo integrado (IDE). Una ventaja es que funciona igual sobre cualquier plataforma. En el caso de NetBeans además lo tenéis instalado en el laboratorio:
+3. **Comprobad que podéis usar el compilador:**
 
-*NOTA: En el laboratorio está la versión 21 de NebBeans al que se ha instalado un antiguo pluguin de C/C++ (de la versión 8.2) como se explica en el manual de que hay en el siguiente enlace. No os instaléis la versión 22 ya que este pluguin ya no funciona y a día de hoy no hay reemplazo.*
+   ```bash
+   gcc --version
+   ```
 
-- OPCIÓN 4: [NetBeans](https://atenea.upc.edu/pluginfile.php/6164257/mod_resource/content/10/NetbeansApache_Guia_Basica_FO_21_22_v1.pdf) / [Visual Studio Code](visual_studio_code.md) 
+4. **Instalad un editor de texto** para editar el código. Existe una versión de gedit para Mac, pero os recomendamos [Sublime Text](https://www.sublimetext.com/).
 
-Si todo lo anterior falla siempre podéis usar:
+### VS Code
 
-- OPCIÓN 5: [replit.com](https://replit.com/) 
+Podéis instalar [VS Code](https://code.visualstudio.com/) y usarlo igual que en el laboratorio.
 
-## Si tenéis Linux 
+---
 
-En el laboratorio de FO los ordenadores utilizan Linux como sistema operativo, concretamente Ubuntu 18.04.03 LTS. Si el sistema operativo de vuestro ordenador es Linux o si vuestro ordenador tiene una partición con Linux, podéis configurar un entorno parecido al del laboratorio simplemente ejecutando los comandos que se describen a continuación. Las instrucciones son para Ubuntu, tendréis que adaptarlas si tenéis una distribución Linux distinta.
+## Linux
 
-En primer lugar debéis abrir una ventana de terminal. La forma más rápida es pulsar CTRL+ALT+T, pero también podéis buscar el terminal mediante la barra de búsqueda o en el tablero de Ubuntu. Una vez en el terminal ejecutad los siguientes comandos.
+### Herramientas básicas
 
-Primero actualizad la lista de paquetes mediante:
+```bash
+sudo apt-get update
+sudo apt-get install -y build-essential gdb
+gcc --version
+sudo apt-get install -y gedit
+sudo apt-get install -y nemiver
+```
 
-	sudo apt-get update
+### VS Code
 
-A continuación instalad GCC (y el depurador GDB):
+Podéis instalar [VS Code](https://code.visualstudio.com/) y usarlo igual que en el laboratorio.
 
-	sudo apt-get install -y build-essential gdb
+---
 
-Probad que GCC se ha instalado correctamente ejecutando:
+## Cómo usar VS Code para programar y depurar programas en C
 
-	gcc --version
+### Preparación
 
-Ahora ya podéis compilar programas en C y ejecutarlos, pero para poderlos editar cómodamente será necesario instalar algún editor. Uno sencillo y que utilizan muchos de los profesores es gedit. Podéis instalarlo simplemente mediante:
+1. Abrid VS Code, id al menú de extensiones (icono de los cuadraditos o `Ctrl + Shift + X`) e instalad la extensión **C/C++ Extension Pack** de Microsoft.
+2. Abrid la carpeta en la que queráis trabajar (donde estarán los ficheros `.c`).
+3. Abrid un terminal (**Terminal → New Terminal** o `Ctrl + Shift + ñ`).
+4. Compilad y ejecutad en el terminal como siempre.
 
-	sudo apt-get install -y gedit
+### Depuración
 
-Además de un editor también es recomendable utilizar un depurador. Uno sencillo es Nemiver y lo podéis instalar así:
+Hay dos situaciones posibles:
 
-	sudo apt-get install -y nemiver
+#### Programas de un solo fichero
 
-*NOTA: Las opciones IDE, máquina virtual y escritorio virtual de los apartados de Mac y Windows también están disponibles para Linux. Las opciones de máquina virtual y escritorio virtual no tienen mucho sentido pero la de IDE (NetBeans) sí lo tiene si queréis trabajar de esa manera.* 
+Situaos sobre el fichero `.c` y pulsad `F5`. Luego seleccionad la primera opción que aparezca. Se compilará y depurará un ejecutable con el mismo nombre que el fichero fuente, pero sin extensión.
+
+> **Atención:** si habéis compilado manualmente generando un ejecutable con un nombre distinto, será ignorado.
+
+#### Programas con varios ficheros
+
+Si el programa tiene varios ficheros (por ejemplo, los ejercicios que usan `colours.c` o el proyecto), necesitaréis crear una configuración de depuración:
+
+1. Id al menú **Run → Add Configuration...**. Se creará un fichero `launch.json`.
+2. Reemplazad su contenido por el siguiente:
+
+   ```json
+   {
+       "version": "0.2.0",
+       "configurations": [
+           {
+               "name": "Depurar programa",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${fileDirname}/${fileBasenameNoExtension}",
+               "args": [],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "/usr/bin/gdb"
+           }
+       ]
+   }
+   ```
+
+3. Compilad manualmente en el terminal. Al pulsar `F5` se depurará el ejecutable que tenga el mismo nombre (sin extensión) que el fichero que tengáis seleccionado.
+
+#### VS Code en Windows sin WSL
+
+Si trabajáis con VS Code en Windows sin WSL, la configuración es diferente:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Depurar programa",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb.exe"
+        }
+    ]
+}
+```
+
+En este caso, aseguraos de que el ejecutable acabe en `.exe` cuando compiléis en el terminal (por ejemplo, `gcc programa.c -o programa.exe`).

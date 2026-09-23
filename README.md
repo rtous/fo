@@ -16,6 +16,18 @@ This repository contains some notes about the FO lab. These notes are not part o
 <!-- - [Ayuda proyecto DOMINOSA](docs/dominosa.md) --> 
 
 
+## Materials sessions
+
+Sessió 1: dilluns 9 de febrer
+
+* Presentació [slides](./slides/sessio1_1_presentacio.pdf)
+
+* Tema 1. Arquitectura bàsica d'un computador / Introducció [slides](./slides/sessio1_2_tema2_intro.pdf)
+Arquitectura básica de un computador:
+una visión rápida
+<hr>
+
+
 
 
 
