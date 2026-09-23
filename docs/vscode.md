@@ -43,8 +43,9 @@ Si el programa tiene varios ficheros (por ejemplo, los ejercicios que usan `colo
        ]
    }
    ```
-	*NOTA: En Mac la configuración puede variar.*
-	*NOTA: Ved configuración más abajo si estáis en Windows sin WSL*
+	***NOTA: En Mac la configuración puede variar.***
+	
+	***NOTA: Ved configuración más abajo si estáis en Windows sin WSL***
 
 3. Compilad manualmente en el terminal. Al pulsar `F5` se depurará el ejecutable que tenga el mismo nombre (sin extensión) que el fichero que tengáis seleccionado.
 
