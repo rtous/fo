@@ -51,9 +51,6 @@ int main() {
 	}
 }
 ```
-
-Fijaos en que después de imprimir cada carta se llama a `cambiar_color_fondo_default()`. Si no lo hacéis, el color se "arrastra" a todo lo que se imprima después.
-
 *PISTA: Para imprimir un número con tres cifras rellenando con ceros (000, 001...) podéis usar `printf("%03d", f);`*
 
 Vosotros tenéis que:
@@ -99,8 +96,6 @@ int main() {
 ...
 ```
 
-Más adelante añadiréis a ttablero el número de cartas que quedan en el tablero (ncartas). Os será muy útil para saber cuándo termina la partida.
-
 Hecho esto podéis declarar e inicializar una variable tablero al principio del main. Para probar usaremos un tablero de 4 filas y 3 columnas (6 parejas) con casillas en los tres estados:
 
 ```c
@@ -118,8 +113,6 @@ int main() {
 	[...]
 ```
 
-Fijaos en que los valores se asignan a los campos por orden: el 3 va a ncol, el 4 a nfil y la matriz a tab. Por eso es importante que declaréis los campos en este mismo orden. Las casillas de la matriz que no aparecen en la inicialización se ponen a 0, pero no las usaremos.
-
 Este tablero corresponde a:
 
 ```
@@ -135,20 +128,16 @@ Este tablero corresponde a:
    +---+---+---+
 ```
 
-En el terminal, las casillas con ` ? ` se ven con fondo rojo, las dos casillas vacías (la pareja B, que ya se ha encontrado) con fondo azul y las letras F y C con fondo verde.
+En el terminal, las casillas con ` ? ` se ven con fondo rojo y letra negra, las dos casillas vacías (la pareja B, que ya se ha encontrado) con fondo azul y las letras F y C con fondo verde y letra negra. 
 
 Vosotros tenéis que:
 
 - Completar los tipos de datos.
 - Adaptar el main para que use nfil y ncol guardados en la variable tablero.
-- Borrar las variables nfil y ncol de la versión anterior.
-- Modificar los printf para que cada casilla se imprima según su estado:
-  * VACIA: tres espacios con fondo azul (BLUE).
-  * TAPADA: ` ? ` con fondo rojo (RED) y letra negra (BLACK).
-  * DESTAPADA: la letra con fondo verde (GREEN) y letra blanca (WHITE).
+- Modificar los printf para que cada casilla se imprima según su estado. 
 - Comprobar que el tablero se ve como en el ejemplo, con los tres colores.
 
-*PISTA: Como el estado solo puede tomar tres valores, un `switch (casilla.estado)` queda muy claro.*
+*PISTA: Como el estado solo puede tomar tres valores, un `switch (casilla.estado)` sería una buena opción.*
 
 ## Versión 3 (funciones)
 
@@ -201,16 +190,27 @@ El fichero casilla.h conviene que tenga la siguiente estructura:
 
 [...] typedef de tcasilla
 
-[...] cabecera de las funciones (imprimir_casilla)
+[...] cabecera de las funciones (e.g. imprimir_casilla)
 
 #endif
 ```
 
-El fichero tablero.h tendrá una estructura similar, pero como ttablero contiene casillas tiene que incluir casilla.h:
+El fichero casilla .c conviene que empiecen así:
+
+```c
+#include <stdio.h>
+#include "casilla.h"
+#include "colores.h"
+
+[...] código funciones declaradas en casilla.h (e.g. imprimir_casilla)
+```
+
+El fichero tablero.h tiene que incluir casilla.h:
 
 ```c
 #ifndef TABLERO_H
 #define TABLERO_H
+
 #include "casilla.h"
 
 #define MAX_SIZE_TABLERO 50
@@ -221,25 +221,23 @@ El fichero tablero.h tendrá una estructura similar, pero como ttablero contiene
 
 #endif
 ```
-
-Las líneas `#ifndef`, `#define` y `#endif` evitan que un mismo .h se incluya dos veces (por ejemplo, si memory.c incluye casilla.h y tablero.h, y tablero.h también incluye casilla.h). Sin ellas el compilador os dará un error de tipo redefinido.
-
-Los ficheros .c conviene que empiecen así:
+El fichero tablero .c conviene que empiecen así:
 
 ```c
 #include <stdio.h>
-#include "casilla.h"
 #include "colores.h"
+#include "tablero.h"
 
-[...] código funciones
+[...] código funciones declaradas en tablero.h (e.g. imprimir_tablero)
 ```
+*NOTA: Las líneas `#ifndef`, `#define` y `#endif` evitan que un mismo .h se incluya dos veces (por ejemplo, si dos librería usadas por memory.c incluyen la misma tercera librería, como el caso de colores.h). Realmente en este proyecto no hace falta (sí en colores.h pero ya os lo damos) pero es conveniente hacerlo siempre así.*
 
 Vosotros tenéis que:
 
 - Mover el typedef de tcasilla y la función imprimir_casilla a casilla.h/casilla.c.
 - Mover el typedef de ttablero y las funciones de impresión del tablero a tablero.h/tablero.c.
 - Escribir en los .h solo las cabeceras de las funciones que se usen desde fuera. Las funciones auxiliares (como imprimir_ralla_entre_filas) pueden quedarse solo en el .c.
-- En memory.c añadir:
+- En memory.c añadir (y borrad todas las funciones y declaraciones que ahora tengáis en las librerías):
 
 ```c
 #include "tablero.h"
