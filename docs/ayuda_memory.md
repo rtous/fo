@@ -305,14 +305,11 @@ aux = 0;
 int i, j;
 for (i = 0; i < tablero->nfil; i++) {
 	for (j = 0; j < tablero->ncol; j++) {
-		if (aux < 26)
-			tablero->tab[i][j].letra = 'A'+aux;
-		else
-			tablero->tab[i][j].letra = 'a'+aux-26;
-		tablero->tab[i][j].estado = DESTAPADA;
-		aux++;
-		if (aux == nparejas)
-			aux = 0;
+		//Si aux < 26 poner en la letra de la casilla 'A'+aux en 
+		//Si no poner en la letra de la casilla 'a'+aux-26;
+		//Poner el estado de la casilla a DESTAPADA
+		//aux = aux + 1
+		//si aux == nparejas poned aux a 0
 	}
 }
 ```
