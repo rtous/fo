@@ -253,6 +253,7 @@ gcc memory.c tablero.c casilla.c colores.c -o memory
 
 *NOTA: Esto es solo un diseño de ejemplo. Si queréis podéis hacer un diseño distinto.*
 
+
 ## Versión 5 (tamaño del tablero e inicialización de las cartas)
 
 Hasta ahora el tablero tenía un tamaño fijo. En el ejecutable de demo se pregunta al usuario con cuántas parejas quiere jugar (entre 2 y 50) y a partir de ahí se calcula el número de filas y columnas. Añadid a tablero.h unas constantes:
@@ -262,7 +263,9 @@ Hasta ahora el tablero tenía un tamaño fijo. En el ejecutable de demo se pregu
 #define MAX_PAREJAS 50
 ```
 
-Y cread en tablero.c una función que se encargue de toda la inicialización:
+Tambien añadid a ttablero el campo **ncartas** (entero). Indicará el número de cartas pendientes. Podríamos calcular este valor mirando los valores de la matriz pero será más eficiente guardarlo pues lo usaremos a menudo.
+
+Cread en tablero.c una función que se encargue de toda la inicialización:
 
 ```c
 void inicializar_tablero(ttablero *tablero);
@@ -270,34 +273,51 @@ void inicializar_tablero(ttablero *tablero);
 
 Fijaos en que ahora el tablero se pasa por puntero (`*`) porque la función lo tiene que modificar. Si lo pasáis por valor, los cambios se pierden al salir de la función. Para acceder a los campos dentro de la función usaréis `->`, por ejemplo `tablero->nfil`.
 
-La función inicializar_tablero puede dividirse en dos partes (podéis hacer una función auxiliar para cada una):
+**1) Preguntar el número de parejas**
 
-**1) Calcular el tamaño del tablero.** Queremos que el tablero sea lo más "cuadrado" posible. Una forma de hacerlo sin usar sqrt():
+Lo primero que debe hacer la función inicializar_tablero es preguntar al usuario por el número de cartas. Deberá repetir la pregutna si el número dado es MIN_PAREJAS o mayor que MAX_PAREJAS. 
 
-- ncartas = nparejas * 2
-- Calcular la raíz cuadrada entera de ncartas: empezad con un entero r=1 y id incrementándolo mientras (r+1)*(r+1) <= ncartas.
-- ncol es el divisor de ncartas más grande que sea <= r: empezad con ncol=r y id restando 1 mientras ncartas % ncol != 0.
-- nfil = ncartas / ncol
+Una vez hecho esto se deberá inicializar el campo ncartas.
 
-Como ncartas siempre es par, el bucle siempre termina como muy tarde en ncol=2. Algunos ejemplos para comprobar vuestro código:
+```c
+tablero->ncartas=nparejas*2;
+```
+**2) Calcular el tamaño del tablero**
 
-| Parejas | Cartas | Tablero (filas x columnas) |
-|---------|--------|----------------------------|
-| 2       | 4      | 2x2                        |
-| 3       | 6      | 3x2                        |
-| 5       | 10     | 5x2                        |
-| 6       | 12     | 4x3                        |
-| 8       | 16     | 4x4                        |
-| 10      | 20     | 5x4                        |
-| 18      | 36     | 6x6                        |
-| 50      | 100    | 10x10                      |
+Queremos que el tablero sea lo más "cuadrado" posible. Hay varias maneras de hacerlo. Una manera fácil aunque no demasiado eficiente sería la siguiente: recorrer los divisores de *ncartas* empezando por 1 y quedarse con el último divisor cuyo cociente (ncartas / divisor) no sea menor que él. Ese será el número de columnas. El pseudocódigo sería
 
-**2) Poner las cartas.** Hay que poner cada letra dos veces y todas las cartas en estado TAPADA. Una forma sencilla es recorrer el tablero con un contador i que vaya de 0 a nparejas-1 y vuelva a empezar (`i = (i+1) % nparejas`). Así, con 6 parejas, las letras quedarían en orden A B C D E F A B C D E F (más adelante las mezclaremos). Como solo hay 26 letras mayúsculas, a partir de la pareja 27 usaremos minúsculas:
+```c
+aux = 1;
+while (aux es divisor de ncartas && número de cartas / aux > aux) {
+	aux++;
+}
 
-- Si i < 26 la letra es `'A' + i`
-- Si i >= 26 la letra es `'a' + i - 26`
+número de columnas = aux-1
+número de filas = número de cartas / número de columnas
+```
 
-No olvidéis guardar también en el tablero el número de cartas (ncartas). A partir de esta versión ya no necesitáis la inicialización fija de la versión 2: la podéis borrar.
+*NOTA: Una manera más eficiente sería empezando por calcuar la raíz cuadrada entera r de ncartas. ncol es el divisor de ncartas más grande que sea <= r: empezad con ncol=r e id restando 1 mientras ncartas % ncol != 0. Como no podéis usar la librería math deberéis programar vosotros la función raíz cuadrada (empezad con un entero r=1 y id incrementándolo mientras (r+1)*(r+1) <= ncartas*
+
+**3) Poner las cartas.** Más adelante pondremos las cartas aleatoriamente pero de momento vamos a ponerlas de forma simple en orden: A B C D E F A B... hasta llegar a la mitad de las casillas y luego volvemos a empezar A B C D E F A B... Como solo hay 26 letras mayúsculas, a partir de la pareja 27 usaremos minúsculas:
+
+```c
+aux = 0;
+int i, j;
+for (i = 0; i < tablero->nfil; i++) {
+	for (j = 0; j < tablero->ncol; j++) {
+		if (aux < 26)
+			tablero->tab[i][j].letra = 'A'+aux;
+		else
+			tablero->tab[i][j].letra = 'a'+aux-26;
+		tablero->tab[i][j].estado = DESTAPADA;
+		aux++;
+		if (aux == nparejas)
+			aux = 0;
+	}
+}
+```
+
+A partir de esta versión ya no necesitáis la inicialización fija de la versión 2: la podéis borrar.
 
 En el main quedaría:
 
