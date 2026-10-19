@@ -89,7 +89,6 @@ typedef struct {
 typedef struct {
 	int ncol, nfil;  // número de columnas y filas que se usan realmente
 	tcasilla tab[MAX_SIZE_TABLERO][MAX_SIZE_TABLERO];
-	[...]
 } ttablero;
 
 int main() {
@@ -128,11 +127,10 @@ Este tablero corresponde a:
    +---+---+---+
 ```
 
-En el terminal, las casillas con ` ? ` se ven con fondo rojo y letra negra, las dos casillas vacías (la pareja B, que ya se ha encontrado) con fondo azul y las letras F y C con fondo verde y letra negra. 
+En el terminal, las casillas con ` ? ` se ven con fondo rojo y letra negra, las dos casillas vacías (la pareja B, que ya se ha encontrado) con fondo azul y las letras F y C con fondo verde y letra blanca. 
 
 Vosotros tenéis que:
 
-- Completar los tipos de datos.
 - Adaptar el main para que use nfil y ncol guardados en la variable tablero.
 - Modificar los printf para que cada casilla se imprima según su estado. 
 - Comprobar que el tablero se ve como en el ejemplo, con los tres colores.
@@ -168,6 +166,7 @@ Vosotros tenéis que:
 
 - Completar el código de las funciones.
 - Sustituir el código de impresión que teníais antes en el main por `imprimir_tablero(tablero);`
+- Moved también al principio de imprimir_tablero la llamada a limpiar_pantalla() que teníais al principio del main.
 
 ## Versión 4 (librerías)
 
@@ -230,7 +229,8 @@ El fichero tablero .c conviene que empiecen así:
 
 [...] código funciones declaradas en tablero.h (e.g. imprimir_tablero)
 ```
-*NOTA: Las líneas `#ifndef`, `#define` y `#endif` evitan que un mismo .h se incluya dos veces (por ejemplo, si dos librería usadas por memory.c incluyen la misma tercera librería, como el caso de colores.h). Realmente en este proyecto no hace falta (sí en colores.h pero ya os lo damos) pero es conveniente hacerlo siempre así.*
+
+*NOTA: Las líneas #ifndef, #define y #endif evitan que un mismo .h se incluya dos veces en el mismo .c. En este punto del proyecto no ocurre todavía pero puede pasar más adelante.*
 
 Vosotros tenéis que:
 
@@ -271,48 +271,57 @@ Cread en tablero.c una función que se encargue de toda la inicialización:
 void inicializar_tablero(ttablero *tablero);
 ```
 
-Fijaos en que ahora el tablero se pasa por puntero (`*`) porque la función lo tiene que modificar. Si lo pasáis por valor, los cambios se pierden al salir de la función. Para acceder a los campos dentro de la función usaréis `->`, por ejemplo `tablero->nfil`.
+La función inicializar_tablero llamará, de momento, a dos funciones que deberéis desarrollar:
 
-**1) Preguntar el número de parejas**
+```c
+void inicializar_tablero(ttablero *tablero) 
+{
+	inicializar_tamanyo_tablero(tablero);
+	inicializar_cartas_tablero(tablero);
+}
+```
 
-Lo primero que debe hacer la función inicializar_tablero es preguntar al usuario por el número de cartas. Deberá repetir la pregutna si el número dado es MIN_PAREJAS o mayor que MAX_PAREJAS. 
+**1) inicializar_tamanyo_tablero**
+
+Lo primero que debe hacer la función inicializar_tamanyo_tablero es preguntar al usuario por el número de parejas. Deberá repetir la pregutna si el número dado es menor que MIN_PAREJAS o mayor que MAX_PAREJAS. 
 
 Una vez hecho esto se deberá inicializar el campo ncartas.
 
 ```c
 tablero->ncartas=nparejas*2;
 ```
-**2) Calcular el tamaño del tablero**
 
-Queremos que el tablero sea lo más "cuadrado" posible. Hay varias maneras de hacerlo. Una manera fácil aunque no demasiado eficiente sería la siguiente: recorrer los divisores de *ncartas* empezando por 1 y quedarse con el último divisor cuyo cociente (ncartas / divisor) no sea menor que él. Ese será el número de columnas. El pseudocódigo sería
+Queremos que el tablero sea lo más "cuadrado" posible. Hay varias maneras de hacerlo. Una manera sencilla es recorrer los divisores de ncartas empezando por 1 y quedarse con el último divisor cuyo cociente (ncartas / divisor) no sea menor que él. Ese será el número de columnas. El pseudocódigo sería:
 
 ```c
 aux = 1;
-while (aux es divisor de ncartas && número de cartas / aux > aux) {
+número de columnas = 1;
+while (número de cartas / aux >= aux) {
+	if (aux es divisor de número de cartas)
+		número de columnas = aux;
 	aux++;
 }
-
-número de columnas = aux-1
-número de filas = número de cartas / número de columnas
+número de filas = número de cartas / número de columnas;
 ```
 
-*NOTA: Una manera más eficiente sería empezando por calcuar la raíz cuadrada entera r de ncartas. ncol es el divisor de ncartas más grande que sea <= r: empezad con ncol=r e id restando 1 mientras ncartas % ncol != 0. Como no podéis usar la librería math deberéis programar vosotros la función raíz cuadrada (empezad con un entero r=1 y id incrementándolo mientras (r+1)*(r+1) <= ncartas*
+*NOTA: Otra manera es calcular primero la raíz cuadrada entera r de ncartas y después buscar el divisor de ncartas más grande que sea <= r: empezad con ncol=r e id restando 1 mientras ncartas % ncol != 0. Como no podéis usar la librería math, tendréis que programar vosotros la raíz cuadrada entera: empezad con un entero r=1 e id incrementándolo mientras `(r+1)*(r+1) <= ncartas`.*
 
-**3) Poner las cartas.** Más adelante pondremos las cartas aleatoriamente pero de momento vamos a ponerlas de forma simple en orden: A B C D E F A B... hasta llegar a la mitad de las casillas y luego volvemos a empezar A B C D E F A B... Como solo hay 26 letras mayúsculas, a partir de la pareja 27 usaremos minúsculas:
+**2) inicializar_cartas_tablero** Más adelante pondremos las cartas aleatoriamente pero de momento vamos a ponerlas de forma simple en orden: A B C D E F A B... hasta llegar a la mitad de las casillas y luego volvemos a empezar A B C D E F A B... Como solo hay 26 letras mayúsculas, a partir de la pareja 27 usaremos minúsculas:
 
 ```c
-aux = 0;
 int i, j;
+aux = 0;
 for (i = 0; i < tablero->nfil; i++) {
 	for (j = 0; j < tablero->ncol; j++) {
 		//Si aux < 26 poner en la letra de la casilla 'A'+aux en 
 		//Si no poner en la letra de la casilla 'a'+aux-26;
-		//Poner el estado de la casilla a DESTAPADA
+		//Poner el estado de la casilla a DESTAPADA 
 		//aux = aux + 1
-		//si aux == nparejas poned aux a 0
+		//si aux == ncartas/2 poned aux a 0
 	}
 }
 ```
+*NOTA: De manera provisional es conveniente inicializar todas las cartas como DESTAPADA para poder comprovar que se colocan correctamente. Cunado hayáis verificado el funcionamiento las podéis poner como TAPADA*
 
 A partir de esta versión ya no necesitáis la inicialización fija de la versión 2: la podéis borrar.
 
@@ -330,17 +339,19 @@ int main() {
 Vosotros tenéis que:
 
 - Completar el código.
-- Comprobar los tamaños de la tabla anterior.
+- Comprobar que los tamaños coinciden con los de la demo.
 - Comprobar que con más de 26 parejas aparecen las minúsculas (podéis destapar temporalmente todas las cartas para verlo).
 
 ## Versión 6 (mezclar las cartas)
 
-Ahora mismo las cartas están siempre en el mismo orden, así que el juego no tiene mucha gracia. Para mezclarlas usaremos la librería azar.h que se os proporciona:
+Ahora mismo las cartas están siempre en el mismo orden, así que el juego no tiene mucha gracia. Crearemos una función mezclar_tablero en tablero.c que llamaremos des de inicializar_tablero, después de llamar a inicializar_cartas_tablero.
+
+Para mezclar las cartas recorreremos todas las casillas e intercambiaremos el contenido de cada una con el de otra escogida al azar. Usaremos la librería azar.h que se os proporciona: 
 
 - `inicializar_azar()` se llama una sola vez al principio del main.
 - `numero_al_azar(max)` devuelve un entero entre 0 y max-1.
 
-Una forma sencilla de mezclar es recorrer todas las casillas e intercambiar cada una con otra casilla escogida al azar. Para escoger la casilla al azar podéis generar un número entre 0 y ncartas-1 y convertirlo en fila y columna:
+Para escoger la casilla al azar podéis generar un número entre 0 y ncartas-1 y convertirlo en fila y columna:
 
 ```c
 num_azar = numero_al_azar(tablero->ncartas);
@@ -354,18 +365,10 @@ Para el intercambio conviene añadir a casilla.h/casilla.c la función:
 void intercambiar_casillas(tcasilla *c1, tcasilla *c2);
 ```
 
-Recibe punteros porque tiene que modificar las dos casillas. La llamada sería algo así:
-
-```c
-intercambiar_casillas(&tablero->tab[f1][c1], &tablero->tab[f2][c2]);
-```
-
-*PISTA: Mientras hacéis pruebas es muy útil saber dónde está cada carta. Podéis imprimir el tablero destapado justo después de mezclarlo (y borrar ese código al final). También podéis cambiar en azar.c el `srand(time(NULL))` por `srand(0)` para que las cartas salgan siempre en el mismo sitio en cada ejecución.*
-
 Vosotros tenéis que:
 
 - Añadir intercambiar_casillas a la librería casilla.
-- Añadir una función mezclar_tablero en tablero.c y llamarla al final de inicializar_tablero.
+- Crear la función mezclar_tablero en tablero.c y llamarla al final de inicializar_tablero.
 - Llamar a inicializar_azar() al principio del main.
 - Compilar ahora con:
 
@@ -384,7 +387,7 @@ int main() {
 	inicializar_azar();
 	inicializar_tablero(&tablero);
 
-	while (quedan_cartas(tablero)) {
+	while (tablero.ncartas > 0) {
 		imprimir_tablero(tablero);
 		realizar_jugada(&tablero);
 	}
@@ -392,21 +395,10 @@ int main() {
 }
 ```
 
-Añadid a tablero.h/tablero.c las funciones:
+Añadid a tablero.h/tablero.c la función:
 
 ```c
-int quedan_cartas(ttablero tablero);
 void realizar_jugada(ttablero *tablero);
-```
-
-quedan_cartas es muy sencilla si guardáis en el tablero el número de cartas que quedan por emparejar (ncartas).
-
-Para guardar la posición de una carta conviene definir un nuevo tipo en tablero.h:
-
-```c
-typedef struct {
-	int fil, col;
-} tposicion;
 ```
 
 En la función realizar_jugada pondremos:
@@ -420,14 +412,6 @@ En la función realizar_jugada pondremos:
 - Comprobar si las dos cartas son pareja (podéis añadir a la librería casilla una función `int son_parejas(tcasilla c1, tcasilla c2);`):
   * Si son pareja: las dos casillas pasan a estado VACIA y se resta 2 a ncartas.
   * Si no son pareja: las dos cartas vuelven a estado TAPADA.
-
-Para leer una posición con el formato de la demo (por ejemplo `1-0`) podéis usar:
-
-```c
-scanf("%d%*c%d%*c", &pos.fil, &pos.col);
-```
-
-El `%*c` lee un carácter y lo descarta. El primero se come el guión y el segundo el salto de línea que queda al pulsar enter. Las comprobaciones las podéis hacer con un do-while que repita la pregunta mientras la posición no sea válida.
 
 Fijaos en que imprimir_tablero limpia la pantalla. Si después de destapar la segunda carta el programa vuelve directamente al bucle del main, el jugador no tendrá tiempo de ver la carta. Por eso en la demo se muestra un mensaje y se espera a que el usuario pulse enter:
 
@@ -490,8 +474,6 @@ scanf("%[^\n]%*c", js->jugs[i].nom);
 
 `%[^\n]` lee todo hasta el salto de línea y `%*c` descarta el salto de línea.
 
-*CUIDADO: Si justo antes habéis leído un número con `scanf("%d", ...)`, el salto de línea se queda en el buffer y el siguiente `%[^\n]` leerá una cadena vacía. Por eso conviene leer los números con `scanf("%d%*c", ...)`.*
-
 Como ahora realizar_jugada tiene que sumar puntos y pasar el turno, necesita recibir también los jugadores:
 
 ```c
@@ -500,14 +482,24 @@ void realizar_jugada(ttablero *tablero, tjugadores *js);
 
 Para que tablero.h conozca el tipo tjugadores tendréis que añadir `#include "jugadores.h"` en tablero.h.
 
-El bucle del main quedaría:
+El main quedaría:
 
 ```c
-	while (quedan_cartas(tablero)) {
+int main() {
+	ttablero tablero;
+	tjugadores js;
+
+	inicializar_azar();
+	inicializar_tablero(&tablero);
+	inicializar_jugadores(&js);
+
+	while (tablero.ncartas > 0) {
 		imprimir_tablero(tablero);
 		imprimir_info_jugadores(js);
 		realizar_jugada(&tablero, &js);
 	}
+	printf("PARTIDA FINALIZADA\n");
+}
 ```
 
 Vosotros tenéis que:
@@ -538,15 +530,5 @@ Una forma sencilla de hacerla es con dos recorridos del vector de jugadores:
 
 Vosotros tenéis que:
 
-- Implementar mostrar_ganadores y llamarla al final del main.
+- Implementar mostrar_ganadores y añadir al final del main las llamadas a imprimir_tablero y mostrar_ganadores.
 - Probar una partida con 2 jugadores y 2 parejas en la que cada uno consiga una pareja, para comprobar que se muestran los dos ganadores.
-
-## Troubleshooting
-
-- ld: symbol(s) not found / undefined reference (error del linker): no se ha incluido el .c de alguna librería en el comando gcc.
-- error: redefinition of typedef / conflicting types: falta el `#ifndef ... #define ... #endif` en algún .h.
-- error: unknown type name 'tjugadores' en tablero.h: falta el `#include "jugadores.h"` en tablero.h.
-- Los cambios que hago en una función no se guardan: estáis pasando el tablero (o los jugadores) por valor. Si la función tiene que modificarlo, pasadlo por puntero.
-- Todo el texto sale de colores: falta llamar a `cambiar_color_fondo_default()` después de imprimir algo con color.
-- El programa no espera a que escriba el nombre / se salta una pregunta: queda un salto de línea en el buffer de un scanf anterior. Usad `%*c` para descartarlo.
-- Las cartas salen siempre en el mismo sitio: estáis usando `srand(0)` en azar.c (útil para pruebas, pero hay que volver a `srand(time(NULL))` al final).
