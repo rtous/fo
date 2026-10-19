@@ -166,7 +166,7 @@ Vosotros tenéis que:
 
 - Completar el código de las funciones.
 - Sustituir el código de impresión que teníais antes en el main por `imprimir_tablero(tablero);`
-- Moved también al principio de imprimir_tablero la llamada a limpiar_pantalla() que teníais al principio del main.
+- Mover también al principio de imprimir_tablero la llamada a limpiar_pantalla() que teníais al principio del main.
 
 ## Versión 4 (librerías)
 
@@ -194,7 +194,7 @@ El fichero casilla.h conviene que tenga la siguiente estructura:
 #endif
 ```
 
-El fichero casilla .c conviene que empiecen así:
+El fichero casilla .c conviene que empiece así:
 
 ```c
 #include <stdio.h>
@@ -220,7 +220,7 @@ El fichero tablero.h tiene que incluir casilla.h:
 
 #endif
 ```
-El fichero tablero .c conviene que empiecen así:
+El fichero tablero .c conviene que empiece así:
 
 ```c
 #include <stdio.h>
@@ -283,7 +283,7 @@ void inicializar_tablero(ttablero *tablero)
 
 **1) inicializar_tamanyo_tablero**
 
-Lo primero que debe hacer la función inicializar_tamanyo_tablero es preguntar al usuario por el número de parejas. Deberá repetir la pregutna si el número dado es menor que MIN_PAREJAS o mayor que MAX_PAREJAS. 
+Lo primero que debe hacer la función inicializar_tamanyo_tablero es preguntar al usuario por el número de parejas. Deberá repetir la pregunta si el número dado es menor que MIN_PAREJAS o mayor que MAX_PAREJAS. 
 
 Una vez hecho esto se deberá inicializar el campo ncartas.
 
@@ -313,7 +313,7 @@ int i, j;
 aux = 0;
 for (i = 0; i < tablero->nfil; i++) {
 	for (j = 0; j < tablero->ncol; j++) {
-		//Si aux < 26 poner en la letra de la casilla 'A'+aux en 
+		//Si aux < 26 poner en la letra de la casilla 'A'+aux 
 		//Si no poner en la letra de la casilla 'a'+aux-26;
 		//Poner el estado de la casilla a DESTAPADA 
 		//aux = aux + 1
@@ -321,7 +321,7 @@ for (i = 0; i < tablero->nfil; i++) {
 	}
 }
 ```
-*NOTA: De manera provisional es conveniente inicializar todas las cartas como DESTAPADA para poder comprovar que se colocan correctamente. Cunado hayáis verificado el funcionamiento las podéis poner como TAPADA*
+*NOTA: De manera provisional es conveniente inicializar todas las cartas como DESTAPADA para poder comprobar que se colocan correctamente. Cuando hayáis verificado el funcionamiento las podéis poner como TAPADA*
 
 A partir de esta versión ya no necesitáis la inicialización fija de la versión 2: la podéis borrar.
 
@@ -344,7 +344,7 @@ Vosotros tenéis que:
 
 ## Versión 6 (mezclar las cartas)
 
-Ahora mismo las cartas están siempre en el mismo orden, así que el juego no tiene mucha gracia. Crearemos una función mezclar_tablero en tablero.c que llamaremos des de inicializar_tablero, después de llamar a inicializar_cartas_tablero.
+Ahora mismo las cartas están siempre en el mismo orden, así que el juego no tiene mucha gracia. Crearemos una función mezclar_tablero en tablero.c que llamaremos desde inicializar_tablero, después de llamar a inicializar_cartas_tablero.
 
 Para mezclar las cartas recorreremos todas las casillas e intercambiaremos el contenido de cada una con el de otra escogida al azar. Usaremos la librería azar.h que se os proporciona: 
 
